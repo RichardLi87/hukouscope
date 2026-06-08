@@ -1,0 +1,11 @@
+{
+  "name": "offerscope",
+  "version": "0.2.0",
+  "description": "OfferScope 录取雷达 — AI 留学申请诊断（原型 + DeepSeek 接入）",
+  "private": true,
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "start:nokey": "node server.js"
+  },
+  "engines": { "node": ">=18" }
+}

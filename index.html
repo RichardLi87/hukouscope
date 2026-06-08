@@ -15,22 +15,23 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-  color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+  color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:17px}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none}
 .container{max-width:1080px;margin:0 auto;padding:0 20px}
+.container.tight{max-width:920px}
 .hidden{display:none!important}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;
-  border-radius:10px;padding:13px 26px;font-size:15px;transition:.15s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;
+  border-radius:11px;padding:14px 28px;font-size:16px;transition:.15s;white-space:nowrap}
 .btn-primary{background:var(--blue);color:#fff}
 .btn-primary:hover{background:var(--navy)}
-.btn-amber{background:var(--amber);color:#fff}
-.btn-amber:hover{filter:brightness(.95)}
-.btn-ghost{background:#fff;color:var(--navy);border:1.5px solid var(--border)}
+.btn-amber{background:var(--amber);color:#fff;box-shadow:0 8px 22px rgba(245,158,11,.32)}
+.btn-amber:hover{filter:brightness(.97)}
+.btn-ghost{background:#fff;color:var(--navy);border:2px solid var(--border)}
 .btn-ghost:hover{border-color:var(--blue)}
-.btn-lg{padding:16px 34px;font-size:17px}
+.btn-lg{padding:18px 38px;font-size:19px;border-radius:13px}
 .btn-block{width:100%}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 
@@ -50,47 +51,61 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 footer.site{background:#0f1a3a;color:#cbd5e1;margin-top:60px;padding:38px 0 28px}
 footer.site .cols{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between}
 footer.site h4{color:#fff;font-size:14px;margin-bottom:12px}
-footer.site a{display:block;font-size:13px;color:#94a3b8;margin-bottom:7px}
+footer.site a{display:block;font-size:14px;color:#94a3b8;margin-bottom:7px}
 footer.site a:hover{color:#fff}
-.disclaimer-bar{border-top:1px solid #1e2b52;margin-top:26px;padding-top:18px;font-size:12px;color:#7c8aa8;line-height:1.7}
+.disclaimer-bar{border-top:1px solid #1e2b52;margin-top:26px;padding-top:18px;font-size:13px;color:#8493b3;line-height:1.7}
 
 /* Sections */
-section.block{padding:64px 0}
-.eyebrow{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
-h1.hero-title{font-size:46px;line-height:1.18;font-weight:850;letter-spacing:-.02em;color:var(--text)}
-.sec-title{font-size:30px;font-weight:800;letter-spacing:-.01em;text-align:center}
-.sec-sub{text-align:center;color:var(--text2);max-width:620px;margin:14px auto 0;font-size:16px}
-@media(max-width:720px){h1.hero-title{font-size:32px}.sec-title{font-size:24px}}
+section.block{padding:46px 0}
+.eyebrow{color:var(--blue);font-weight:800;font-size:14px;letter-spacing:.06em;margin-bottom:14px}
+h1.hero-title{font-size:54px;line-height:1.12;font-weight:900;letter-spacing:-.02em;color:var(--text)}
+.sec-title{font-size:36px;font-weight:900;letter-spacing:-.01em;text-align:center;line-height:1.2}
+.sec-sub{text-align:center;color:var(--text2);max-width:640px;margin:14px auto 0;font-size:18px}
+@media(max-width:720px){h1.hero-title{font-size:36px}.sec-title{font-size:27px}}
 
 /* Hero */
-.hero{background:linear-gradient(180deg,var(--bluebg),#fff);padding:74px 0 64px;text-align:center}
-.hero p.sub{font-size:18px;color:var(--text2);max-width:660px;margin:22px auto 30px}
-.hero .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.hero .assist{margin-top:20px;font-size:13px;color:var(--text2)}
-.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:30px}
-.badge{background:#fff;border:1px solid var(--border);border-radius:999px;padding:7px 15px;font-size:13px;
-  color:var(--navy);font-weight:600;box-shadow:var(--shadow)}
+.hero{background:linear-gradient(180deg,var(--bluebg),#fff);padding:58px 0 50px;text-align:center}
+.hero p.sub{font-size:21px;color:#374151;max-width:680px;margin:22px auto 16px;line-height:1.55}
+.hero .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.hero .anchor{display:inline-block;background:#f0fdf4;border:1.5px solid #bbf7d0;color:#15803d;
+  font-weight:700;font-size:16px;padding:10px 18px;border-radius:999px;margin-top:6px}
+.hero .assist{margin-top:18px;font-size:14px;color:var(--text2)}
+.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.badge{background:#fff;border:1px solid var(--border);border-radius:999px;padding:8px 16px;font-size:14px;
+  color:var(--navy);font-weight:700;box-shadow:var(--shadow)}
 
 /* Pain points */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:34px}
-.pain-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px 20px;
-  font-size:15px;font-weight:600;color:var(--text);display:flex;gap:12px;align-items:flex-start}
-.pain-card .q{color:var(--amber);font-size:20px;line-height:1.2;font-weight:800}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:30px}
+.pain-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px 18px;
+  font-size:18px;font-weight:700;color:var(--text);display:flex;gap:12px;align-items:flex-start;line-height:1.45}
+.pain-card .q{color:var(--amber);font-size:24px;line-height:1.1;font-weight:900}
 
 /* Steps */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px;margin-top:36px}
-.step{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px 18px;text-align:center}
-.step .n{width:36px;height:36px;border-radius:50%;background:var(--bluebg);color:var(--blue);font-weight:800;
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin-top:30px}
+.step{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px 16px;text-align:center}
+.step .n{width:40px;height:40px;border-radius:50%;background:var(--bluebg);color:var(--blue);font-weight:900;font-size:18px;
   display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
 .step p{font-size:14px;color:var(--text2)}
-.step b{display:block;color:var(--text);margin-bottom:4px;font-size:15px}
+.step b{display:block;color:var(--text);margin-bottom:4px;font-size:16px}
 
 /* Report preview */
-.preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:34px}
-.pv{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;gap:12px;align-items:flex-start}
-.pv .ic{width:34px;height:34px;border-radius:9px;background:var(--bluebg);color:var(--blue);display:flex;
-  align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.pv b{font-size:15px}.pv p{font-size:13px;color:var(--text2);margin-top:2px}
+.preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px;margin-top:30px}
+.pv{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;display:flex;gap:12px;align-items:flex-start}
+.pv .ic{width:38px;height:38px;border-radius:10px;background:var(--bluebg);color:var(--blue);display:flex;
+  align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.pv b{font-size:16px}.pv p{font-size:14px;color:var(--text2);margin-top:2px}
+
+/* Emotion / value strip */
+.value-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-top:30px}
+.vchip{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px 16px;text-align:center}
+.vchip .ic{font-size:26px}
+.vchip b{display:block;font-size:17px;margin:8px 0 3px}
+.vchip p{font-size:13px;color:var(--text2)}
+.quote-band{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:18px;
+  padding:40px 32px;text-align:center;margin-top:6px}
+.quote-band .big{font-size:30px;font-weight:900;line-height:1.3;letter-spacing:-.01em}
+.quote-band .small{font-size:17px;opacity:.9;margin-top:12px}
+@media(max-width:720px){.quote-band .big{font-size:23px}}
 
 /* Pricing */
 .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;margin-top:38px;max-width:780px;margin-left:auto;margin-right:auto}
@@ -98,12 +113,13 @@ h1.hero-title{font-size:46px;line-height:1.18;font-weight:850;letter-spacing:-.0
 .price-card.feat{border-color:var(--blue);box-shadow:0 12px 40px rgba(37,99,235,.16)}
 .price-card .tag{position:absolute;top:-12px;right:22px;background:var(--amber);color:#fff;font-size:12px;
   font-weight:700;padding:4px 12px;border-radius:999px}
-.price-card h3{font-size:18px}
-.price-card .price{font-size:40px;font-weight:850;color:var(--navy);margin:10px 0 4px}
-.price-card .price small{font-size:16px;color:var(--text2);font-weight:600}
-.price-card .desc{color:var(--text2);font-size:14px;min-height:42px}
+.price-card h3{font-size:20px}
+.price-card .price{font-size:46px;font-weight:900;color:var(--navy);margin:10px 0 4px}
+.price-card .price small{font-size:17px;color:var(--text2);font-weight:600}
+.price-card .price .was{font-size:16px;color:var(--text2);font-weight:500;text-decoration:line-through;margin-left:8px}
+.price-card .desc{color:#374151;font-size:15px;min-height:46px}
 .price-card ul{list-style:none;margin:18px 0 22px}
-.price-card li{font-size:14px;padding:7px 0 7px 26px;position:relative;border-bottom:1px dashed var(--border)}
+.price-card li{font-size:15px;padding:8px 0 8px 26px;position:relative;border-bottom:1px dashed var(--border)}
 .price-card li:before{content:"✓";position:absolute;left:0;color:var(--risk-low);font-weight:800}
 
 /* Generic page card */
@@ -148,6 +164,14 @@ h1.hero-title{font-size:46px;line-height:1.18;font-weight:850;letter-spacing:-.0
 .school-row{border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:12px;background:var(--bg)}
 .school-row .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .school-row .rm{color:var(--risk-high);font-size:13px;font-weight:600;background:none;cursor:pointer}
+.ac-wrap{position:relative}
+.ac-list{position:absolute;left:0;right:0;top:calc(100% + 4px);background:#fff;border:1px solid var(--border);
+  border-radius:10px;box-shadow:var(--shadow);z-index:30;max-height:248px;overflow:auto}
+.ac-item{padding:11px 13px;font-size:14px;cursor:pointer;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.ac-item+.ac-item{border-top:1px solid var(--bg)}
+.ac-item:hover{background:var(--bluebg)}
+.ac-item b{font-weight:600;color:var(--text)}
+.ac-item small{color:var(--text2);font-size:12px;white-space:nowrap}
 
 .alert{background:#fef3c7;border:1px solid #fcd34d;color:#92400e;border-radius:10px;padding:12px 14px;font-size:13px;margin-bottom:16px}
 .form-nav{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
@@ -160,9 +184,14 @@ h1.hero-title{font-size:46px;line-height:1.18;font-weight:850;letter-spacing:-.0
 .grade-circle .l{font-size:12px;font-weight:600;opacity:.85}
 .riskbadge{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border-radius:999px;font-weight:700;font-size:14px}
 .riskbadge:before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor}
-.rb-low{background:#dcfce7;color:var(--risk-low)}
-.rb-mid{background:#ffedd5;color:var(--risk-mid)}
-.rb-high{background:#fee2e2;color:var(--risk-high)}
+.rb-low{background:#dcfce7;color:#15803d}
+.rb-neutral{background:#eff6ff;color:#2563EB}
+.rb-mid{background:#fff7ed;color:#c2410c}
+.rb-high{background:#fff7ed;color:#ea580c}
+.free-hero{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap}
+.cap-note{text-align:center;font-size:13px;color:var(--text2);margin-top:4px}
+.risk-line{background:var(--bluebg);border:1px solid #dbeafe;border-radius:12px;padding:12px 15px;font-size:13px;
+  color:#475569;margin-top:14px;display:flex;gap:9px;align-items:flex-start;line-height:1.6}
 
 table.schools{width:100%;border-collapse:collapse;margin-top:6px}
 table.schools th,table.schools td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--border);font-size:14px}
@@ -175,10 +204,24 @@ table.schools th{color:var(--text2);font-size:12px;font-weight:600;text-transfor
   background:#fee2e2;color:var(--risk-high);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center}
 
 .lock-card{background:linear-gradient(180deg,var(--bluebg),#fff);border:1.5px solid var(--blue);
-  border-radius:18px;padding:30px;margin-top:22px;text-align:center}
+  border-radius:18px;padding:28px;margin-top:22px;text-align:center}
 .lock-card .benefits{text-align:left;max-width:520px;margin:18px auto;list-style:none}
 .lock-card .benefits li{padding:8px 0 8px 28px;position:relative;font-size:14px}
 .lock-card .benefits li:before{content:"🔓";position:absolute;left:0}
+.locked{position:relative;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:18px 0;background:#fff;text-align:left}
+.locked .blurred{filter:blur(5px);opacity:.7;pointer-events:none;user-select:none;padding:18px}
+.locked .veil{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  background:linear-gradient(180deg,rgba(239,246,255,.2),rgba(255,255,255,.9))}
+.locked .veil .lk{font-size:34px}
+.locked .veil b{font-size:16px;color:var(--navy)}
+.locked .veil span{font-size:13px;color:var(--text2)}
+.module-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px;margin:16px 0;text-align:left}
+.module-chip{background:#fff;border:1px solid var(--border);border-radius:9px;padding:9px 11px;font-size:13px;
+  font-weight:600;display:flex;gap:7px;align-items:center;color:var(--text)}
+.module-chip .lk{color:var(--text2);flex-shrink:0}
+.mini-row{font-size:13px;font-weight:600;color:var(--text)}
+.mini-bar{height:8px;background:var(--border);border-radius:99px;margin:5px 0 11px;overflow:hidden}
+.mini-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--navy))}
 
 /* Report */
 .report-wrap{max-width:880px;margin:0 auto}
@@ -239,6 +282,12 @@ svg.radar{max-width:380px;width:100%}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--text);color:#fff;
   padding:12px 22px;border-radius:10px;font-size:14px;z-index:200;opacity:0;transition:.25s;pointer-events:none}
 .toast.show{opacity:1}
+.loading-bg{position:fixed;inset:0;background:rgba(249,250,251,.82);backdrop-filter:blur(3px);z-index:300;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.spinner{width:46px;height:46px;border-radius:50%;border:4px solid var(--border);border-top-color:var(--blue);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-bg .msg{font-size:16px;font-weight:600;color:var(--navy)}
+.loading-bg .sub{font-size:13px;color:var(--text2);margin-top:-8px}
 
 @media print{
   header.site,footer.site,.report-actions,.no-print{display:none!important}
@@ -306,7 +355,53 @@ const GRAD_MAJORS=["商科","金融","会计","商业分析","数据科学","计
 const BUDGETS=["30 万人民币以内","30–50 万人民币","50–80 万人民币","80 万人民币以上","暂不考虑预算"];
 const RISK_TOLERANCE=["我想冲刺名校","我想稳妥拿 offer","我想冲刺和保底平衡","我还不确定"];
 const HAS_AGENCY=["是，这是中介给我的选校名单","否，这是我自己列的学校","还没有明确选校"];
-const PRODUCTS={standard_report:{name:"AI 申请诊断报告",price:99},premium_report:{name:"AI 完整申请规划报告",price:199}};
+
+/* 常见院校库（用于输入联想；用户仍可手动输入任意学校）。cn 用于中文搜索 */
+const SCHOOLS=[
+ // 美国
+ ["Harvard University","哈佛大学","美国"],["Stanford University","斯坦福大学","美国"],["Massachusetts Institute of Technology (MIT)","麻省理工","美国"],
+ ["Princeton University","普林斯顿大学","美国"],["Yale University","耶鲁大学","美国"],["Columbia University","哥伦比亚大学","美国"],
+ ["University of Chicago","芝加哥大学","美国"],["University of Pennsylvania","宾夕法尼亚大学","美国"],["Cornell University","康奈尔大学","美国"],
+ ["Brown University","布朗大学","美国"],["Dartmouth College","达特茅斯学院","美国"],["Duke University","杜克大学","美国"],
+ ["Johns Hopkins University","约翰霍普金斯大学","美国"],["Northwestern University","西北大学","美国"],["Carnegie Mellon University","卡内基梅隆大学","美国"],
+ ["University of California, Berkeley","加州大学伯克利分校","美国"],["University of California, Los Angeles (UCLA)","加州大学洛杉矶分校","美国"],
+ ["University of California, San Diego","加州大学圣地亚哥分校","美国"],["University of Michigan","密歇根大学","美国"],
+ ["New York University (NYU)","纽约大学","美国"],["University of Southern California (USC)","南加州大学","美国"],
+ ["Boston University","波士顿大学","美国"],["Boston College","波士顿学院","美国"],["Northeastern University","东北大学","美国"],
+ ["University of Washington","华盛顿大学","美国"],["University of Illinois Urbana-Champaign","伊利诺伊大学香槟分校","美国"],
+ ["Purdue University","普渡大学","美国"],["Georgia Institute of Technology","佐治亚理工","美国"],["University of Texas at Austin","德州大学奥斯汀分校","美国"],
+ // 英国
+ ["University of Oxford","牛津大学","英国"],["University of Cambridge","剑桥大学","英国"],["Imperial College London","帝国理工学院","英国"],
+ ["University College London (UCL)","伦敦大学学院","英国"],["London School of Economics (LSE)","伦敦政治经济学院","英国"],
+ ["University of Edinburgh","爱丁堡大学","英国"],["King's College London","伦敦国王学院","英国"],["University of Manchester","曼彻斯特大学","英国"],
+ ["University of Bristol","布里斯托大学","英国"],["University of Warwick","华威大学","英国"],["University of Glasgow","格拉斯哥大学","英国"],
+ ["University of Leeds","利兹大学","英国"],["University of Southampton","南安普顿大学","英国"],["Durham University","杜伦大学","英国"],
+ // 加拿大
+ ["University of Toronto","多伦多大学","加拿大"],["University of British Columbia (UBC)","英属哥伦比亚大学","加拿大"],["McGill University","麦吉尔大学","加拿大"],
+ ["University of Waterloo","滑铁卢大学","加拿大"],["University of Alberta","阿尔伯塔大学","加拿大"],["McMaster University","麦克马斯特大学","加拿大"],
+ ["Western University","西安大略大学","加拿大"],["University of Montreal","蒙特利尔大学","加拿大"],["Simon Fraser University","西蒙菲莎大学","加拿大"],
+ // 澳洲
+ ["University of Melbourne","墨尔本大学","澳洲"],["University of Sydney","悉尼大学","澳洲"],["Australian National University (ANU)","澳大利亚国立大学","澳洲"],
+ ["University of New South Wales (UNSW)","新南威尔士大学","澳洲"],["University of Queensland","昆士兰大学","澳洲"],["Monash University","莫纳什大学","澳洲"],
+ ["University of Adelaide","阿德莱德大学","澳洲"],["University of Western Australia","西澳大学","澳洲"],
+ // 新加坡
+ ["National University of Singapore (NUS)","新加坡国立大学","新加坡"],["Nanyang Technological University (NTU)","南洋理工大学","新加坡"],["Singapore Management University (SMU)","新加坡管理大学","新加坡"],
+ // 中国香港
+ ["University of Hong Kong (HKU)","香港大学","中国香港"],["Hong Kong University of Science and Technology (HKUST)","香港科技大学","中国香港"],
+ ["Chinese University of Hong Kong (CUHK)","香港中文大学","中国香港"],["City University of Hong Kong (CityU)","香港城市大学","中国香港"],
+ ["Hong Kong Polytechnic University (PolyU)","香港理工大学","中国香港"],
+].map(([name,cn,region])=>({name,cn,region}));
+
+/* 常见专业 / 项目名联想 */
+const MAJOR_SUGGEST=[
+ ["Computer Science","计算机科学"],["Data Science","数据科学"],["Business Analytics","商业分析"],["Finance","金融"],
+ ["Accounting","会计"],["Economics","经济学"],["Statistics","统计学"],["Information Systems","信息系统"],
+ ["Electrical Engineering","电子工程"],["Mechanical Engineering","机械工程"],["Computer Engineering","计算机工程"],
+ ["Management","管理学"],["Marketing","市场营销"],["Communication / Media","传媒"],["Psychology","心理学"],
+ ["Public Policy","公共政策"],["Education","教育"],["Mathematics","数学"],["Biology","生物"],["Chemistry","化学"],
+ ["Mechanical Engineering","机械工程"],["Supply Chain Management","供应链管理"],["Information Technology","信息技术"],
+].map(([name,cn])=>({name,cn}));
+const PRODUCTS={standard_report:{name:"AI 申请诊断报告",price:19},premium_report:{name:"AI 完整申请规划报告",price:49}};
 const VERDICTS=["高风险冲刺","冲刺","匹配偏冲刺","匹配","匹配偏稳","保底","不建议申请"];
 const verdictColor=v=>({"高风险冲刺":"#DC2626","冲刺":"#F97316","匹配偏冲刺":"#F59E0B","匹配":"#2563EB","匹配偏稳":"#0891b2","保底":"#16A34A","不建议申请":"#6B7280"}[v]||"#6B7280");
 const verdictBg=v=>{const c=verdictColor(v);return `background:${c}1a;color:${c}`};
@@ -348,6 +443,28 @@ const app=()=>document.getElementById('app');
 const esc=s=>(s==null?"":String(s)).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
 function go(view,arg){window.scrollTo(0,0);RENDER[view]?RENDER[view](arg):RENDER.home();}
+
+/* ---- AI backend bridge (graceful fallback to rule engine) ---- */
+function showLoading(msg,sub){let el=document.getElementById('loadingBg');
+  if(!el){el=document.createElement('div');el.id='loadingBg';el.className='loading-bg';document.body.appendChild(el);}
+  el.innerHTML=`<div class="spinner"></div><div class="msg">${esc(msg||'AI 正在生成…')}</div><div class="sub">${esc(sub||'几秒钟，请稍候')}</div>`;
+  el.style.display='flex';}
+function hideLoading(){const el=document.getElementById('loadingBg');if(el)el.style.display='none';}
+async function aiPost(path,body){
+  const ctrl=new AbortController();const t=setTimeout(()=>ctrl.abort(),62000);
+  try{
+    const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal:ctrl.signal});
+    if(!r.ok)return null;
+    const j=await r.json();
+    return (j&&j.ok)?j.data:null;   // ok:false → null → 调用方回退规则引擎
+  }catch(e){return null;}
+  finally{clearTimeout(t);}
+}
+/* 发给模型的精简用户档案 */
+function aiProfile(){return {applicationLevel:A.applicationLevel,targetRegions:A.targetRegions,intakeYear:A.intakeYear,
+  targetMajorCategory:A.targetMajorCategory,targetSchools:A.targetSchools,hasAgencyList:A.hasAgencyList,
+  budget:A.budget,riskTolerance:A.riskTolerance,locationPreference:A.locationPreference,
+  fields:A.fields,followUpAnswers:A.followUpAnswers};}
 function startAssessment(){newAssessment();go('assessment');}
 
 /* ===================== ROUTER TABLE (views attached below) ===================== */
@@ -357,43 +474,66 @@ const RENDER={};
 RENDER.home=function(){
   app().innerHTML=`
   <section class="hero">
-    <div class="container">
-      <div class="eyebrow">AI 留学申请诊断 · 去中介化</div>
-      <h1 class="hero-title">找中介之前，<br>先看清你的真实申请位置。</h1>
-      <p class="sub">无论你正在申请海外本科还是硕士，输入你的背景和目标学校，AI 将生成一份申请诊断报告，帮你判断哪些学校值得冲、哪些学校风险过高，以及你现在最该补什么。</p>
+    <div class="container tight">
+      <div class="eyebrow">AI 留学申请诊断 · 3 分钟出结果</div>
+      <h1 class="hero-title">在交几万中介费之前，<br>先看清孩子的真实申请位置。</h1>
+      <p class="sub">本科还是硕士？这些学校到底是冲刺、匹配，还是在白白浪费申请费？<br>填一填背景，AI 当场告诉你——心里有底，比什么都重要。</p>
       <div class="cta-row">
-        <button class="btn btn-primary btn-lg" onclick="startAssessment()">免费开始测评</button>
-        <a class="btn btn-ghost btn-lg" href="#pricing-sec">查看完整报告包含什么</a>
+        <button class="btn btn-amber btn-lg" onclick="startAssessment()">免费测一测我的位置 →</button>
       </div>
-      <div class="assist">支持美国、英国、加拿大、澳洲、新加坡和中国香港本科 / 硕士申请诊断。一次付费，无订阅，不卖中介服务。</div>
+      <div><span class="anchor">✅ 完全免费开始 · 3 分钟 · 立即看到结果，无需注册</span></div>
+      <div class="assist">支持美国、英国、加拿大、澳洲、新加坡、中国香港 · 本科 / 硕士 申请诊断</div>
       <div class="badges">${SUPPORTED_REGIONS.map(r=>`<span class="badge">${r}</span>`).join('')}</div>
     </div>
   </section>
 
   <section class="block">
-    <div class="container">
-      <h2 class="sec-title">你不是没有信息，而是缺少一个客观判断。</h2>
+    <div class="container tight">
+      <h2 class="sec-title">这些问题，是不是也半夜想过？</h2>
+      <p class="sec-sub">你不是没有信息，而是缺少一个能让自己安心的客观判断。</p>
       <div class="cards">
-        ${["中介给的选校名单到底靠谱吗？","我的 GPA 还能不能冲名校？","这些学校是冲刺、匹配还是浪费申请费？","我现在最该补语言、实习、活动还是文书？","不找中介，能不能自己做出靠谱申请方案？","父母不放心，我需要一份能解释清楚的报告。"]
+        ${["中介给的选校名单，到底靠不靠谱？","我的 GPA，还能不能冲一冲名校？","这几所学校，是机会还是在烧申请费？","现在最该补的，是语言、实习、活动还是文书？","不找中介自己来，能不能做出靠谱方案？","爸妈天天问，我得有份能说清楚的报告。"]
           .map(q=>`<div class="pain-card"><span class="q">?</span><span>${q}</span></div>`).join('')}
       </div>
     </div>
   </section>
 
   <section class="block" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-    <div class="container">
-      <h2 class="sec-title">3 分钟完成初测，付费解锁完整报告。</h2>
-      <div class="steps">
-        ${[["选择本科 / 硕士申请"],["选择目标地区、学校和专业"],["填写学术、语言、活动或实习背景"],["AI 追问 2–3 个关键问题"],["获得免费初测结果"],["付费解锁完整申请诊断报告"]]
-          .map((s,i)=>`<div class="step"><div class="n">${i+1}</div><b>${s[0]}</b></div>`).join('')}
+    <div class="container tight">
+      <h2 class="sec-title">你真正想要的，是一份心里有底</h2>
+      <p class="sec-sub">在做重大决定前，先给自己和家人一份安心与确定。先免费测，看到了再说。</p>
+      <div class="value-strip">
+        ${[["😌","安心感","不再凭感觉焦虑"],["🎯","确定感","知道自己站在哪"],["📑","判断依据","决策有据可依"],["👨‍👩‍👧","和父母沟通","一份看得懂的材料"],["⚖️","对照中介方案","花钱前先有参照"]]
+          .map(v=>`<div class="vchip"><div class="ic">${v[0]}</div><b>${v[1]}</b><p>${v[2]}</p></div>`).join('')}
       </div>
-      <div style="text-align:center;margin-top:30px"><button class="btn btn-primary btn-lg" onclick="startAssessment()">免费开始测评</button></div>
     </div>
   </section>
 
   <section class="block">
-    <div class="container">
-      <h2 class="sec-title">完整报告会告诉你什么？</h2>
+    <div class="container tight">
+      <div class="quote-band">
+        <div class="big">"先别急着找中介，<br>花 3 分钟，免费看清自己的位置。"</div>
+        <div class="small">无需注册、无需付费，填完背景立即拿到 AI 初测结果。</div>
+        <div style="margin-top:20px"><button class="btn btn-amber btn-lg" onclick="startAssessment()">免费开始测评 →</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container tight">
+      <h2 class="sec-title">3 分钟，看清位置</h2>
+      <div class="steps">
+        ${[["选本科 / 硕士"],["选地区、学校、专业"],["填学术与背景"],["AI 追问 2–3 题"],["拿到免费初测"],["解锁完整报告"]]
+          .map((s,i)=>`<div class="step"><div class="n">${i+1}</div><b>${s[0]}</b></div>`).join('')}
+      </div>
+      <div style="text-align:center;margin-top:28px"><button class="btn btn-primary btn-lg" onclick="startAssessment()">现在就开始 →</button></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container tight">
+      <h2 class="sec-title">免费初测之后，你还能深入看到</h2>
+      <p class="sec-sub">先免费测,拿到基础判断。如果想看得更深、更具体,再了解完整报告也不迟。</p>
       <div class="preview-grid">
         ${[["📊","申请竞争力评分","五维拆解你的综合实力"],["🎯","目标学校风险判断","逐所给出明确标签"],["🪜","冲刺 / 匹配 / 保底分层","清晰的选校组合"],["⚖️","当前优势和短板","知道补什么、保什么"],["🗓️","30 / 60 / 90 天提升路线","可执行的行动计划"],["✍️","文书策略方向","突出哪条主线"],["👨‍👩‍👧","家长可读总结","一份能解释清楚的材料"],["⬇️","PDF 下载","可打印、可分享"]]
           .map(p=>`<div class="pv"><span class="ic">${p[0]}</span><div><b>${p[1]}</b><p>${p[2]}</p></div></div>`).join('')}
@@ -402,26 +542,27 @@ RENDER.home=function(){
   </section>
 
   <section class="block" id="pricing-sec" style="background:var(--bluebg)">
-    <div class="container">
-      <h2 class="sec-title">一次付费，解锁完整判断</h2>
-      <p class="sec-sub">先做免费初测，看到基础判断后再决定是否解锁完整报告。无订阅、无中介推销。</p>
+    <div class="container tight">
+      <h2 class="sec-title">想看完整报告？测完再决定也不迟</h2>
+      <p class="sec-sub">免费初测已经能让你看到基础判断。需要逐校分析和提升路线时，再解锁也来得及。</p>
       <div class="pricing">
         <div class="price-card">
           <h3>AI 申请诊断报告</h3>
-          <div class="price">¥99<small> 一次性</small></div>
-          <p class="desc">适合已有目标学校或选校名单，想判断申请机会和风险。</p>
+          <div class="price">¥19<small> 一次性</small></div>
+          <p class="desc">已有目标学校或选校名单，想知道机会、风险和值不值得申请。</p>
           <ul>${["目标学校竞争力评分","选校风险判断","当前优势和短板","30 / 60 / 90 天提升方向","文书策略建议","家长可读总结","PDF 下载"].map(b=>`<li>${b}</li>`).join('')}</ul>
-          <button class="btn btn-ghost btn-block" onclick="startAssessment()">免费测评后解锁 ¥99</button>
+          <button class="btn btn-ghost btn-block" onclick="startAssessment()">先免费测一测</button>
         </div>
         <div class="price-card feat">
           <span class="tag">规划更完整</span>
           <h3>AI 完整申请规划报告</h3>
-          <div class="price">¥199<small> 一次性</small></div>
-          <p class="desc">适合还没有完整方案，想获得选校组合和行动路线。</p>
+          <div class="price">¥49<small> 一次性</small></div>
+          <p class="desc">还没有完整方案，想要选校组合、替代学校和一份能照着做的行动路线。</p>
           <ul>${["标准版全部内容","10–15 所学校推荐","冲刺 / 匹配 / 保底组合","替代学校和专业建议","申请时间线","材料清单","完整行动计划"].map(b=>`<li>${b}</li>`).join('')}</ul>
-          <button class="btn btn-amber btn-block" onclick="startAssessment()">免费测评后解锁 ¥199</button>
+          <button class="btn btn-amber btn-block" onclick="startAssessment()">先免费测一测</button>
         </div>
       </div>
+      <p style="text-align:center;color:var(--text2);font-size:14px;margin-top:18px">一次付费，无订阅，无中介推销。先看免费初测，觉得有用再决定。</p>
     </div>
   </section>
 
@@ -438,7 +579,7 @@ function legalPage(title,html){app().innerHTML=`<div class="page"><div class="co
   <div style="margin-top:24px"><button class="btn btn-ghost" onclick="go('home')">← 返回首页</button></div></div></div></div>`;}
 RENDER.terms=()=>legalPage("服务条款",`<p>欢迎使用 OfferScope / 录取雷达（以下简称"本服务"）。本服务是一个去中介化的 AI 留学申请诊断平台，提供免费初测与一次性付费的 AI 申请诊断报告。</p>
   <h3>1. 服务范围</h3><p>本服务仅支持海外本科与硕士申请诊断，覆盖美国、英国、加拿大、澳洲、新加坡和中国香港。本服务不提供人工留学咨询，不做中介导流，不做订阅，不承诺录取结果。</p>
-  <h3>2. 付费与交付</h3><p>付费产品为一次性购买的在线报告及可下载的 PDF 报告，分为 ¥99 标准版与 ¥199 专业版。交付物为在线完整报告页面与可打印 / 下载 PDF 报告。</p>
+  <h3>2. 付费与交付</h3><p>付费产品为一次性购买的在线报告及可下载的 PDF 报告，分为 ¥19 标准版与 ¥49 专业版。交付物为在线完整报告页面与可打印 / 下载 PDF 报告。</p>
   <h3>3. 内容性质</h3><p>报告由 AI 基于您填写的信息生成，为申请规划参考，不构成录取承诺，亦不替代学校官方判断。</p>`);
 RENDER.privacy=()=>legalPage("隐私政策",`<p>我们重视您的隐私。本页说明我们如何收集与使用您在测评中填写的信息。</p>
   <h3>1. 我们收集的信息</h3><p>包括您主动填写的申请阶段、目标地区与学校、学术与语言背景、活动 / 实习 / 科研经历，以及（如提供）邮箱地址。</p>
@@ -539,7 +680,7 @@ STEP_RENDER[1]=function(){
     </div>
 
     <div class="field"><label class="req">目标学校</label>
-      <div class="hint">填写你考虑申请的学校。可添加多所。地区需在支持范围内。</div>
+      <div class="hint">先选地区，再输入学校名会自动联想（中英文都可搜）；可添加多所。也支持手动输入任意学校。</div>
       <div id="schoolList"></div>
       <button class="btn btn-ghost" style="padding:9px 16px;font-size:13px" onclick="addSchool()">+ 添加学校</button>
     </div>
@@ -562,11 +703,45 @@ function renderSchoolRows(){
     <div class="top"><b style="font-size:13px;color:var(--text2)">学校 ${i+1}</b>
       ${A.targetSchools.length>1?`<button class="rm" onclick="rmSchool(${i})">删除</button>`:''}</div>
     <div class="grid2">
-      <input placeholder="学校名称，如 University of Southern California" value="${esc(s.schoolName)}" oninput="A.targetSchools[${i}].schoolName=this.value">
-      <select onchange="A.targetSchools[${i}].region=this.value">
-        <option value="">所在地区</option>${SUPPORTED_REGIONS.map(r=>`<option ${s.region===r?'selected':''}>${r}</option>`).join('')}</select>
-      <input placeholder="项目 / 专业名称（选填），如 Computer Science" value="${esc(s.majorName||s.programName||'')}" oninput="A.targetSchools[${i}].majorName=this.value">
-    </div></div>`).join('');
+      <select onchange="A.targetSchools[${i}].region=this.value;var el=document.getElementById('schoolInp${i}');if(el)schoolSuggest(${i},el.value)">
+        <option value="">① 先选所在地区</option>${SUPPORTED_REGIONS.map(r=>`<option ${s.region===r?'selected':''}>${r}</option>`).join('')}</select>
+      <div class="ac-wrap">
+        <input id="schoolInp${i}" autocomplete="off" placeholder="② 输入学校名，自动联想" value="${esc(s.schoolName)}"
+          oninput="A.targetSchools[${i}].schoolName=this.value;schoolSuggest(${i},this.value)" onblur="acHide('acS${i}')">
+        <div class="ac-list" id="acS${i}" style="display:none"></div>
+      </div>
+    </div>
+    <div class="ac-wrap" style="margin-top:12px">
+      <input id="majorInp${i}" autocomplete="off" placeholder="③ 项目 / 专业（选填），输入自动联想，如 Computer Science" value="${esc(s.majorName||s.programName||'')}"
+        oninput="A.targetSchools[${i}].majorName=this.value;majorSuggest(${i},this.value)" onblur="acHide('acM${i}')">
+      <div class="ac-list" id="acM${i}" style="display:none"></div>
+    </div>
+  </div>`).join('');
+}
+/* ---- 输入联想（autocomplete） ---- */
+const _AC={};
+function _renderAC(listId,inputId,items,onPick){
+  _AC[listId]={items,onPick,inputId};
+  const el=document.getElementById(listId);if(!el)return;
+  if(!items.length){el.style.display='none';el.innerHTML='';return;}
+  el.innerHTML=items.map((it,idx)=>`<div class="ac-item" onmousedown="acPick('${listId}',${idx})"><b>${esc(it.label)}</b>${it.sub?`<small>${esc(it.sub)}</small>`:''}</div>`).join('');
+  el.style.display='block';
+}
+function acPick(listId,idx){const st=_AC[listId];if(!st)return;const it=st.items[idx];
+  const inp=document.getElementById(st.inputId);if(inp)inp.value=it.value;st.onPick(it.value);
+  const el=document.getElementById(listId);if(el){el.style.display='none';el.innerHTML='';}}
+function acHide(listId){setTimeout(()=>{const el=document.getElementById(listId);if(el)el.style.display='none';},160);}
+function schoolSuggest(i,val){
+  const region=A.targetSchools[i].region;const q=(val||'').trim().toLowerCase();
+  const pool=SCHOOLS.filter(s=>!region||s.region===region);
+  const res=!q?[]:pool.filter(s=>s.name.toLowerCase().includes(q)||(s.cn&&s.cn.includes(val.trim()))).slice(0,8);
+  _renderAC('acS'+i,'schoolInp'+i,res.map(s=>({label:s.name,sub:s.cn+' · '+s.region,value:s.name})),
+    v=>{A.targetSchools[i].schoolName=v;const f=SCHOOLS.find(x=>x.name===v);if(f&&!A.targetSchools[i].region)A.targetSchools[i].region=f.region;renderSchoolRows();});
+}
+function majorSuggest(i,val){
+  const q=(val||'').trim().toLowerCase();
+  const res=!q?[]:MAJOR_SUGGEST.filter(m=>m.name.toLowerCase().includes(q)||m.cn.includes(val.trim())).slice(0,8);
+  _renderAC('acM'+i,'majorInp'+i,res.map(m=>({label:m.name,sub:m.cn,value:m.name})),v=>{A.targetSchools[i].majorName=v;});
 }
 function toggleRegion(r){const i=A.targetRegions.indexOf(r);i>=0?A.targetRegions.splice(i,1):A.targetRegions.push(r);STEP_RENDER[1]();}
 function addSchool(){A.targetSchools.push({schoolName:"",majorName:"",region:""});renderSchoolRows();}
@@ -676,9 +851,15 @@ function nextStep(){STEP++;RENDER.assessment();}
 </script>
 <script id="part3">
 /* ===================== AI FOLLOW-UP (spec §12) ===================== */
-function genFollowUp(){
+async function genFollowUp(){
   if(!A.budget||!A.riskTolerance){toast('请选择预算和风险偏好');return;}
-  A.followUpQuestions=buildFollowUp();
+  A.followUpQuestions=buildFollowUp();               // 规则引擎默认值（回退保障）
+  showLoading('AI 正在生成关键追问…');
+  const ai=await aiPost('/api/follow-up',{profile:aiProfile()});
+  hideLoading();
+  if(ai&&Array.isArray(ai.questions)&&ai.questions.length){
+    A.followUpQuestions=ai.questions.slice(0,3).map(q=>({q:q.question||q.q||'',r:q.reason||q.r||'',key:q.fieldKey||q.key||('q'+Math.random().toString(36).slice(2,6))})).filter(x=>x.q);
+  }
   STEP=4;RENDER.assessment();
 }
 function buildFollowUp(){
@@ -789,7 +970,7 @@ function buildSchoolVerdicts(overall){
 </script>
 <script id="part4">
 /* ===================== FREE RESULT (spec §15,17.1) ===================== */
-function generateFreeResult(){
+async function generateFreeResult(){
   const scores=computeScores();
   const overall=Math.round(Object.values(scores).reduce((a,b)=>a+b,0));
   const sv=buildSchoolVerdicts(overall);
@@ -804,20 +985,34 @@ function generateFreeResult(){
   if(A.applicationLevel==='本科'&&richness(A.fields.activities)<.3)risks.push("活动经历的呈现不够具体，个人主线与专业匹配的说服力偏弱。");
   if((A.hasAgencyList||'').startsWith('是'))risks.push("这是中介给的选校名单，建议在完整报告中逐所复核其合理性。");
 
+  // 风险等级：与综合分一致，再按选校梯度微调（避免"均衡却高风险"的矛盾）。
+  // 语气克制：综合分尚可时最多显示"中等偏高"，仅明显偏弱（<55）才会到"高"，避免免费页吓跑用户。
+  let riskIdx = overall>=80?0: overall>=70?1: overall>=60?2: overall>=50?3:4; // 0低 .. 4高
+  riskIdx = Math.min(4, riskIdx + (safety===0?1:0) + (reach>sv.length*0.6?1:0));
+  if(overall>=55) riskIdx=Math.min(riskIdx,3);
+  const riskLevel=["低","中等偏低","中等","中等偏高","高"][riskIdx];
+  const riskPhrase=["选校组合较稳，甚至可以再增加一两所冲刺校","选校组合整体稳健，风险可控","选校组合大致合理，但仍有可以补强的环节","目标学校整体偏冲，选校梯度还需要加固","目标学校整体偏高，建议尽快补充匹配与保底层"][riskIdx];
   const fr={
     assessmentId:A.id, applicationLevel:A.applicationLevel,
     overallScore:overall, overallGrade:gradeFor(overall),
-    riskLevel: safety===0||reach>sv.length*0.6 ? (overall<66?"高":"中等偏高") : (overall>=80?"中等偏低":"中等"),
-    summary:`从你目前填写的信息看，你的${A.applicationLevel}申请目标学校组合${reach>=sv.length/2?'存在一定冲刺空间':'整体较为均衡'}，但选校分层${safety===0?'还不够清晰':'基本合理'}。系统识别到你可能在${weakDim}、背景证明力和保底学校设置上存在风险。`,
+    riskLevel,
+    summary:`从你目前填写的信息看，你的${A.applicationLevel}申请综合竞争力约为 ${gradeFor(overall)} 档。${riskPhrase}。系统初步识别到，在${weakDim}、背景证明力和保底学校设置上还有可以优化的空间——完整报告会逐项拆解，并给出具体的提升方法。`,
     schoolPreview: sv.map(s=>({schoolName:s.schoolName,programName:s.majorName,region:s.region,initialVerdict:s.verdict})),
     topRisks: risks.slice(0,3),
     scores
   };
+  // DeepSeek 润色文案（失败则保留规则引擎版本）
+  showLoading('AI 正在生成初测结果…');
+  const ai=await aiPost('/api/free-result',{profile:aiProfile(),overall,grade:fr.overallGrade,
+    verdicts:sv.map(s=>({schoolName:s.schoolName,verdict:s.verdict}))});
+  hideLoading();
+  if(ai){ if(typeof ai.summary==='string'&&ai.summary.trim())fr.summary=ai.summary;
+    if(Array.isArray(ai.topRisks)&&ai.topRisks.length)fr.topRisks=ai.topRisks.slice(0,3); }
   A.freeResult=fr; A.status='free_done'; saveDB();
   go('freeResult');
 }
 function weights(){return A.applicationLevel==='本科'?UG_WEIGHTS:GRAD_WEIGHTS;}
-function riskClass(r){return /高/.test(r)?'rb-high':/中等偏低|低/.test(r)?'rb-low':'rb-mid';}
+function riskClass(r){return r==='高'?'rb-high': r==='中等偏高'?'rb-mid': r==='中等'?'rb-neutral':'rb-low';}
 
 RENDER.freeResult=function(){
   const fr=A.freeResult; if(!fr){go('home');return;}
@@ -827,11 +1022,18 @@ RENDER.freeResult=function(){
       <h1 style="font-size:24px;margin-bottom:4px">你的 AI 申请初测结果已生成</h1>
       <p style="color:var(--text2);font-size:14px">${esc(A.applicationLevel)}申请 · ${esc(A.targetMajorCategory)} · ${esc(A.targetRegions.join('、'))}</p></div>
       <div class="grade-hero">
-        <div class="grade-circle"><span class="g">${esc(fr.overallGrade)}</span><span class="l">总体申请竞争力</span></div>
-        <span class="riskbadge ${riskClass(fr.riskLevel)}">申请风险：${esc(fr.riskLevel)}</span>
+        <div class="free-hero">
+          <div class="grade-circle"><span class="g">${esc(fr.overallGrade)}</span><span class="l">综合竞争力 ${fr.overallScore}/100</span></div>
+          <div style="max-width:320px">
+            <div class="radar-wrap">${freeRadarSVG(fr.scores,weights())}</div>
+            <div class="cap-note">🔒 你的能力画像 · 五维具体得分在完整报告中解锁</div>
+          </div>
+        </div>
+        <div style="margin-top:6px"><span class="riskbadge ${riskClass(fr.riskLevel)}">选校风险 · ${esc(fr.riskLevel)}</span></div>
       </div>
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:18px;font-size:14px">
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:16px;font-size:15px">
         <b>初步判断：</b>${esc(fr.summary)}</div>
+      <div class="risk-line"><span>ℹ️</span><span>"选校风险"反映的是当前目标学校组合与你背景的匹配紧张度，<b>不是对你个人的评价</b>。完整报告会逐一拆解每个风险点，并给出降低方法。</span></div>
     </div>
 
     <div class="panel">
@@ -849,13 +1051,30 @@ RENDER.freeResult=function(){
     </div>
 
     <div class="lock-card">
-      <h2 style="font-size:20px;color:var(--navy)">完整报告将告诉你</h2>
-      <ul class="benefits">${["每所学校具体风险在哪里","哪些学校值得申请，哪些学校不建议浪费申请费","你的核心优势和短板（完整五维评分）","未来 30 / 60 / 90 天最应该提升什么","文书应该突出什么主线","可下载 PDF 报告，适合发给父母或对照中介方案"].map(b=>`<li>${b}</li>`).join('')}</ul>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <button class="btn btn-amber btn-lg" onclick="go('checkout','standard_report')">解锁完整报告 ¥99</button>
-        <button class="btn btn-primary btn-lg" onclick="go('checkout','premium_report')">升级为完整规划 ¥199</button>
+      <h2 style="font-size:21px;color:var(--navy)">免费初测只是开始 · 完整报告深 10 倍</h2>
+      <p style="font-size:14px;color:var(--text2);margin-top:6px">上面是方向；下面这些是"具体怎么做"——每一项都为你单独生成。</p>
+
+      <div class="locked">
+        <div class="blurred">
+          <div style="font-weight:700;margin-bottom:10px">五维评分拆解（每一维的具体得分与分析）</div>
+          ${Object.entries(fr.scores).map(([d,s])=>`<div class="mini-row">${esc(d)} · ${Math.round(s)}/${weights()[d]}</div><div class="mini-bar"><i style="width:${Math.round(s/weights()[d]*100)}%"></i></div>`).join('')}
+          <div style="font-weight:700;margin:14px 0 6px">目标学校逐项分析</div>
+          <p style="font-size:13px;color:var(--text2)">${esc((fr.schoolPreview[0]||{}).schoolName||'目标学校')}：竞争力 78/100，匹配度良好，主要风险在于……针对性建议为……</p>
+          <div style="font-weight:700;margin:14px 0 6px">未来 30 天提升路线</div>
+          <p style="font-size:13px;color:var(--text2)">第 1 周：针对最薄弱项启动……；第 2–3 周：补充与目标专业相关的……；预期影响：……</p>
+        </div>
+        <div class="veil"><div class="lk">🔒</div><b>完整五维得分、逐校分析、提升路线已就绪</b><span>解锁后立即查看为你生成的全部内容</span></div>
       </div>
-      <p style="font-size:12px;color:var(--text2);margin-top:14px">一次付费，无订阅，无中介推销。</p>
+
+      <div class="module-grid">
+        ${["综合竞争力评分","五维评分拆解","目标学校逐项分析","冲刺/匹配/保底分层","学术与课程分析","语言与标化分析","当前优势","当前短板","关键风险与降低方法","30/60/90 天提升路线","文书策略方向","推荐信策略","家长可读总结","下一步行动清单"].map(m=>`<div class="module-chip"><span class="lk">🔒</span>${m}</div>`).join('')}
+      </div>
+
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
+        <button class="btn btn-amber btn-lg" onclick="go('checkout','standard_report')">解锁完整报告 ¥${PRODUCTS.standard_report.price}</button>
+        <button class="btn btn-primary btn-lg" onclick="go('checkout','premium_report')">完整规划版 ¥${PRODUCTS.premium_report.price}（含选校组合+时间线）</button>
+      </div>
+      <p style="font-size:13px;color:var(--text2);margin-top:14px">一次付费，无订阅，永久查看，可下载 PDF 发给父母。</p>
     </div>
     <div style="text-align:center;margin-top:18px"><button class="btn btn-ghost" onclick="go('home')">← 返回首页</button></div>
   </div></div>`;
@@ -907,7 +1126,7 @@ RENDER.paymentSuccess=function(){
 };
 
 /* ===================== FULL REPORT GENERATION (spec §16,17.2) ===================== */
-function generateFullReport(){
+async function generateFullReport(){
   if(A.fullReport){go('report');return;}
   const scores=A.freeResult.scores; const w=weights();
   const overall=A.freeResult.overallScore;
@@ -1006,8 +1225,50 @@ function generateFullReport(){
       possibleMismatch:[], betterAlternatives:recommendSchools(overall).slice(0,3)
     };
   }
+  // AI 重写中文叙述（分数 / 学校标签 / 分层保持不变；失败则保留规则引擎文案）
+  showLoading('正在生成你的完整报告…','AI 深度分析中，约需十几秒');
+  const aiR=await aiPost('/api/full-report',{profile:aiProfile(),report:reportContextForAI(fr)});
+  hideLoading();
+  if(aiR)overlayReport(fr,aiR);
   A.status='report_done';saveDB();
   go('report');
+}
+/* 给模型的只读上下文：包含分数与分层，但不含冗长字段 */
+function reportContextForAI(R){
+  return {applicationLevel:R.applicationLevel, targetMajorCategory:R.userProfileSummary.targetMajorCategory,
+    targetRegions:R.userProfileSummary.targetRegions, overallScore:R.executiveSummary.overallScore,
+    overallGrade:R.executiveSummary.overallGrade, riskLevel:R.executiveSummary.overallVerdict,
+    scoreBreakdown:R.scoreBreakdown.map(d=>({dimension:d.dimension,score:d.score,weight:d.weight,level:d.level})),
+    schools:R.schoolAnalysis.map(s=>({schoolName:s.schoolName,verdict:s.verdict,role:s.roleInSchoolList})),
+    background:R.userProfileSummary.backgroundSummary, academic:R.userProfileSummary.academicSummary,
+    tests:R.userProfileSummary.testSummary, experience:R.userProfileSummary.experienceSummary};
+}
+/* 把模型返回的判断/文案安全地覆盖到报告对象（分数与标签保持不变；字段缺失则保留规则引擎原值） */
+function overlayReport(R,ai){
+  const S=v=>typeof v==='string'&&v.trim();
+  try{
+    const e=ai.executiveSummary;
+    if(e){["oneSentenceConclusion","mainOpportunity","mainRisk","recommendedStrategy"].forEach(k=>{if(S(e[k]))R.executiveSummary[k]=e[k];});}
+    // 五维：按 dimension 名称匹配，只覆盖文字，不动分数/权重
+    if(Array.isArray(ai.scoreBreakdown))ai.scoreBreakdown.forEach(a=>{const t=R.scoreBreakdown.find(d=>d.dimension===(a&&a.dimension));if(t){if(S(a.analysis))t.analysis=a.analysis;if(S(a.improvementAdvice))t.improvementAdvice=a.improvementAdvice;}});
+    // 逐校：按 schoolName 匹配，只覆盖文字，不动 verdict/score/role
+    if(Array.isArray(ai.schoolAnalysis))ai.schoolAnalysis.forEach(a=>{const t=R.schoolAnalysis.find(s=>s.schoolName===(a&&a.schoolName));if(t){
+      if(S(a.whyThisVerdict))t.whyThisVerdict=a.whyThisVerdict;
+      if(Array.isArray(a.strengths)&&a.strengths.length)t.strengthsForThisSchool=a.strengths.filter(S);
+      if(Array.isArray(a.weaknesses)&&a.weaknesses.length)t.weaknessesForThisSchool=a.weaknesses.filter(S);
+      if(S(a.applicationAdvice))t.applicationAdvice=a.applicationAdvice;}});
+    if(Array.isArray(ai.strengths)&&ai.strengths.length)R.strengths=ai.strengths.filter(s=>s&&s.title).map(s=>({title:s.title,detail:s.detail||''}));
+    if(Array.isArray(ai.weaknesses)&&ai.weaknesses.length)R.weaknesses=ai.weaknesses.filter(s=>s&&s.title).map(s=>({title:s.title,detail:s.detail||'',priority:["高","中","低"].includes(s.priority)?s.priority:'中'}));
+    if(Array.isArray(ai.riskAnalysis)&&ai.riskAnalysis.length)R.riskAnalysis=ai.riskAnalysis.filter(x=>x&&S(x.risk)).map(x=>({risk:x.risk,severity:["高","中","低"].includes(x.severity)?x.severity:'中',explanation:x.explanation||'',howToReduce:x.howToReduce||''}));
+    const ip=ai.improvementPlan;
+    if(ip){["next30Days","next60Days","next90Days"].forEach(k=>{if(Array.isArray(ip[k])&&ip[k].length)R.improvementPlan[k]=ip[k].filter(x=>x&&S(x.task)).map(x=>({task:x.task,reason:x.reason||'',expectedImpact:x.expectedImpact||''}));});
+      R.actionChecklist=R.improvementPlan.next30Days.map(t=>({task:t.task,priority:"高",deadlineSuggestion:"30 天内"})).concat([{task:"确认每所学校的申请截止日期与材料清单",priority:"中",deadlineSuggestion:"尽快"},{task:"确定推荐人并发出邀请",priority:"中",deadlineSuggestion:"60 天内"}]);}
+    const es=ai.essayStrategy;
+    if(es){["mainNarrative","whyMajor","whySchool"].forEach(k=>{if(S(es[k]))R.essayStrategy[k]=es[k];});}
+    const pf=ai.parentFriendlySummary;
+    if(pf){["summary","riskExplanation","budgetAndDecisionAdvice"].forEach(k=>{if(S(pf[k]))R.parentFriendlySummary[k]=pf[k];});}
+    if(S(ai.recommendationAdvice))R.recommendationAdvice=ai.recommendationAdvice;
+  }catch(err){/* 任何异常都忽略，保留规则引擎版本 */}
 }
 </script>
 <script id="part5">
@@ -1217,6 +1478,21 @@ RENDER.report=function(){
     </div>
   </div></div>`;
 };
+
+/* free-result radar (能力画像 teaser: shape + labels, no numbers) */
+function freeRadarSVG(scores,w){
+  const dims=Object.keys(scores),N=dims.length,cx=150,cy=135,R=86;
+  const pt=(f,i)=>{const a=-Math.PI/2+i*2*Math.PI/N;return [cx+Math.cos(a)*R*f,cy+Math.sin(a)*R*f];};
+  const rings=[.34,.67,1].map(f=>`<polygon points="${dims.map((d,i)=>pt(f,i).map(n=>n.toFixed(1)).join(',')).join(' ')}" fill="none" stroke="#E5E7EB"/>`).join('');
+  const axes=dims.map((d,i)=>{const[x,y]=pt(1,i);return `<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#E5E7EB"/>`;}).join('');
+  const poly=`<polygon points="${dims.map((d,i)=>pt(clamp(scores[d]/w[d]),i).map(n=>n.toFixed(1)).join(',')).join(' ')}" fill="rgba(37,99,235,.20)" stroke="#2563EB" stroke-width="2"/>`;
+  const dots=dims.map((d,i)=>{const[x,y]=pt(clamp(scores[d]/w[d]),i);return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3" fill="#1E3A8A"/>`;}).join('');
+  const labels=dims.map((d,i)=>{const a=-Math.PI/2+i*2*Math.PI/N;const lx=cx+Math.cos(a)*(R+18),ly=cy+Math.sin(a)*(R+12);
+    const anchor=Math.abs(Math.cos(a))<.3?'middle':(Math.cos(a)>0?'start':'end');
+    const short=d.replace(/与课程难度|与标化成绩|与标化|与专业匹配|与文书空间|与策略| \/ 科研 \/ 项目背景|背景|材料/g,'').slice(0,6);
+    return `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" font-size="11.5" fill="#6B7280" text-anchor="${anchor}">${short}</text>`;}).join('');
+  return `<svg class="radar" viewBox="0 0 300 270">${rings}${axes}${poly}${dots}${labels}</svg>`;
+}
 
 /* radar chart (pure SVG) */
 function radarSVG(bd,w){
