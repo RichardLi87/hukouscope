@@ -167,7 +167,7 @@ textarea{min-height:84px;resize:vertical}
 .crow .pl{font-size:13px;color:var(--muted)}
 .crow .sc{text-align:right}
 .crow .sc b{font-family:var(--serif);font-size:24px}
-.tier-pill{display:inline-block;font-size:12px;font-weight:700;padding:3px 11px;border-radius:999px;color:#fff;margin-top:3px}
+.tier-pill{display:inline-block;font-size:12px;font-weight:700;padding:3px 11px;border-radius:999px;color:#fff;margin-top:3px;white-space:nowrap}
 
 .grade-badge{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:118px;height:118px;border-radius:50%;
   background:var(--pine-soft);border:3px solid var(--pine);margin:0 auto}
@@ -186,7 +186,7 @@ textarea{min-height:84px;resize:vertical}
 /* report */
 .report-wrap{max-width:860px;margin:0 auto}
 .rsec{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:24px;margin-bottom:16px}
-.rsec h2{font-size:20px;color:var(--pine);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.rsec h2{font-size:20px;color:var(--pine);display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;line-height:1.4}
 .rsec h2 .num{font-family:var(--serif);background:var(--pine);color:#fff;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}
 .rsec h3{font-size:16px;margin:14px 0 6px;color:var(--ink)}
 .plain{list-style:none;margin:6px 0}
@@ -246,9 +246,9 @@ footer.site .legal-links a{color:#9fb0a7}
 @media(max-width:640px){.six-wrap{grid-template-columns:1fr}}
 /* 逐国 scorecard */
 .scorecard{border:1px solid var(--line);border-radius:13px;padding:18px;margin-bottom:14px;background:linear-gradient(180deg,#fff,#fdfaf3)}
-.scorecard .sc-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.scorecard .sc-head .fl{font-size:32px}
-.scorecard .sc-head .nm{font-family:var(--serif);font-size:19px;color:var(--pine);font-weight:700}
+.scorecard .sc-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.scorecard .sc-head .fl{font-size:32px;flex:0 0 auto}
+.scorecard .sc-head .nm{font-family:var(--serif);font-size:19px;color:var(--pine);font-weight:700;flex:1 1 auto;min-width:0}
 .scorecard .sc-head .pathtag{font-size:12px;background:var(--pine-soft);color:var(--pine);padding:3px 10px;border-radius:999px;font-weight:600}
 .scorecard .sc-score{margin-left:auto;text-align:right}
 .scorecard .sc-score b{font-family:var(--serif);font-size:26px}
@@ -286,9 +286,14 @@ footer.site .legal-links a{color:#9fb0a7}
   .pts .cell{min-width:0;flex:1}
   .crow{padding:13px 12px}
   .crow .fl{font-size:26px}
+  .crow .sc b{font-size:21px}
   .value-strip{grid-template-columns:1fr 1fr}
   .vchip{padding:14px 12px}
   .vchip p{font-size:12px}
+  .rsec h2{font-size:17px}
+  .rsec h2 .num{width:26px;height:26px;font-size:13px}
+  .scorecard .sc-head .nm{font-size:17px}
+  .scorecard .sc-head .pathtag{font-size:11px}
 }
 @media print{header.site,footer.site,.report-actions,.no-print{display:none!important}body{background:#fff}.rsec{break-inside:avoid;box-shadow:none}.page{padding:0}.six-wrap{grid-template-columns:1fr 1fr}}
 </style>
