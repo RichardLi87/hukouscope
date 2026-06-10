@@ -971,7 +971,7 @@ function dlShareImage(){const card=document.getElementById('shareCard');if(!card
 /* ============================================================
    CHECKOUT + PAY
 ============================================================ */
-const PRODUCTS={standard_report:{name:"移民竞争力诊断报告",price:0.1},premium_report:{name:"全路径移民规划报告",price:0.1}};
+const PRODUCTS={standard_report:{name:"移民竞争力诊断报告",price:19},premium_report:{name:"全路径移民规划报告",price:49}};
 let PAY_POLL=null,PAY_CHANNEL='wxpay';
 RENDER.checkout=function(productType){
   productType=productType||'standard_report';const p=PRODUCTS[productType];PAY_CHANNEL='wxpay';
