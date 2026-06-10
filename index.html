@@ -37,6 +37,8 @@ button{font-family:inherit;cursor:pointer;border:none}
 .btn-pine:hover{background:var(--pine2)}
 .btn-ghost{background:transparent;color:var(--pine);border:1.5px solid var(--line)}
 .btn-ghost:hover{border-color:var(--pine);background:var(--paper)}
+.btn-white{background:#fff;color:var(--pine);border:1.5px solid var(--pine);box-shadow:0 6px 18px rgba(20,80,63,.12)}
+.btn-white:hover{background:var(--pine);color:#fff}
 .btn-lg{padding:16px 34px;font-size:18px;border-radius:9px}
 .btn-block{width:100%}
 .btn:disabled{opacity:.45;cursor:not-allowed}
@@ -63,8 +65,10 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 .flagband{display:flex;flex-wrap:nowrap;gap:7px;margin-top:26px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
 .flagband::-webkit-scrollbar{height:0}
 .flagchip{flex:0 0 auto;display:inline-flex;align-items:center;gap:5px;background:var(--paper);border:1px solid var(--line);border-radius:999px;
-  padding:6px 11px;font-size:13px;color:#3c4a43;font-weight:600;white-space:nowrap}
+  padding:6px 12px;font-size:13px;color:#3c4a43;font-weight:600;white-space:nowrap;cursor:pointer;transition:.13s}
+.flagchip:hover{border-color:var(--pine);color:var(--pine);transform:translateY(-1px);box-shadow:0 4px 12px rgba(20,80,63,.12)}
 .flagchip .fl{font-size:15px}
+.flagchip .ar{color:var(--clay);font-weight:700;margin-left:1px}
 @media(max-width:720px){.hero{padding:40px 0 20px}.hero h1{font-size:33px}.hero .sub{font-size:17px}}
 
 /* Sections */
@@ -206,7 +210,46 @@ footer.site .legal-links a{color:#9fb0a7}
 .pbar i{display:block;height:100%;width:0;background:var(--pine);transition:width .4s}
 .lstage{font-size:13px;color:var(--muted);min-height:18px}
 
-@media print{header.site,footer.site,.report-actions,.no-print{display:none!important}body{background:#fff}.rsec{break-inside:avoid;box-shadow:none}.page{padding:0}}
+/* 国家介绍页 */
+.good-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.good-grid{grid-template-columns:1fr}}
+.good-item{display:flex;gap:9px;align-items:flex-start;background:var(--pine-soft);border-radius:9px;padding:11px 13px;font-size:14.5px;color:#2d3b34}
+.good-item .tick{color:var(--pine);font-weight:800;flex:0 0 auto}
+.path-item{border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:12px 14px;margin-bottom:9px}
+.path-item b{display:block;color:var(--pine);font-size:15px;margin-bottom:2px}
+.path-item span{font-size:14px;color:#4a564f}
+/* 六维：雷达 + 数值条 并排 */
+.six-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+@media(max-width:640px){.six-wrap{grid-template-columns:1fr}}
+/* 逐国 scorecard */
+.scorecard{border:1px solid var(--line);border-radius:13px;padding:18px;margin-bottom:14px;background:linear-gradient(180deg,#fff,#fdfaf3)}
+.scorecard .sc-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.scorecard .sc-head .fl{font-size:32px}
+.scorecard .sc-head .nm{font-family:var(--serif);font-size:19px;color:var(--pine);font-weight:700}
+.scorecard .sc-head .pathtag{font-size:12px;background:var(--pine-soft);color:var(--pine);padding:3px 10px;border-radius:999px;font-weight:600}
+.scorecard .sc-score{margin-left:auto;text-align:right}
+.scorecard .sc-score b{font-family:var(--serif);font-size:26px}
+.gauge{height:8px;border-radius:999px;background:var(--pine-soft);overflow:hidden;margin:4px 0 12px}
+.gauge i{display:block;height:100%;border-radius:999px}
+/* 打分估算小表 */
+.pts{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.pts .cell{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 12px;font-size:13px;min-width:120px}
+.pts .cell .k{color:var(--muted);font-size:11px;display:block}
+.pts .cell .v{font-weight:700;color:var(--ink)}
+/* 国家对比表 */
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px}
+.cmp th,.cmp td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}
+.cmp th{background:var(--pine);color:#fff;font-weight:600;font-size:13px}
+.cmp th:first-child{border-radius:8px 0 0 0}.cmp th:last-child{border-radius:0 8px 0 0}
+.cmp tr:nth-child(even){background:#faf6ec}
+/* 费用 / 时间线 视觉 */
+.tl{list-style:none;margin:8px 0;border-left:2px solid var(--pine-soft);padding-left:16px}
+.tl li{position:relative;padding:6px 0 12px;font-size:14px;color:#3c4a43}
+.tl li:before{content:"";position:absolute;left:-23px;top:10px;width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid #fff;box-shadow:0 0 0 1px var(--gold)}
+.costtab{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+.costtab td{padding:8px 6px;border-bottom:1px dashed var(--line)}
+.costtab td:last-child{text-align:right;font-weight:700;color:var(--pine)}
+@media print{header.site,footer.site,.report-actions,.no-print{display:none!important}body{background:#fff}.rsec{break-inside:avoid;box-shadow:none}.page{padding:0}.six-wrap{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -302,6 +345,60 @@ const COUNTRIES={
     open:{skilled:1.0,talent:1.0,invest:.95,study:1.0}, note:"高度人才积分制（HSP），70 分快速永住通道。"},
 };
 const COUNTRY_ORDER=["canada","australia","usa","newzealand","uk","singapore","hongkong","germany","portugal","japan"];
+
+// 国家介绍内容：让人看完"想去"，再"想测"。措辞偏吸引但保持客观，不承诺获批。
+const COUNTRY_INFO={
+  canada:{tag:"移民友好度天花板，福利与教育双在线",
+    intro:"加拿大常年稳居全球最受欢迎的移民国家前列：地广人稀、多元包容，对新移民几乎没有“外人”感。全民免费医疗、公立教育优质、护照免签全球 180+ 国家/地区，是想“一步到位拿成熟国家身份”的人的默认选项。",
+    good:["全民免费医疗（Medicare），看病不花钱","公立教育全球前列，子女可低成本读名校","移民路径成熟透明，打分制规则公开","福利完善：牛奶金、托儿补贴、退休金","承认双重国籍，住满 3 年即可入籍","自然环境与治安全球领先"],
+    paths:[["Express Entry 联邦快速通道","技术移民主力，按 CRS 打分择优邀请，年龄/学历/语言/经验是核心"],["省提名 PNP","绑定某省、对分数要求更低，紧缺职业更友好"],["留学转移民","读书→毕业工签→攒经验→转 PR，年轻人友好"],["创业 / 自雇","面向有商业计划或文体特长人士"]],
+    hook:"想要福利好、能落地生根的成熟国家身份？加拿大几乎绕不开。"},
+  australia:{tag:"阳光、高薪、技术移民老牌强国",
+    intro:"澳大利亚气候宜人、生活质量高，最低工资与人均收入常年全球领先，是技术移民的老牌目的地。打分制清晰，华人社区成熟，落地适应难度低。",
+    good:["阳光海岸 + 慢生活，幸福感拉满","时薪/最低工资全球前列，蓝领白领都体面","公立医疗 Medicare 覆盖","技术移民打分制透明可自评","华人多、配套成熟，落地不孤单","PR 满 4 年可入籍，护照强"],
+    paths:[["189 独立技术移民","不绑州、不绑雇主，凭分数走遍全澳"],["190 / 491 州担保","额外加分，对偏远地区更友好"],["雇主担保 482→186","有雇主即可，绕开高分竞争"],["投资 / 创业","面向资金充裕人群"]],
+    hook:"想要阳光、高收入和清晰的技术移民通道？澳洲值得认真算一算。"},
+  usa:{tag:"机会之地，人才与资本的终极舞台",
+    intro:"美国是全球事业与收入的天花板，顶尖高校、最强科研、最活跃的创业氛围都在这里。对高端人才和投资者，有不需要雇主的独立通道。",
+    good:["职业与收入上限全球最高","世界顶尖大学与科研资源","创新创业氛围无可替代","子女发展与教育空间大","杰出人才/国家利益豁免可自主申请"],
+    paths:[["EB-1A 杰出人才","面向各领域有突出成就者，无需雇主"],["EB-2 NIW 国家利益豁免","学历/成就达标即可自主申请，无需雇主"],["EB-5 投资移民","满足投资额与就业创造要求"],["职业 / 亲属移民","需关注排期"]],
+    hook:"如果你是某个领域的强者，美国能给的舞台别处给不了。"},
+  newzealand:{tag:"纯净自然 + 慢生活，技术移民门槛友好",
+    intro:"新西兰被称为“最后一片净土”，环境世界一流、节奏舒缓、治安极好，对紧缺职业和有本地雇主的人尤其友好。",
+    good:["环境与空气全球顶级","生活节奏慢、压力小","教育医疗体系完善","对紧缺职业与本地 offer 友好","英联邦护照，通行便利"],
+    paths:[["Skilled Migrant 技术移民","6 分制，看职业、收入与资质"],["创业 / 投资","面向有商业计划或资金人群"],["留学转移民","读书→工签→居留"]],
+    hook:"想换一种慢下来、靠近自然的活法？新西兰可能正合适。"},
+  uk:{tag:"老牌强国，教育与全球通行力俱佳",
+    intro:"英国教育底蕴深厚（罗素集团名校云集）、英语母语环境、金融与产业中心地位稳固，护照含金量高。对高端人才有不需雇主的通道。",
+    good:["顶尖教育，子女升学路径好","英语母语，无语言隔阂","NHS 公立医疗","护照通行力强","全球金融与文化中心"],
+    paths:[["Skilled Worker 工签","需持牌雇主担保 + 薪资达标"],["Global Talent 高端人才","领域成就达标，无需雇主"],["Innovator Founder 创业","有创新商业计划"],["留学转移民","读书→工签→满 5 年永居"]],
+    hook:"看重教育和英语环境？英国是绕不过的选择。"},
+  singapore:{tag:"低税、安全、亚洲枢纽，华人友好",
+    intro:"新加坡是全球最安全、最高效的城市之一，低税率、中英双语环境、顶尖教育与金融，且离中国近——很多人把它当作“不离亚洲的移民”。",
+    good:["治安全球最佳之一","税率低，财富友好","中英双语，文化无缝","教育金融世界一流","离中国近，往返方便"],
+    paths:[["EP 就业准证→PR","看学历与薪资，工作积累后申 PR"],["GIP 全球投资者计划","面向高净值人士的高额投资"],["留学转移民","名校路径"]],
+    hook:"想要低税、安全又不远离亚洲？新加坡很难被替代。"},
+  hongkong:{tag:"最快上车，离家近、文化通",
+    intro:"中国香港是周期最短、成本最低的身份方案之一：低税、国际金融中心、子女教育路径多（DSE/华侨生联考），且文化相通、离内地近，非常适合作为“快速上车”的过渡。",
+    good:["审批快、成本低，性价比极高","低税，营商自由","国际金融中心，机会多","子女可走 DSE / 华侨生联考","离内地近、语言文化相通","护照/特区护照通行力强"],
+    paths:[["高才通 TTPS","高薪人士或合资格名校毕业可快速申请"],["优才 QMAS","综合计分，达标即可"],["专才","有香港雇主"],["留学进修 IANG","在港读书后留港"]],
+    hook:"想最快拿到一个身份过渡、又不想离家太远？先看香港。"},
+  germany:{tag:"欧洲经济引擎，蓝卡通道清晰、公立免学费",
+    intro:"德国是欧洲制造业与工程强国，公立大学免学费、社会福利完善，欧盟蓝卡门槛清晰，拿到后可在欧盟范围内通行发展。",
+    good:["制造业/工程强国，就业机会实在","公立大学免学费","社会福利与医疗完善","欧盟身份，通行 27 国","蓝卡门槛清晰可预期"],
+    paths:[["欧盟蓝卡 EU Blue Card","认证学历 + 工作合同 + 薪资达标"],["找工作签证","先入境找工作再转工签"],["留学转移民","读书→工作→居留"],["创业签证","有商业计划"]],
+    hook:"理工/IT 背景想拿欧盟身份？德国蓝卡是条实在的路。"},
+  portugal:{tag:"欧洲身份性价比之选，气候宜人、门槛灵活",
+    intro:"葡萄牙气候温和、生活成本低、治安好，移民路径灵活（投资/被动收入/数字游民），部分项目对居住要求宽松，是性价比很高的欧盟身份入口。",
+    good:["气候宜人、生活成本低","治安好、节奏舒适","路径灵活，可投资或靠被动收入","欧盟身份，可通行申根","满 5 年可申永居/入籍，护照强"],
+    paths:[["黄金签证","投资基金或创造就业等合规方式"],["D7 被动收入","有稳定被动收入即可申请"],["D8 数字游民","远程工作者友好"]],
+    hook:"想用较轻的居住要求换一个欧盟身份？葡萄牙常是首选。"},
+  japan:{tag:"离家近、生活精致，高度人才快速永住",
+    intro:"日本医疗教育优质、治安极佳、生活便利精致，离中国近往返方便。高度人才积分制下，条件好的人最快 1–3 年即可申请永住。",
+    good:["治安全球顶级，生活便利","医疗教育优质","离中国近，往返成本低","生活精致、文化亲近","高度人才积分可快速永住"],
+    paths:[["高度人才签证 HSP","按学历/年收入/年龄/日语等积分，70 分起快速永住"],["工作签证→永住","正常工作积累后申请"],["经营管理签证","创业/投资经营"],["留学转移民","读书→就职"]],
+    hook:"想要离家近、生活质量高的选择？日本高度人才通道值得一看。"},
+};
 
 const FIELDS=["IT / 软件","工程 / 制造","医疗 / 护理","金融 / 商科","科研 / 学术","教育 / 培训","技工 (电工/焊工/厨师等)","艺术 / 设计","管理 / 市场","其他"];
 const EDU_LEVELS=["高中及以下","大专","本科","硕士","博士"];
@@ -425,14 +522,16 @@ function aiProfile(){
   return {countries:(A.countries||[]).map(k=>COUNTRIES[k].name),paths:(A.paths||[]).map(k=>PATHS[k].short),
     age:A.age,education:A.education,overseasEdu:A.overseasEdu?'有':'无',field:A.field,expYears:A.expYears,mgmt:A.mgmt?'有管理经历':'无',
     englishLevel:A.englishLevel,funds:A.funds,maritalFamily:A.maritalFamily,spouseStrong:A.spouseStrong?'配偶学历/语言较强':'',
-    ties:A.ties,motive:A.motive,extra:A.extra||'',followUpQuestions:A.followUpQuestions||[],followUpAnswers:A.followUpAnswers||{}};
+    ties:A.ties,motive:A.motive,extra:A.extra||'',
+    deepInfo:{occupation:A.deepOcc||'',salary:A.deepSalary||'',languageScore:A.deepLang||'',netWorth:A.deepNet||'',jobOffer:A.deepOffer||'',spouse:A.deepSpouse||''},
+    followUpQuestions:A.followUpQuestions||[],followUpAnswers:A.followUpAnswers||{}};
 }
 
 /* ============================================================
    HOME
 ============================================================ */
 RENDER.home=function(){
-  const chips=COUNTRY_ORDER.map(k=>`<span class="flagchip"><span class="fl">${COUNTRIES[k].flag}</span>${COUNTRIES[k].name}</span>`).join('');
+  const chips=COUNTRY_ORDER.map(k=>`<span class="flagchip" onclick="go('country','${k}')"><span class="fl">${COUNTRIES[k].flag}</span>${COUNTRIES[k].name}<span class="ar">›</span></span>`).join('');
   app().innerHTML=`
   <section class="hero"><div class="container">
     <div class="eyebrow">移民竞争力诊断 · 10 国对比 · 3 分钟</div>
@@ -440,9 +539,10 @@ RENDER.home=function(){
     <p class="sub">差别常常在一开始就选错了国家和路子。加拿大拼分数，香港看背景，葡萄牙看钱，澳洲挑职业——门道各不相同。把你的情况填进来，我帮你算清楚：哪个国家够得着、哪条路最省力、现在还差哪一步。</p>
     <div class="cta-row">
       <button class="btn btn-clay btn-lg" onclick="startAssessment()">免费测我的移民竞争力 →</button>
-      <button class="btn btn-ghost btn-lg" onclick="viewSample('premium')">看样例报告</button>
+      <button class="btn btn-white btn-lg" onclick="viewSample('premium')">看一份样例报告 →</button>
     </div>
     <div class="assist">完全免费开始 · 约 3 分钟 · 立即出结果，无需注册 · 仅供参考，非法律意见</div>
+    <div style="font-size:13px;color:var(--muted);margin-top:24px;margin-bottom:-14px">👇 点国家，先看看那里到底好在哪、怎么移</div>
     <div class="flagband">${chips}</div>
   </div></section>
 
@@ -683,6 +783,28 @@ function barsHTML(factors){
   return `<div class="bars">${factors.map(f=>{const col=f.score>=70?'var(--pine)':f.score>=45?'var(--gold)':'var(--clay)';
     return `<div class="bar-row"><div class="nm">${f.name}</div><div class="bar-track"><div class="bar-fill" style="width:${f.score}%;background:${col}"></div></div><div class="vl">${f.score}</div></div>`;}).join('')}</div>`;
 }
+// 真·六边形雷达图（松绿/陶土配色，与 OfferScope 蓝色五边形区分）
+function hexRadarSVG(factors){
+  const N=factors.length, cx=170, cy=158, R=112;
+  const ang=i=>(-Math.PI/2)+i*2*Math.PI/N;
+  const pt=(i,r)=>[cx+Math.cos(ang(i))*R*r, cy+Math.sin(ang(i))*R*r];
+  const poly=(r,arr)=>arr.map((_,i)=>pt(i,r).join(',')).join(' ');
+  let rings='';
+  [0.25,0.5,0.75,1].forEach(r=>{rings+=`<polygon points="${poly(r,factors)}" fill="none" stroke="#E0D6C2" stroke-width="1"/>`;});
+  let axes='';
+  factors.forEach((f,i)=>{const[x,y]=pt(i,1);axes+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#E0D6C2" stroke-width="1"/>`;});
+  const dataPts=factors.map((f,i)=>pt(i,Math.max(.04,f.score/100)).join(',')).join(' ');
+  let dots='',labels='';
+  factors.forEach((f,i)=>{const[dx,dy]=pt(i,Math.max(.04,f.score/100));dots+=`<circle cx="${dx}" cy="${dy}" r="3.4" fill="#14503F"/>`;
+    const[lx,ly]=pt(i,1.22);const anchor=Math.abs(lx-cx)<8?'middle':(lx>cx?'start':'end');
+    labels+=`<text x="${lx}" y="${ly-2}" font-size="12.5" font-weight="700" fill="#1B2A24" text-anchor="${anchor}">${esc(f.name)}</text>`+
+            `<text x="${lx}" y="${ly+13}" font-size="11" fill="#6E7B73" text-anchor="${anchor}">${f.score}</text>`;});
+  return `<div style="text-align:center"><svg viewBox="0 0 340 320" style="max-width:340px;width:100%" xmlns="http://www.w3.org/2000/svg">
+    ${rings}${axes}
+    <polygon points="${dataPts}" fill="rgba(30,107,84,.22)" stroke="#1E6B54" stroke-width="2.2"/>
+    ${dots}${labels}
+  </svg></div>`;
+}
 function crowsHTML(rows,locked){
   return rows.map((r,i)=>`<div class="crow">
     <div class="fl">${r.flag}</div>
@@ -796,7 +918,30 @@ function beginPayPoll(outTradeNo,productType){let n=0;stopPayPoll();PAY_POLL=set
   if(n>=100)stopPayPoll();},3000);}
 function stopPayPoll(){if(PAY_POLL){clearInterval(PAY_POLL);PAY_POLL=null;}}
 function devPay(outTradeNo,productType){fetch('/api/pay/mock-paid?outTradeNo='+encodeURIComponent(outTradeNo)).then(()=>markPaid(productType));}
-function markPaid(productType){A.isPaid=true;A.reportType=productType;saveDB();go('report');}
+function markPaid(productType){A.isPaid=true;A.reportType=productType;saveDB();go(A.deepenDone?'report':'deepen');}
+RENDER.deepen=function(){
+  window.scrollTo(0,0);
+  app().innerHTML=`<div class="page"><div class="container tight"><div class="panel">
+    <div class="eyebrow2">最后一步 · 让报告更准（可跳过）</div>
+    <h1 style="font-size:23px;font-family:var(--serif);margin:6px 0 4px">再补几项，报告会具体很多</h1>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:16px">这些信息能让 AI 把"加拿大 CRS 大概多少分、香港高才够不够"算得更准。<b>都可以不填</b>，直接生成也行。</p>
+    <div class="field"><label>你的具体职业 / 工种</label><input type="text" id="dOcc" value="${esc(A.deepOcc||'')}" placeholder="如：高级软件工程师 / 注册护士 / 电工"></div>
+    <div class="grid2">
+      <div class="field"><label>当前税前年薪（人民币）</label><input type="text" id="dSalary" value="${esc(A.deepSalary||'')}" placeholder="如 45 万"></div>
+      <div class="field"><label>已有语言实考分（如有）</label><input type="text" id="dLang" value="${esc(A.deepLang||'')}" placeholder="如 雅思 6.5 / 无"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>可投资净资产（人民币）</label><input type="text" id="dNet" value="${esc(A.deepNet||'')}" placeholder="如 300 万 / 暂不考虑投资"></div>
+      <div class="field"><label>是否已有目标国 offer / 雇主</label><input type="text" id="dOffer" value="${esc(A.deepOffer||'')}" placeholder="如 有澳洲雇主意向 / 无"></div>
+    </div>
+    <div class="field"><label>配偶情况（如随行）</label><input type="text" id="dSpouse" value="${esc(A.deepSpouse||'')}" placeholder="如 配偶硕士、雅思6.0、护士 / 不随行"></div>
+    <div style="display:flex;gap:10px;margin-top:8px">
+      <button class="btn btn-ghost" onclick="generateFullReport()">跳过，直接生成</button>
+      <button class="btn btn-clay btn-lg" style="flex:1" onclick="saveDeepen();generateFullReport()">生成我的完整报告 →</button>
+    </div>
+  </div></div></div>`;
+};
+function saveDeepen(){A.deepOcc=$('#dOcc')?.value||'';A.deepSalary=$('#dSalary')?.value||'';A.deepLang=$('#dLang')?.value||'';A.deepNet=$('#dNet')?.value||'';A.deepOffer=$('#dOffer')?.value||'';A.deepSpouse=$('#dSpouse')?.value||'';A.deepenDone=true;saveDB();}
 
 /* ============================================================
    FULL REPORT
@@ -842,23 +987,32 @@ RENDER.report=function(){
       ${ai.executiveSummary?`<h3>最大机会</h3><p style="color:#3c4a43">${esc(ai.executiveSummary.bestCountryWhy||'')}</p><h3>最大风险</h3><p style="color:#3c4a43">${esc(ai.executiveSummary.mainRisk||'')}</p><h3>建议策略</h3><p style="color:#3c4a43">${esc(ai.executiveSummary.recommendedStrategy||'')}</p>`:''}
     </div>
 
-    <div class="rsec"><h2><span class="num">${num()}</span>各国匹配度</h2>${crowsHTML(R.rows)}</div>
+    <div class="rsec"><h2><span class="num">${num()}</span>各国匹配度</h2>${crowsHTML(R.rows)}
+      ${ai.comparisonInsight?`<p style="color:#3c4a43;margin-top:12px;background:var(--pine-soft);padding:14px 16px;border-radius:10px"><b>横向对比：</b>${esc(ai.comparisonInsight)}</p>`:''}
+    </div>
 
-    <div class="rsec"><h2><span class="num">${num()}</span>竞争力六维详解</h2>${barsHTML(R.factors)}
-      ${(ai.factorAdvice&&ai.factorAdvice.length)?ai.factorAdvice.map(f=>`<h3>${esc(f.factor)}</h3><p style="color:#3c4a43">${esc(f.analysis||'')}</p><p style="color:var(--pine2);font-size:14px">↳ ${esc(f.improvementAdvice||'')}</p>`).join(''):''}
+    <div class="rsec"><h2><span class="num">${num()}</span>竞争力六维</h2>
+      <div class="six-wrap">
+        <div class="six-radar">${hexRadarSVG(R.factors)}</div>
+        <div class="six-bars">${barsHTML(R.factors)}</div>
+      </div>
+      ${(ai.factorAdvice&&ai.factorAdvice.length)?`<div style="margin-top:6px">${ai.factorAdvice.map(f=>`<h3>${esc(f.factor)}</h3><p style="color:#3c4a43">${esc(f.analysis||'')}</p><p style="color:var(--pine2);font-size:14px">↳ ${esc(f.improvementAdvice||'')}</p>`).join('')}</div>`:''}
     </div>
 
     ${(ai.countryPlans&&ai.countryPlans.length)?`<div class="rsec"><h2><span class="num">${num()}</span>逐国路径详解${isPrem?'':'（节选）'}</h2>
-      ${ai.countryPlans.map(cp=>`<div style="border:1px solid var(--line);border-radius:11px;padding:16px;margin-bottom:12px">
-        <h3 style="color:var(--pine);font-size:17px">${esc(cp.country)} · ${esc(cp.recommendedPath||'')}</h3>
+      ${ai.countryPlans.map(cp=>{const cr=(R.rows||[]).find(x=>x.name===cp.country)||{};const tc=(cr.tier&&cr.tier.color)||'var(--pine)';return `<div class="scorecard">
+        <div class="sc-head"><span class="fl">${cr.flag||'🌍'}</span><span class="nm">${esc(cp.country)}</span><span class="pathtag">${esc(cp.recommendedPath||cr.pathLabel||'')}</span>
+          <span class="sc-score"><b style="color:${tc}">${cr.score||''}</b>${cr.tier?`<br><span class="tier-pill" style="background:${tc}">${cr.tier.label}</span>`:''}</span></div>
+        ${cr.score?`<div class="gauge"><i style="width:${cr.score}%;background:${tc}"></i></div>`:''}
         <p style="color:#3c4a43">${esc(cp.whyPath||'')}</p>
-        ${cp.keyThresholds&&cp.keyThresholds.length?`<b style="display:block;margin-top:8px">关键门槛</b><ul class="plain">${cp.keyThresholds.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
-        ${isPrem&&cp.timeline&&cp.timeline.length?`<b style="display:block;margin-top:8px">时间线</b><ul class="plain">${cp.timeline.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
-        ${isPrem&&cp.costRange?`<p style="margin-top:8px"><b>费用预算：</b>${esc(cp.costRange)}</p>`:''}
-        ${cp.improvementToQualify&&cp.improvementToQualify.length?`<b style="display:block;margin-top:8px">要达标，你需要</b><ul class="plain">${cp.improvementToQualify.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
-        ${cp.risks&&cp.risks.length?`<b style="display:block;margin-top:8px">风险与应对</b><ul class="plain">${cp.risks.map(x=>`<li><span class="sev" style="background:${sevColor(x.severity)}">${esc(x.severity||'中')}</span> ${esc(x.risk||'')}——${esc(x.howToReduce||'')}</li>`).join('')}</ul>`:''}
-        ${isPrem&&cp.docChecklist&&cp.docChecklist.length?`<b style="display:block;margin-top:8px">材料清单</b><ul class="plain">${cp.docChecklist.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
-      </div>`).join('')}</div>`:''}
+        ${(cp.pointsEstimate||cp.processingTime)?`<div class="pts">${cp.pointsEstimate?`<div class="cell"><span class="k">打分 / 门槛估算</span><span class="v">${esc(cp.pointsEstimate)}</span></div>`:''}${cp.processingTime?`<div class="cell"><span class="k">大致周期</span><span class="v">${esc(cp.processingTime)}</span></div>`:''}${cp.prCitizenship?`<div class="cell"><span class="k">永居 / 入籍</span><span class="v">${esc(cp.prCitizenship)}</span></div>`:''}</div>`:''}
+        ${cp.keyThresholds&&cp.keyThresholds.length?`<b style="display:block;margin-top:10px">关键门槛</b><ul class="plain">${cp.keyThresholds.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+        ${cp.improvementToQualify&&cp.improvementToQualify.length?`<b style="display:block;margin-top:10px">要达标，你需要</b><ul class="plain">${cp.improvementToQualify.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+        ${isPrem&&cp.timeline&&cp.timeline.length?`<b style="display:block;margin-top:10px">时间线</b><ul class="tl">${cp.timeline.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+        ${isPrem&&cp.costBreakdown&&cp.costBreakdown.length?`<b style="display:block;margin-top:10px">费用预算${cp.costRange?`（合计约 ${esc(cp.costRange)}）`:''}</b><table class="costtab">${cp.costBreakdown.map(c=>`<tr><td>${esc(c.item||'')}</td><td>${esc(c.amount||'')}</td></tr>`).join('')}</table>`:(isPrem&&cp.costRange?`<p style="margin-top:8px"><b>费用预算：</b>${esc(cp.costRange)}</p>`:'')}
+        ${cp.risks&&cp.risks.length?`<b style="display:block;margin-top:10px">风险与应对</b><ul class="plain">${cp.risks.map(x=>`<li><span class="sev" style="background:${sevColor(x.severity)}">${esc(x.severity||'中')}</span> ${esc(x.risk||'')}——${esc(x.howToReduce||'')}</li>`).join('')}</ul>`:''}
+        ${isPrem&&cp.docChecklist&&cp.docChecklist.length?`<b style="display:block;margin-top:10px">材料清单</b><ul class="plain">${cp.docChecklist.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+      </div>`;}).join('')}</div>`:''}
 
     ${ai.languagePlan?`<div class="rsec"><h2><span class="num">${num()}</span>语言准备</h2><p style="color:#3c4a43">${esc(ai.languagePlan)}</p></div>`:''}
 
@@ -867,6 +1021,8 @@ RENDER.report=function(){
     ${isPrem&&ai.actionPlan?`<div class="rsec"><h2><span class="num">${num()}</span>行动计划</h2>
       ${[['未来 3 个月','next3Months'],['未来 6 个月','next6Months'],['未来 12 个月','next12Months']].map(([t,k])=>(ai.actionPlan[k]&&ai.actionPlan[k].length)?`<h3>${t}</h3><ul class="plain">${ai.actionPlan[k].map(x=>`<li>${esc(typeof x==='string'?x:(x.task||''))}${(x&&x.expectedImpact)?` <span style="color:var(--pine2)">（${esc(x.expectedImpact)}）</span>`:''}</li>`).join('')}</ul>`:'').join('')}
     </div>`:''}
+
+    ${isPrem&&ai.planB?`<div class="rsec"><h2><span class="num">${num()}</span>Plan B（主线走不通时）</h2><p style="color:#3c4a43">${esc(ai.planB)}</p></div>`:''}
 
     <div class="rsec"><h2><span class="num">${num()}</span>主要风险</h2>
       <ul class="plain">${(R.risks||[]).map(r=>`<li>${esc(r)}</li>`).join('')}</ul></div>
@@ -898,21 +1054,30 @@ const SAMPLE_AI={
     bestCountryWhy:"加拿大对 IT 职业友好、年龄仍在加分区间、英语达标，CRS 有冲击邀请线的基础；香港高才通对名校/高薪人群门槛清晰、周期短，可作为快速落地的并行选项。",
     mainRisk:"年龄已接近 CRS 年龄加分的下行拐点，越晚启动分数越受影响；雅思若能冲到 7（CLB9）将显著提分。",
     recommendedStrategy:"双线并行：1) 立刻准备雅思冲 CLB9 + 做学历认证(ECA)，主攻加拿大 EE；2) 同步评估香港高才通快速取得身份，给孩子教育与家庭过渡留出缓冲。"},
+  comparisonInsight:"加拿大是中长期主线：流程透明、福利好，但要拼分数、周期一年多。香港快、成本低、文化近，适合先拿身份过渡，缺点是续签要求实际居住/工作。简单说——想一步到位拿成熟国家身份选加拿大，想先上车再说选香港，两条并不冲突。",
   factorAdvice:[
     {factor:"语言",analysis:"雅思 6.5–7 已过技术移民门槛，但距离加拿大 CRS 高分段(CLB9，约 7 分)仍差一档。",improvementAdvice:"用 2–3 个月专项冲刺写作与口语，目标四项 7 分，CRS 可增加可观分数。"},
     {factor:"年龄",analysis:"34 岁仍处于多数打分制的加分区间，但加拿大 CRS 在 35 岁后逐年扣分。",improvementAdvice:"把握 12 个月窗口尽快递交 EE 资料，越早越有利。"}],
   countryPlans:[
     {country:"加拿大",recommendedPath:"技术移民（Express Entry）",whyPath:"IT 职业紧缺、年龄语言达标，联邦 EE + 省提名(如 BC/安省科技类)双通道命中率更高。",
+     pointsEstimate:"CRS 自评约 430–460；近期通用类邀请线约 480+，省提名(+600)可大幅拉高（数字仅参考，以官方为准）",
+     processingTime:"入池到获 PR 约 12–18 个月",
+     prCitizenship:"登陆即拿 PR，住满约 3 年(1095 天)可申请入籍",
      keyThresholds:["雅思建议四项 7（CLB9）","学历认证 ECA","NOC 职业代码匹配","CRS 自评分对照近期邀请分数线"],
      timeline:["第1-3月：雅思冲分 + ECA 认证","第3-4月：入池 EE / 递交省提名意向","第5-10月：等待邀请并准备 PR 材料","第10-14月：递交 PR 申请"],
-     costRange:"约 8–15 万人民币（含语言、认证、签证及体检公证，未含安家费）",
+     costRange:"8–15 万人民币",
+     costBreakdown:[{item:"雅思考试 + 培训",amount:"0.5–2 万"},{item:"学历认证 ECA",amount:"约 0.2 万"},{item:"签证申请费(全家)",amount:"约 1–1.5 万"},{item:"体检/无犯罪/公证翻译",amount:"约 0.5 万"},{item:"持牌顾问(可选)",amount:"2–8 万"}],
      improvementToQualify:["雅思四项达到 7 分","完成 ECA 学历认证","核对职业是否在目标省提名清单"],
      risks:[{severity:"中",risk:"邀请分数线逐年走高",howToReduce:"冲高语言分 + 申请省提名额外加分"}],
      docChecklist:["护照","学历及 ECA 报告","雅思成绩","工作证明与推荐信","无犯罪记录","体检报告"]},
     {country:"中国香港",recommendedPath:"高才通 TTPS / 优才 QMAS",whyPath:"周期短、对高薪或名校背景人群门槛清晰，适合作为快速取得身份的并行方案。",
+     pointsEstimate:"高才通看上年收入或合资格名校；优才综合计分制(年龄/学历/经验/语言等)，达标即可，无固定分数线公示",
+     processingTime:"高才通约 2–4 个月出签",
+     prCitizenship:"通常连续居住满 7 年可申请香港永久居民",
      keyThresholds:["高才通：上年收入达标 或 毕业于合资格名校","优才：综合计分达标"],
      timeline:["第1月：核对资格并备齐收入/学历证明","第2-4月：递交并等待审批","获批后赴港安排居住与续签规划"],
-     costRange:"约 1–3 万人民币（自办，未含中介）",
+     costRange:"1–3 万人民币（自办）",
+     costBreakdown:[{item:"材料公证/翻译",amount:"约 0.2–0.5 万"},{item:"签证申请费",amount:"较低"},{item:"赴港安排(交通/短租)",amount:"按需"}],
      improvementToQualify:["准备完整收入证明","规划赴港居住以满足通常性居住要求"],
      risks:[{severity:"低",risk:"需满足续签的居住/工作要求",howToReduce:"提前规划在港工作或业务安排"}],
      docChecklist:["护照/通行证","学历证明","收入/税单证明","工作证明"]}],
@@ -921,9 +1086,50 @@ const SAMPLE_AI={
   actionPlan:{next3Months:[{task:"报名雅思冲刺并启动 ECA 认证",expectedImpact:"打通 EE 入池前提"},{task:"核对 NOC 职业代码与省提名清单"}],
     next6Months:[{task:"入池 Express Entry 并提交省提名意向"},{task:"并行递交香港高才通"}],
     next12Months:[{task:"收到邀请后递交 PR 完整材料"},{task:"规划登陆与安家预算"}]},
+  planB:"如果一年内雅思冲不到 CLB9、CRS 够不着邀请线：先用香港高才通拿身份过渡，同时考虑加拿大省提名(对分数要求较低)或留学转移民(读个一年制硕士走毕业工签→EE)，把主线往后顺一两年也不亏。",
   familyFriendlySummary:{summary:"你们家条件不错，重点不是“能不能移”，而是“先走哪条、怎么排时间”。加拿大是中长期主线，香港是快速过渡，可以两条腿走路。",
     riskExplanation:"主要风险是时间——年龄和分数线都在往不利方向走，越早启动越好。",
     budgetAndDecisionAdvice:"主线预算预留 10–15 万（自办+少量服务费），香港自办成本很低。建议先用 3 个月把语言和认证做完，再决定是否找持牌顾问代办复杂环节。"}
+};
+
+/* ---- 国家介绍页 ---- */
+function startAssessmentFor(key){newAssessment();A.countries=[key];saveDB();go('assessment');}
+RENDER.country=function(key){
+  const c=COUNTRIES[key],info=COUNTRY_INFO[key];
+  if(!c||!info){go('home');return;}
+  window.scrollTo(0,0);
+  const others=COUNTRY_ORDER.filter(k=>k!==key).map(k=>`<span class="flagchip" onclick="go('country','${k}')"><span class="fl">${COUNTRIES[k].flag}</span>${COUNTRIES[k].name}<span class="ar">›</span></span>`).join('');
+  app().innerHTML=`<div class="page"><div class="container tight">
+    <div style="margin-bottom:14px"><button class="btn btn-ghost" style="padding:8px 14px;font-size:14px" onclick="go('home')">← 所有国家</button></div>
+    <div class="panel" style="background:var(--pine);color:#fff;border:none">
+      <div style="font-size:54px;line-height:1">${c.flag}</div>
+      <h1 style="font-size:30px;font-family:var(--serif);margin:8px 0 4px">移民${c.name}</h1>
+      <div style="font-size:17px;opacity:.92">${info.tag}</div>
+    </div>
+    <div class="panel"><p style="color:#3c4a43;font-size:16px;line-height:1.8">${info.intro}</p></div>
+    <div class="panel">
+      <h2 style="font-size:19px;color:var(--pine);font-family:var(--serif);margin-bottom:12px">为什么是这里</h2>
+      <div class="good-grid">${info.good.map(g=>`<div class="good-item"><span class="tick">✓</span><span>${esc(g)}</span></div>`).join('')}</div>
+    </div>
+    <div class="panel">
+      <h2 style="font-size:19px;color:var(--pine);font-family:var(--serif);margin-bottom:6px">主要移民路径</h2>
+      <p style="color:var(--muted);font-size:13px;margin-bottom:12px">${esc(c.note)}</p>
+      ${info.paths.map(p=>`<div class="path-item"><b>${esc(p[0])}</b><span>${esc(p[1])}</span></div>`).join('')}
+    </div>
+    <div class="panel" style="text-align:center;background:linear-gradient(180deg,#fff,#fdf3ec)">
+      <div style="font-family:var(--serif);font-size:21px;color:var(--ink);margin-bottom:6px">${esc(info.hook)}</div>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:16px">那……以你的条件，够得上吗？3 分钟测一下就知道。</p>
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto">
+        <button class="btn btn-clay btn-lg btn-block" onclick="startAssessmentFor('${key}')">测我适不适合移民${c.name} →</button>
+        <button class="btn btn-white btn-block" onclick="viewSample('premium')">先看一份样例报告</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h3 style="font-size:15px;color:var(--ink);margin-bottom:10px">看看别的国家</h3>
+      <div class="flagband" style="margin-top:0">${others}</div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px">${DISCLAIMER}</p>
+  </div></div>`;
 };
 
 /* ---- 法务页 ---- */
