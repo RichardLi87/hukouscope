@@ -72,10 +72,12 @@ const server = http.createServer((req, res) => {
   }
   // 支付状态轮询
   if (url === "/api/pay/status") return sendJSON(res, 200, pay.getStatus(parseQuery(req.url).outTradeNo));
-  // 同步返回页（用户付完跳回）
+  // 同步返回页（用户付完跳回）：带订单号 302 回首页，前端自动确认并跳报告
   if (url === "/api/pay/return") {
-    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-    return res.end(`<!doctype html><meta charset=utf-8><body style="font-family:sans-serif;text-align:center;padding:60px"><h2>支付完成，请返回原页面查看报告</h2><p>可以关闭此页。</p><script>try{window.close()}catch(e){}</script></body>`);
+    const q = parseQuery(req.url);
+    const o = q.out_trade_no || q.trade_no || "";
+    res.writeHead(302, { Location: "/?ys_paid=" + encodeURIComponent(o) });
+    return res.end();
   }
   // 本地测试用：手动标记订单已付（仅在公网回调不可用时）
   if (url === "/api/pay/mock-paid") { const ok = pay.devMarkPaid(parseQuery(req.url).outTradeNo); return sendJSON(res, 200, { ok }); }
