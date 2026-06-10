@@ -1,19 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1E6B54"/>
-      <stop offset="1" stop-color="#103E31"/>
-    </linearGradient>
-  </defs>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B23A4C"/><stop offset="1" stop-color="#7A2333"/></linearGradient></defs>
   <rect width="512" height="512" rx="112" fill="url(#bg)"/>
-  <g transform="translate(256,256)">
-    <circle r="170" fill="none" stroke="#ffffff" stroke-opacity=".30" stroke-width="9"/>
-    <ellipse rx="84" ry="170" fill="none" stroke="#ffffff" stroke-opacity=".30" stroke-width="9"/>
-    <ellipse rx="150" ry="60" fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-width="7"/>
-    <line x1="-170" y1="0" x2="170" y2="0" stroke="#ffffff" stroke-opacity=".30" stroke-width="9"/>
-    <path d="M0 -178 L42 -20 L0 -52 L-42 -20 Z" fill="#C6603D"/>
-    <path d="M0 178 L-42 20 L0 52 L42 20 Z" fill="#B68A4E"/>
-    <circle r="26" fill="#FFFDF8"/>
-    <circle r="11" fill="#14503F"/>
-  </g>
+  <rect x="120" y="280" width="58" height="132" rx="8" fill="#fff" fill-opacity=".92"/>
+  <rect x="200" y="208" width="58" height="204" rx="8" fill="#fff" fill-opacity=".92"/>
+  <rect x="280" y="150" width="58" height="262" rx="8" fill="#fff"/>
+  <circle cx="309" cy="118" r="30" fill="#C2A14D"/>
+  <rect x="100" y="412" width="312" height="14" rx="7" fill="#fff" fill-opacity=".5"/>
 </svg>

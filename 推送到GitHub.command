@@ -1,18 +1,18 @@
 #!/bin/bash
-# 双击此文件即可把 YiminScope 的最新改动提交并上传到 GitHub。
-# 由 YiminScope 助手生成。
+# 双击此文件即可把 HukouScope 的最新改动提交并上传到 GitHub。
+# 由 HukouScope 助手生成。
 
 cd "$(dirname "$0")" || exit 1
 
 # ★ 远程仓库地址（若你的仓库名不同，改这一行即可）
-REPO_URL="https://github.com/RichardLi87/yiminscope.git"
+REPO_URL="https://github.com/RichardLi87/hukouscope.git"
 
 echo "================================================"
-echo "  YiminScope → GitHub 一键上传"
+echo "  HukouScope → GitHub 一键上传"
 echo "================================================"
 echo ""
 
-# 安全保险：强制把远程指向 yiminscope，避免误推到 offerscope
+# 安全保险：强制把远程指向 hukouscope，避免误推到 offerscope
 git remote set-url origin "$REPO_URL" 2>/dev/null || git remote add origin "$REPO_URL"
 CURRENT="$(git remote get-url origin)"
 echo "远程仓库：$CURRENT"
@@ -43,7 +43,7 @@ git push -u origin main
 
 echo ""
 echo "================================================"
-echo "  完成！可以去看： https://github.com/RichardLi87/yiminscope"
+echo "  完成！可以去看： https://github.com/RichardLi87/hukouscope"
 echo "  按回车键关闭这个窗口。"
 echo "================================================"
 read

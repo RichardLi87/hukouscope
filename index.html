@@ -3,321 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>移民雷达 YiminScope · 在递交移民申请之前，先看清你最适合去哪</title>
-<meta name="description" content="移民雷达 · 移民竞争力诊断：10 个发达国家对比，先看清你最适合去哪、走哪条路。免费测，3 分钟出结果。">
+<title>落户雷达 HukouScope · 大城市落户，先测清你够不够、怎么补</title>
+<meta name="description" content="落户雷达 · 大城市落户竞争力诊断：上海北京深圳广州杭州等城市，按各地落户规则测你够不够、走哪条路、还差什么。免费测，3 分钟出结果。">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 :root{
-  --pine:#14503F; --pine2:#1E6B54; --pine-soft:#E8F0EA;
-  --clay:#C6603D; --clay2:#A94E30;
-  --gold:#B68A4E;
-  --sand:#F6EFE2; --paper:#FFFDF8;
-  --ink:#1B2A24; --muted:#6E7B73; --line:#E7DCC8;
-  --t-high:#1E6B54; --t-mid:#B68A4E; --t-low:#C6603D; --t-none:#94897A;
-  --shadow:0 1px 2px rgba(27,42,36,.06),0 10px 30px rgba(27,42,36,.07);
-  --serif:"Georgia","Times New Roman","Songti SC","STSong","SimSun",serif;
+  --brand:#8E2C3B; --brand2:#B23A4C; --brand-soft:#F6E7E6;
+  --gold:#C2A14D;
+  --bg:#F6F1EA; --paper:#FFFCF7;
+  --ink:#241A1C; --muted:#7A6B6E; --line:#E7DACE;
+  --t-high:#2E7D5B; --t-mid:#C2A14D; --t-low:#B23A4C; --t-none:#9A8C84;
+  --shadow:0 1px 2px rgba(36,26,28,.06),0 10px 30px rgba(36,26,28,.07);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-  color:var(--ink);background:var(--sand);line-height:1.62;-webkit-font-smoothing:antialiased;font-size:17px}
-h1,h2,h3,.serif{font-family:var(--serif);letter-spacing:.2px}
+  color:var(--ink);background:var(--bg);line-height:1.62;-webkit-font-smoothing:antialiased;font-size:17px}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none}
 .container{max-width:1060px;margin:0 auto;padding:0 22px}
 .container.tight{max-width:880px}
 .hidden{display:none!important}
-
-/* Buttons — squared, editorial */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;
-  border-radius:8px;padding:13px 26px;font-size:16px;transition:.15s;white-space:nowrap}
-.btn-clay{background:var(--clay);color:#fff;box-shadow:0 8px 20px rgba(198,96,61,.26)}
-.btn-clay:hover{background:var(--clay2)}
-.btn-pine{background:var(--pine);color:#fff}
-.btn-pine:hover{background:var(--pine2)}
-.btn-ghost{background:transparent;color:var(--pine);border:1.5px solid var(--line)}
-.btn-ghost:hover{border-color:var(--pine);background:var(--paper)}
-.btn-white{background:#fff;color:var(--pine);border:1.5px solid var(--pine);box-shadow:0 6px 18px rgba(20,80,63,.12)}
-.btn-white:hover{background:var(--pine);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:8px;padding:13px 26px;font-size:16px;transition:.15s;white-space:nowrap}
+.btn-brand{background:var(--brand);color:#fff;box-shadow:0 8px 20px rgba(142,44,59,.26)}
+.btn-brand:hover{background:var(--brand2)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-ghost{background:transparent;color:var(--brand);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--brand);background:var(--paper)}
+.btn-white{background:#fff;color:var(--brand);border:1.5px solid var(--brand);box-shadow:0 6px 18px rgba(142,44,59,.12)}
+.btn-white:hover{background:var(--brand);color:#fff}
 .btn-lg{padding:16px 34px;font-size:18px;border-radius:9px}
 .btn-block{width:100%}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-
-/* Header */
-header.site{position:sticky;top:0;z-index:50;background:rgba(246,239,226,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.site{position:sticky;top:0;z-index:50;background:rgba(246,241,234,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 header.site .container{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{display:flex;align-items:center;gap:11px}
 .brand .mark{width:34px;height:34px}
-.brand .name{font-family:var(--serif);font-weight:700;font-size:20px;color:var(--pine)}
-.brand .name small{display:block;font-family:inherit;font-weight:600;color:var(--muted);font-size:11px;letter-spacing:2px;margin-top:-2px}
+.brand .name{font-weight:800;font-size:20px;color:var(--brand)}
+.brand .name small{display:block;font-weight:600;color:var(--muted);font-size:11px;letter-spacing:2px;margin-top:-2px}
 .nav-links{display:flex;gap:24px;align-items:center;font-size:14px;color:var(--muted)}
-.nav-links a:hover{color:var(--pine)}
+.nav-links a:hover{color:var(--brand)}
 @media(max-width:720px){.nav-links{display:none}}
-
-/* Hero — left aligned editorial */
 .hero{padding:64px 0 30px}
-.eyebrow{display:inline-block;font-size:13px;letter-spacing:2px;color:var(--clay);font-weight:700;text-transform:uppercase;margin-bottom:18px}
-.hero h1{font-size:50px;line-height:1.18;color:var(--ink);max-width:14em}
-.hero h1 .u{background:linear-gradient(transparent 64%,rgba(182,138,78,.35) 64%)}
-.hero .sub{font-size:20px;color:#3c4a43;max-width:34em;margin:22px 0 8px;line-height:1.6}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:2px;color:var(--brand2);font-weight:700;margin-bottom:18px}
+.hero h1{font-size:46px;line-height:1.2;color:var(--ink);font-weight:800;max-width:15em}
+.hero h1 .u{background:linear-gradient(transparent 64%,rgba(194,161,77,.4) 64%)}
+.hero .sub{font-size:20px;color:#4a3c3e;max-width:34em;margin:22px 0 8px;line-height:1.6}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
 .assist{font-size:14px;color:var(--muted);margin-top:16px}
-.flagband{display:flex;flex-wrap:nowrap;gap:7px;margin-top:26px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
-.flagband::-webkit-scrollbar{height:0}
-.flagchip{flex:0 0 auto;display:inline-flex;align-items:center;gap:5px;background:var(--paper);border:1px solid var(--line);border-radius:999px;
-  padding:6px 12px;font-size:13px;color:#3c4a43;font-weight:600;white-space:nowrap;cursor:pointer;transition:.13s}
-.flagchip:hover{border-color:var(--pine);color:var(--pine);transform:translateY(-1px);box-shadow:0 4px 12px rgba(20,80,63,.12)}
-.flagchip .fl{font-size:15px}
-.flagchip .ar{color:var(--clay);font-weight:700;margin-left:1px}
-@media(max-width:720px){.hero{padding:40px 0 20px}.hero h1{font-size:33px}.hero .sub{font-size:17px}}
-
-/* Sections */
+.cityband{display:flex;flex-wrap:nowrap;gap:7px;margin-top:26px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.cityband::-webkit-scrollbar{height:0}
+.citychip{flex:0 0 auto;display:inline-flex;align-items:center;gap:5px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:14px;color:#4a3c3e;font-weight:600;white-space:nowrap;cursor:pointer;transition:.13s}
+.citychip:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}
+.citychip .ar{color:var(--brand2);font-weight:700}
+@media(max-width:720px){.hero{padding:40px 0 20px}.hero h1{font-size:31px}.hero .sub{font-size:17px}}
 .block{padding:56px 0}
 .block.alt{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.sec-title{font-size:32px;color:var(--ink)}
+.sec-title{font-size:31px;color:var(--ink);font-weight:800}
 .sec-sub{color:var(--muted);max-width:42em;margin-top:12px;font-size:17px}
-@media(max-width:720px){.sec-title{font-size:25px}.block{padding:40px 0}}
-
-/* Cards */
+@media(max-width:720px){.sec-title{font-size:24px}.block{padding:40px 0}}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:30px}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:24px}
-.card .ic{font-size:26px}
-.card h3{font-size:18px;margin:12px 0 8px;color:var(--pine)}
-.card p{color:#4a564f;font-size:15px}
-
+.card .ic{font-size:26px}.card h3{font-size:18px;margin:12px 0 8px;color:var(--brand)}.card p{color:#5a4c4e;font-size:15px}
 .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:30px}
-.pain{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--clay);border-radius:8px;padding:18px 20px;font-size:16px;color:#3c4a43;display:flex;gap:12px}
-.pain .q{font-family:var(--serif);color:var(--clay);font-size:22px;font-weight:700;line-height:1}
-
+.pain{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:8px;padding:18px 20px;font-size:16px;color:#4a3c3e;display:flex;gap:12px}
+.pain .q{color:var(--brand);font-size:22px;font-weight:800;line-height:1}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;counter-reset:s}
 .step{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:22px 20px;position:relative}
-.step:before{counter-increment:s;content:counter(s);font-family:var(--serif);font-size:30px;color:var(--gold);font-weight:700}
-.step b{display:block;margin:6px 0 4px;color:var(--ink)}
-.step span{font-size:14px;color:var(--muted)}
+.step:before{counter-increment:s;content:counter(s);font-size:30px;color:var(--gold);font-weight:800}
+.step b{display:block;margin:6px 0 4px;color:var(--ink)}.step span{font-size:14px;color:var(--muted)}
 @media(max-width:680px){.steps{grid-template-columns:1fr}}
-
 .value-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:30px}
-.vchip{background:var(--pine-soft);border-radius:10px;padding:18px;text-align:left}
-.vchip .ic{font-size:24px}
-.vchip b{display:block;margin:8px 0 2px;color:var(--pine)}
-.vchip p{font-size:13px;color:#4a564f}
-
-.quote-band{background:var(--pine);color:#fff;border-radius:16px;padding:42px 38px;text-align:center}
-.quote-band .big{font-family:var(--serif);font-size:27px;line-height:1.4}
+.vchip{background:var(--brand-soft);border-radius:10px;padding:18px;text-align:left}
+.vchip .ic{font-size:24px}.vchip b{display:block;margin:8px 0 2px;color:var(--brand)}.vchip p{font-size:13px;color:#5a4c4e}
+.quote-band{background:var(--brand);color:#fff;border-radius:16px;padding:42px 38px;text-align:center}
+.quote-band .big{font-size:26px;line-height:1.4;font-weight:700}
 .quote-band .small{opacity:.85;margin-top:12px;font-size:15px}
 @media(max-width:720px){.quote-band{padding:30px 22px}.quote-band .big{font-size:21px}}
-
-/* Pricing */
 .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:34px;max-width:760px;margin-left:auto;margin-right:auto}
 .price-card{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:28px 24px;position:relative}
-.price-card.feat{border-color:var(--pine)}
+.price-card.feat{border-color:var(--brand)}
 .price-card .tag{position:absolute;top:-12px;right:20px;background:var(--gold);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px}
 .price-card h3{font-size:19px;color:var(--ink)}
-.price-card .price{font-family:var(--serif);font-size:42px;font-weight:700;color:var(--pine);margin:8px 0 4px}
+.price-card .price{font-size:42px;font-weight:800;color:var(--brand);margin:8px 0 4px}
 .price-card .price small{font-size:15px;color:var(--muted);font-weight:600}
-.price-card .desc{color:#4a564f;font-size:14px;min-height:42px}
+.price-card .desc{color:#5a4c4e;font-size:14px;min-height:42px}
 .price-card ul{list-style:none;margin:16px 0 20px}
 .price-card li{font-size:14.5px;padding:7px 0 7px 24px;position:relative;border-bottom:1px dashed var(--line)}
-.price-card li:before{content:"✓";position:absolute;left:0;color:var(--pine2);font-weight:800}
-
-/* Panels / pages */
+.price-card li:before{content:"✓";position:absolute;left:0;color:var(--t-high);font-weight:800}
 .page{padding:34px 0 60px;min-height:60vh}
 .panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px;box-shadow:var(--shadow)}
 .panel+.panel{margin-top:18px}
-.eyebrow2{font-size:12px;letter-spacing:2px;color:var(--clay);font-weight:700;text-transform:uppercase}
-
-/* Stepper */
+.eyebrow2{font-size:12px;letter-spacing:2px;color:var(--brand2);font-weight:700}
 .stepper{display:flex;gap:5px;margin-bottom:24px;flex-wrap:wrap}
 .stepper .s{flex:1;min-width:60px;text-align:center;font-size:12px;color:var(--muted);padding-bottom:8px;border-bottom:3px solid var(--line)}
-.stepper .s.active{color:var(--pine);border-color:var(--pine);font-weight:700}
+.stepper .s.active{color:var(--brand);border-color:var(--brand);font-weight:700}
 .stepper .s.done{color:var(--gold);border-color:var(--gold)}
-
-/* Forms */
 .field{margin-bottom:18px}
 .field label{display:block;font-weight:600;margin-bottom:7px;font-size:15px;color:var(--ink)}
 .field .hint{font-size:13px;color:var(--muted);margin-top:6px}
-input[type=text],input[type=number],input[type=email],select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);
-  border-radius:9px;font-size:16px;font-family:inherit;background:#fff;color:var(--ink)}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--pine)}
+input[type=text],input[type=number],input[type=email],select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:9px;font-size:16px;font-family:inherit;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brand)}
 textarea{min-height:84px;resize:vertical}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:620px){.grid2{grid-template-columns:1fr}}
-
-/* choice chips */
 .choices{display:flex;flex-wrap:wrap;gap:10px}
 .choice{border:1.5px solid var(--line);border-radius:9px;padding:11px 16px;font-size:15px;background:#fff;color:var(--ink);transition:.12s;user-select:none}
-.choice:hover{border-color:var(--pine)}
-.choice.sel{border-color:var(--pine);background:var(--pine-soft);color:var(--pine);font-weight:700}
-.choice .fl{margin-right:6px}
-
-/* factor bars (distinct from radar) */
+.choice:hover{border-color:var(--brand)}
+.choice.sel{border-color:var(--brand);background:var(--brand-soft);color:var(--brand);font-weight:700}
 .bars{margin:8px 0}
-.bar-row{display:grid;grid-template-columns:92px 1fr 42px;align-items:center;gap:10px;margin:11px 0}
-.bar-row .nm{font-size:14px;color:#3c4a43;font-weight:600}
-.bar-track{height:13px;background:var(--pine-soft);border-radius:999px;overflow:hidden}
-.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--pine2),var(--pine))}
+.bar-row{display:grid;grid-template-columns:96px 1fr 42px;align-items:center;gap:10px;margin:11px 0}
+.bar-row .nm{font-size:14px;color:#4a3c3e;font-weight:600}
+.bar-track{height:13px;background:var(--brand-soft);border-radius:999px;overflow:hidden}
+.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--brand2),var(--brand))}
 .bar-row .vl{font-size:13px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
-
-/* country result rows */
 .crow{display:flex;align-items:center;gap:14px;padding:15px 16px;border:1px solid var(--line);border-radius:11px;background:#fff;margin-bottom:11px}
-.crow .fl{font-size:30px;line-height:1}
+.crow .fl{font-size:26px;line-height:1;flex:0 0 auto}
 .crow .info{flex:1;min-width:0}
 .crow .cn{font-weight:700;font-size:16px;color:var(--ink)}
 .crow .pl{font-size:13px;color:var(--muted)}
 .crow .sc{text-align:right}
-.crow .sc b{font-family:var(--serif);font-size:24px}
+.crow .sc b{font-size:23px;font-weight:800}
 .tier-pill{display:inline-block;font-size:12px;font-weight:700;padding:3px 11px;border-radius:999px;color:#fff;margin-top:3px;white-space:nowrap}
-
-.grade-badge{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:118px;height:118px;border-radius:50%;
-  background:var(--pine-soft);border:3px solid var(--pine);margin:0 auto}
-.grade-badge .g{font-family:var(--serif);font-size:40px;font-weight:700;color:var(--pine);line-height:1}
+.grade-badge{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:118px;height:118px;border-radius:50%;background:var(--brand-soft);border:3px solid var(--brand);margin:0 auto}
+.grade-badge .g{font-size:40px;font-weight:800;color:var(--brand);line-height:1}
 .grade-badge .l{font-size:12px;color:var(--muted)}
-
-/* locked modules */
 .module-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:9px;margin:16px 0;text-align:left}
-.module-chip{background:#fff;border:1px solid var(--line);border-radius:9px;padding:13px 15px;font-size:14px;color:#4a564f;display:flex;align-items:center;gap:8px}
+.module-chip{background:#fff;border:1px solid var(--line);border-radius:9px;padding:13px 15px;font-size:14px;color:#5a4c4e;display:flex;align-items:center;gap:8px}
 .lock-wrap{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:18px 0}
 .lock-wrap .blur{filter:blur(5px);opacity:.55;padding:20px;pointer-events:none}
-.veil{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;
-  background:linear-gradient(180deg,rgba(255,253,248,.4),rgba(255,253,248,.92));padding:20px}
+.veil{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;background:linear-gradient(180deg,rgba(255,252,247,.4),rgba(255,252,247,.92));padding:20px}
 .veil .lk{font-size:30px}
-
-/* report */
-.report-wrap{max-width:860px;margin:0 auto}
-.rsec{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:24px;margin-bottom:16px}
-.rsec h2{font-size:20px;color:var(--pine);display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;line-height:1.4}
-.rsec h2 .num{font-family:var(--serif);background:var(--pine);color:#fff;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}
-.rsec h3{font-size:16px;margin:14px 0 6px;color:var(--ink)}
-.plain{list-style:none;margin:6px 0}
-.plain li{padding:7px 0 7px 22px;position:relative;border-bottom:1px solid var(--line);font-size:15px;color:#3c4a43}
-.plain li:before{content:"—";position:absolute;left:0;color:var(--gold)}
-.kbox{background:var(--pine);color:#fff;border-radius:12px;padding:18px;text-align:center;font-family:var(--serif)}
-.report-actions{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 20px}
-.sev{font-size:12px;font-weight:700;padding:2px 9px;border-radius:6px;color:#fff}
-
-.disclaimer-box{font-size:12.5px;color:var(--muted);line-height:1.7;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px}
-footer.site{background:var(--ink);color:#cdd6d0;padding:36px 0;font-size:14px}
-footer.site a{color:#fff}
-footer.site .legal-links{margin-top:10px;display:flex;gap:18px;flex-wrap:wrap}
-footer.site .legal-links a{color:#9fb0a7}
-
-/* toast + loading */
-.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:10px;font-size:14px;z-index:400;box-shadow:var(--shadow)}
-.loading-bg{position:fixed;inset:0;background:rgba(246,239,226,.85);backdrop-filter:blur(3px);z-index:300;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
-.spinner{width:34px;height:34px;border:3px solid var(--line);border-top-color:var(--pine);border-radius:50%;animation:sp 1s linear infinite}
-@keyframes sp{to{transform:rotate(360deg)}}
-.pbar{width:300px;max-width:78vw;height:9px;border-radius:99px;background:var(--line);overflow:hidden}
-.pbar i{display:block;height:100%;width:0;background:var(--pine);transition:width .4s}
-.lstage{font-size:13px;color:var(--muted);min-height:18px}
-
-/* 分享卡片 */
-.share-overlay{position:fixed;inset:0;background:rgba(20,30,25,.72);z-index:500;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;overflow:auto}
-.share-card{width:332px;background:linear-gradient(165deg,#14503F,#1E6B54);color:#fff;border-radius:18px;padding:26px 22px 22px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
-.share-card .sh-brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:700;font-size:16px}
-.share-card .sh-grade{text-align:center;margin:14px 0}
-.share-card .sh-grade .g{font-family:var(--serif);font-size:60px;font-weight:700;line-height:1}
-.share-card .sh-grade .s{font-size:13px;opacity:.85}
-.share-card .sh-row{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border-radius:10px;padding:9px 12px;margin-bottom:8px}
-.share-card .sh-row .fl{font-size:22px}
-.share-card .sh-row .nm{flex:1;font-weight:600;font-size:14px}
-.share-card .sh-row .tp{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
-.share-card .sh-row .sc{font-family:var(--serif);font-weight:700;font-size:16px;min-width:26px;text-align:right}
-.share-card .sh-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.22)}
-.share-card .sh-foot .u{font-family:var(--serif);font-weight:700}
-.share-card .sh-foot .c{font-size:12px;opacity:.85}
-/* 解锁清单（付费转化） */
 .unlock-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left;margin:18px 0}
 @media(max-width:560px){.unlock-list{grid-template-columns:1fr}}
 .ul-item{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;position:relative}
 .ul-item b{display:block;font-size:14.5px;color:var(--ink);margin-bottom:3px}
 .ul-item span{font-size:12.5px;color:var(--muted);line-height:1.5}
-.ul-item .pp{position:absolute;top:10px;right:10px;font-size:10px;background:var(--clay);color:#fff;padding:1px 7px;border-radius:999px;font-weight:700}
-/* 国家介绍页 */
+.ul-item .pp{position:absolute;top:10px;right:10px;font-size:10px;background:var(--brand);color:#fff;padding:1px 7px;border-radius:999px;font-weight:700}
 .good-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:560px){.good-grid{grid-template-columns:1fr}}
-.good-item{display:flex;gap:9px;align-items:flex-start;background:var(--pine-soft);border-radius:9px;padding:11px 13px;font-size:14.5px;color:#2d3b34}
-.good-item .tick{color:var(--pine);font-weight:800;flex:0 0 auto}
+.good-item{display:flex;gap:9px;align-items:flex-start;background:var(--brand-soft);border-radius:9px;padding:11px 13px;font-size:14.5px;color:#3a2c2e}
+.good-item .tick{color:var(--brand);font-weight:800;flex:0 0 auto}
 .path-item{border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:12px 14px;margin-bottom:9px}
-.path-item b{display:block;color:var(--pine);font-size:15px;margin-bottom:2px}
-.path-item span{font-size:14px;color:#4a564f}
-/* 六维：雷达 + 数值条 并排 */
-.six-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
-@media(max-width:640px){.six-wrap{grid-template-columns:1fr}}
-/* 逐国 scorecard */
-.scorecard{border:1px solid var(--line);border-radius:13px;padding:18px;margin-bottom:14px;background:linear-gradient(180deg,#fff,#fdfaf3)}
+.path-item b{display:block;color:var(--brand);font-size:15px;margin-bottom:2px}
+.path-item span{font-size:14px;color:#5a4c4e}
+.report-wrap{max-width:860px;margin:0 auto}
+.rsec{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:24px;margin-bottom:16px}
+.rsec h2{font-size:20px;color:var(--brand);display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;line-height:1.4}
+.rsec h2 .num{background:var(--brand);color:#fff;width:30px;height:30px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}
+.rsec h3{font-size:16px;margin:14px 0 6px;color:var(--ink)}
+.plain{list-style:none;margin:6px 0}
+.plain li{padding:7px 0 7px 22px;position:relative;border-bottom:1px solid var(--line);font-size:15px;color:#4a3c3e}
+.plain li:before{content:"—";position:absolute;left:0;color:var(--gold)}
+.scorecard{border:1px solid var(--line);border-radius:13px;padding:18px;margin-bottom:14px;background:linear-gradient(180deg,#fff,#fdf8f1)}
 .scorecard .sc-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-.scorecard .sc-head .fl{font-size:32px;flex:0 0 auto}
-.scorecard .sc-head .nm{font-family:var(--serif);font-size:19px;color:var(--pine);font-weight:700;flex:1 1 auto;min-width:0}
-.scorecard .sc-head .pathtag{font-size:12px;background:var(--pine-soft);color:var(--pine);padding:3px 10px;border-radius:999px;font-weight:600}
+.scorecard .sc-head .fl{font-size:28px;flex:0 0 auto}
+.scorecard .sc-head .nm{font-size:19px;color:var(--brand);font-weight:800;flex:1 1 auto;min-width:0}
+.scorecard .sc-head .pathtag{font-size:12px;background:var(--brand-soft);color:var(--brand);padding:3px 10px;border-radius:999px;font-weight:600}
 .scorecard .sc-score{margin-left:auto;text-align:right}
-.scorecard .sc-score b{font-family:var(--serif);font-size:26px}
-.gauge{height:8px;border-radius:999px;background:var(--pine-soft);overflow:hidden;margin:4px 0 12px}
+.scorecard .sc-score b{font-size:24px;font-weight:800}
+.gauge{height:8px;border-radius:999px;background:var(--brand-soft);overflow:hidden;margin:4px 0 12px}
 .gauge i{display:block;height:100%;border-radius:999px}
-/* 打分估算小表 */
 .pts{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
 .pts .cell{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 12px;font-size:13px;min-width:120px}
 .pts .cell .k{color:var(--muted);font-size:11px;display:block}
 .pts .cell .v{font-weight:700;color:var(--ink)}
-/* 国家对比表 */
-.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px}
-.cmp th,.cmp td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}
-.cmp th{background:var(--pine);color:#fff;font-weight:600;font-size:13px}
-.cmp th:first-child{border-radius:8px 0 0 0}.cmp th:last-child{border-radius:0 8px 0 0}
-.cmp tr:nth-child(even){background:#faf6ec}
-/* 费用 / 时间线 视觉 */
-.tl{list-style:none;margin:8px 0;border-left:2px solid var(--pine-soft);padding-left:16px}
-.tl li{position:relative;padding:6px 0 12px;font-size:14px;color:#3c4a43}
+.tl{list-style:none;margin:8px 0;border-left:2px solid var(--brand-soft);padding-left:16px}
+.tl li{position:relative;padding:6px 0 12px;font-size:14px;color:#4a3c3e}
 .tl li:before{content:"";position:absolute;left:-23px;top:10px;width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid #fff;box-shadow:0 0 0 1px var(--gold)}
 .costtab{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
 .costtab td{padding:8px 6px;border-bottom:1px dashed var(--line)}
-.costtab td:last-child{text-align:right;font-weight:700;color:var(--pine)}
-/* 移动端精修（小红书来量主要是手机端） */
+.costtab td:last-child{text-align:right;font-weight:700;color:var(--brand)}
+.report-actions{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 20px}
+.sev{font-size:12px;font-weight:700;padding:2px 9px;border-radius:6px;color:#fff}
+.share-overlay{position:fixed;inset:0;background:rgba(36,26,28,.72);z-index:500;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;overflow:auto}
+.share-card{width:332px;background:linear-gradient(165deg,#8E2C3B,#B23A4C);color:#fff;border-radius:18px;padding:26px 22px 22px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.share-card .sh-brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:16px}
+.share-card .sh-grade{text-align:center;margin:14px 0}
+.share-card .sh-grade .g{font-size:60px;font-weight:800;line-height:1}
+.share-card .sh-grade .s{font-size:13px;opacity:.85}
+.share-card .sh-row{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border-radius:10px;padding:9px 12px;margin-bottom:8px}
+.share-card .sh-row .fl{font-size:20px}
+.share-card .sh-row .nm{flex:1;font-weight:600;font-size:14px}
+.share-card .sh-row .tp{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+.share-card .sh-row .sc{font-weight:800;font-size:16px;min-width:26px;text-align:right}
+.share-card .sh-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.22)}
+.share-card .sh-foot .u{font-weight:800}
+.share-card .sh-foot .c{font-size:12px;opacity:.85}
+.disclaimer-box{font-size:12.5px;color:var(--muted);line-height:1.7;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px}
+footer.site{background:var(--ink);color:#d9cdc9;padding:36px 0;font-size:14px}
+footer.site a{color:#fff}
+footer.site .legal-links{margin-top:10px;display:flex;gap:18px;flex-wrap:wrap}
+footer.site .legal-links a{color:#b3a39f}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:10px;font-size:14px;z-index:400;box-shadow:var(--shadow)}
+.loading-bg{position:fixed;inset:0;background:rgba(246,241,234,.85);backdrop-filter:blur(3px);z-index:300;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.spinner{width:34px;height:34px;border:3px solid var(--line);border-top-color:var(--brand);border-radius:50%;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.pbar{width:300px;max-width:78vw;height:9px;border-radius:99px;background:var(--line);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:var(--brand);transition:width .4s}
+.lstage{font-size:13px;color:var(--muted);min-height:18px}
 @media(max-width:560px){
-  body{font-size:16px}
-  .container{padding:0 16px}
-  .btn{white-space:normal;line-height:1.3;min-height:46px}
-  .btn-lg{padding:14px 18px;font-size:16px}
-  .panel{padding:18px 16px}
-  .hero h1{font-size:29px}
-  .sec-title{font-size:23px}
-  .price-card{padding:22px 18px}
-  .scorecard{padding:15px 13px}
-  .pts .cell{min-width:0;flex:1}
-  .crow{padding:13px 12px}
-  .crow .fl{font-size:26px}
-  .crow .sc b{font-size:21px}
-  .value-strip{grid-template-columns:1fr 1fr}
-  .vchip{padding:14px 12px}
-  .vchip p{font-size:12px}
-  .rsec h2{font-size:17px}
-  .rsec h2 .num{width:26px;height:26px;font-size:13px}
-  .scorecard .sc-head .nm{font-size:17px}
-  .scorecard .sc-head .pathtag{font-size:11px}
+  body{font-size:16px}.container{padding:0 16px}
+  .btn{white-space:normal;line-height:1.3;min-height:46px}.btn-lg{padding:14px 18px;font-size:16px}
+  .panel{padding:18px 16px}.hero h1{font-size:29px}.sec-title{font-size:23px}
+  .value-strip{grid-template-columns:1fr 1fr}.vchip{padding:14px 12px}.vchip p{font-size:12px}
+  .crow .sc b{font-size:21px}.rsec h2{font-size:17px}.rsec h2 .num{width:26px;height:26px;font-size:13px}
+  .scorecard .sc-head .nm{font-size:17px}.six-wrap{grid-template-columns:1fr!important}
 }
-@media print{header.site,footer.site,.report-actions,.no-print{display:none!important}body{background:#fff}.rsec{break-inside:avoid;box-shadow:none}.page{padding:0}.six-wrap{grid-template-columns:1fr 1fr}}
+@media print{header.site,footer.site,.report-actions,.no-print{display:none!important}body{background:#fff}.rsec{break-inside:avoid;box-shadow:none}.page{padding:0}}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="container">
     <a class="brand" href="#" onclick="go('home');return false">
-      <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" fill="#14503F"/>
-        <circle cx="20" cy="20" r="13" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.4"/>
-        <ellipse cx="20" cy="20" rx="6.5" ry="13" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.4"/>
-        <line x1="7" y1="20" x2="33" y2="20" stroke="#fff" stroke-opacity=".35" stroke-width="1.4"/>
-        <path d="M20 9 L23 19 L20 17.5 L17 19 Z" fill="#C6603D"/>
-        <path d="M20 31 L17 21 L20 22.5 L23 21 Z" fill="#B68A4E"/>
-        <circle cx="20" cy="20" r="2.2" fill="#fff"/>
+      <svg class="mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="36" height="36" rx="9" fill="#8E2C3B"/>
+        <rect x="8.5" y="20" width="5" height="11" rx="1" fill="#fff" fill-opacity=".9"/>
+        <rect x="15.5" y="14" width="5" height="17" rx="1" fill="#fff" fill-opacity=".9"/>
+        <rect x="22.5" y="9" width="5" height="22" rx="1" fill="#fff"/>
+        <circle cx="25" cy="6.5" r="2.4" fill="#C2A14D"/>
       </svg>
-      <span class="name">移民雷达<small>YIMINSCOPE</small></span>
+      <span class="name">落户雷达<small>HUKOUSCOPE</small></span>
     </a>
     <nav class="nav-links">
       <a href="#how" onclick="go('home');setTimeout(()=>document.getElementById('how')?.scrollIntoView({behavior:'smooth'}),60);return false">怎么用</a>
       <a href="#price" onclick="go('home');setTimeout(()=>document.getElementById('price')?.scrollIntoView({behavior:'smooth'}),60);return false">报告</a>
       <a href="#" onclick="viewSample('premium');return false">样例报告</a>
-      <a href="#" onclick="startAssessment();return false" style="color:var(--clay);font-weight:700">免费测一测</a>
+      <a href="#" onclick="startAssessment();return false" style="color:var(--brand2);font-weight:700">免费测一测</a>
     </nav>
   </div>
 </header>
@@ -326,22 +240,21 @@ footer.site .legal-links a{color:#9fb0a7}
 
 <footer class="site">
   <div class="container">
-    <div style="font-family:var(--serif);font-size:18px;color:#fff">移民雷达 · YiminScope</div>
-    <div style="margin-top:6px">移民竞争力诊断 · 多国对比 · 仅供参考，非法律意见</div>
+    <div style="font-size:18px;color:#fff;font-weight:800">落户雷达 · HukouScope</div>
+    <div style="margin-top:6px">大城市落户竞争力诊断 · 多城市对比 · 仅供参考，非官方承诺</div>
     <div class="legal-links">
       <a href="#" onclick="go('terms');return false">服务条款</a>
       <a href="#" onclick="go('privacy');return false">隐私政策</a>
       <a href="#" onclick="go('disclaimer');return false">免责声明</a>
     </div>
-    <div style="margin-top:14px;color:#7f8f86;font-size:12px">© 2026 YiminScope。本站提供的是信息参考与自我评估工具，不构成移民、法律或投资建议。</div>
+    <div style="margin-top:14px;color:#8a7a76;font-size:12px">© 2026 HukouScope。本站提供信息参考与自我评估，不构成落户、法律或政策承诺。各地落户政策以官方为准。</div>
   </div>
 </footer>
 
 <script>
 /* ============================================================
-   YiminScope 移民雷达 — 单文件 SPA
-   架构沿用 OfferScope：RENDER 路由表 + history + localStorage
-   评分为「移民竞争力/匹配度」，非签证/绿卡批准概率。
+   HukouScope 落户雷达 — 单文件 SPA
+   评分为「落户竞争力/匹配度」，非落户成功承诺。政策常变，以官方为准。
 ============================================================ */
 const $=(s,r)=>(r||document).querySelector(s);
 const app=()=>document.getElementById('app');
@@ -349,194 +262,124 @@ const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;',
 function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),2600);}
 try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
 
-/* ---------------- 常量：国家 / 路径 ---------------- */
+/* ---------------- 落户方式 ---------------- */
 const PATHS={
-  skilled:{label:"技术 / 工作移民",short:"技术移民"},
-  talent:{label:"高端 / 杰出人才",short:"人才引进"},
-  invest:{label:"投资移民",short:"投资移民"},
-  startup:{label:"创业移民",short:"创业移民"},
-  study:{label:"留学转移民",short:"留学转移"},
-  family:{label:"亲属团聚",short:"亲属团聚"},
+  talent:{label:"学历 / 人才引进",short:"人才引进"},
+  fresh:{label:"应届毕业生落户",short:"应届落户"},
+  returnee:{label:"留学生落户",short:"留学落户"},
+  points:{label:"积分落户",short:"积分落户"},
+  residence:{label:"居转户（社保年限）",short:"居转户"},
+  invest:{label:"投资纳税 / 创业落户",short:"投资纳税"},
+  family:{label:"投靠 / 夫妻落户",short:"投靠落户"},
 };
-// 各路径的要素权重原型（age,edu,exp,lang,funds,adapt）总和≈1
 const PATH_W={
-  skilled:{age:.18,edu:.24,exp:.22,lang:.24,funds:.02,adapt:.10},
-  talent: {age:.10,edu:.30,exp:.28,lang:.16,funds:.04,adapt:.12},
-  invest: {age:.06,edu:.08,exp:.10,lang:.06,funds:.62,adapt:.08},
-  startup:{age:.12,edu:.18,exp:.22,lang:.14,funds:.24,adapt:.10},
-  study:  {age:.26,edu:.22,exp:.04,lang:.22,funds:.18,adapt:.08},
-  family: {age:.10,edu:.08,exp:.06,lang:.10,funds:.10,adapt:.56},
+  talent:   {edu:.34,age:.16,social:.12,school:.22,title:.10,bonus:.06},
+  fresh:    {edu:.26,age:.10,social:.04,school:.34,title:.04,bonus:.22},
+  returnee: {edu:.30,age:.14,social:.12,school:.20,title:.04,bonus:.20},
+  points:   {edu:.22,age:.16,social:.28,school:.08,title:.20,bonus:.06},
+  residence:{edu:.16,age:.10,social:.42,school:.04,title:.22,bonus:.06},
+  invest:   {edu:.12,age:.10,social:.26,school:.06,title:.12,bonus:.04},
+  family:   {edu:.10,age:.10,social:.20,school:.06,title:.08,bonus:.10},
 };
-// 国家配置：开放度按路径调节（>1 更易，<1 更难），lang 指定主语言
-const COUNTRIES={
-  canada:   {flag:"🇨🇦",name:"加拿大",en:"Canada",lang:"en",paths:["skilled","study","startup","invest","family"],
-    open:{skilled:1.05,study:1.0,startup:.95,invest:.85,family:.95}, note:"Express Entry 联邦快速通道 + 省提名（PNP），打分制（CRS）。"},
-  australia:{flag:"🇦🇺",name:"澳大利亚",en:"Australia",lang:"en",paths:["skilled","talent","invest","study","family"],
-    open:{skilled:1.0,talent:.95,invest:.85,study:1.0,family:.9}, note:"SkillSelect 技术移民打分（189/190/491），及格 65 分。"},
-  usa:      {flag:"🇺🇸",name:"美国",en:"USA",lang:"en",paths:["talent","invest","skilled","study","family"],
-    open:{talent:.9,invest:.95,skilled:.8,study:.95,family:.85}, note:"EB-1A 杰出人才 / EB-2 NIW 国家利益豁免 / EB-5 投资。"},
-  newzealand:{flag:"🇳🇿",name:"新西兰",en:"New Zealand",lang:"en",paths:["skilled","startup","invest","study"],
-    open:{skilled:1.0,startup:.95,invest:.9,study:1.0}, note:"Skilled Migrant 技术移民 6 分制，注重职业与收入。"},
-  uk:       {flag:"🇬🇧",name:"英国",en:"UK",lang:"en",paths:["skilled","talent","startup","study","family"],
-    open:{skilled:.95,talent:.9,startup:.9,study:1.0,family:.9}, note:"Skilled Worker 工签 / Global Talent 杰出人才 / Innovator 创业。"},
-  singapore:{flag:"🇸🇬",name:"新加坡",en:"Singapore",lang:"en",paths:["skilled","invest","study"],
-    open:{skilled:.9,invest:.9,study:.95}, note:"EP 就业准证→PR / GIP 全球投资者计划。"},
-  hongkong: {flag:"🇭🇰",name:"中国香港",en:"Hong Kong",lang:"en",paths:["talent","skilled","study","invest"],
-    open:{talent:1.05,skilled:1.0,study:1.05,invest:.95}, note:"高才通 TTPS / 优才 QMAS 打分 / 留学进修 IANG。"},
-  germany:  {flag:"🇩🇪",name:"德国",en:"Germany",lang:"de",paths:["skilled","study","startup"],
-    open:{skilled:1.0,study:1.0,startup:.9}, note:"欧盟蓝卡（EU Blue Card），看认证学历 + 工作合同 + 薪资。"},
-  portugal: {flag:"🇵🇹",name:"葡萄牙",en:"Portugal",lang:"other",paths:["invest","startup","study"],
-    open:{invest:1.05,startup:.95,study:1.0}, note:"黄金签证（投资）/ D7 被动收入 / D8 数字游民。"},
-  japan:    {flag:"🇯🇵",name:"日本",en:"Japan",lang:"ja",paths:["skilled","talent","invest","study"],
-    open:{skilled:1.0,talent:1.0,invest:.95,study:1.0}, note:"高度人才积分制（HSP），70 分快速永住通道。"},
+const CITIES={
+  shanghai:{fl:"🏙️",name:"上海",paths:["residence","returnee","fresh","talent","points","invest"],
+    open:{residence:1.0,returnee:1.0,fresh:.9,talent:.95,points:.85,invest:.9},
+    note:"居转户（持居住证+社保满7年+中级职称或社保倍数）、留学生落户、应届生打分（72分）、重点机构人才引进。"},
+  beijing:{fl:"🏯",name:"北京",paths:["talent","fresh","points","invest"],
+    open:{talent:.8,fresh:.8,points:.65,invest:.85},
+    note:"落户最难：积分落户名额极少、单位进京指标稀缺、人才引进门槛高。"},
+  shenzhen:{fl:"🌆",name:"深圳",paths:["talent","fresh","returnee","points","invest"],
+    open:{talent:1.1,fresh:1.05,returnee:1.05,points:1.0,invest:.95},
+    note:"相对友好：核准类（本科+社保、年龄达标可直接）、积分入户、留学生落户。"},
+  guangzhou:{fl:"🌇",name:"广州",paths:["talent","fresh","returnee","points","invest"],
+    open:{talent:1.05,fresh:1.0,returnee:1.0,points:.95,invest:.9},
+    note:"学历入户（本科+社保）、积分入户、留学生落户，整体较友好。"},
+  hangzhou:{fl:"🌉",name:"杭州",paths:["talent","fresh","returnee","points","invest"],
+    open:{talent:1.05,fresh:1.05,returnee:1.05,points:.95,invest:.9},
+    note:"数字人才友好：本科+社保可落、研究生先落后就业、留学生落户、积分落户。"},
+  chengdu:{fl:"🐼",name:"成都",paths:["talent","fresh","points","invest"],
+    open:{talent:1.1,fresh:1.05,points:1.0,invest:.9},
+    note:"抢人友好：全日制大专+、学历入户、积分入户、社保入户。"},
+  suzhou:{fl:"🏞️",name:"苏州",paths:["talent","fresh","points","invest"],
+    open:{talent:1.05,fresh:1.0,points:1.0,invest:.9},
+    note:"学历落户 + 社保落户 + 积分落户，门槛适中。"},
+  nanjing:{fl:"🏛️",name:"南京",paths:["talent","fresh","points","invest"],
+    open:{talent:1.05,fresh:1.0,points:1.0,invest:.9},
+    note:"研究生直接落、本科+社保、积分落户，对年轻人友好。"},
+  wuhan:{fl:"🌁",name:"武汉",paths:["talent","fresh","points","invest"],
+    open:{talent:1.1,fresh:1.1,points:1.0,invest:.9},
+    note:"大学生落户友好：毕业生、学历落户、积分落户门槛较低。"},
+  tianjin:{fl:"🎡",name:"天津",paths:["talent","fresh","points","invest"],
+    open:{talent:1.0,fresh:.95,points:.95,invest:.9},
+    note:"海河英才计划（学历型/资格型/技能型）、积分落户，叠加高考红利。"},
 };
-const COUNTRY_ORDER=["canada","australia","usa","newzealand","uk","singapore","hongkong","germany","portugal","japan"];
+const CITY_ORDER=["shanghai","beijing","shenzhen","guangzhou","hangzhou","chengdu","suzhou","nanjing","wuhan","tianjin"];
 
-// 国家介绍内容：让人看完"想去"，再"想测"。措辞偏吸引但保持客观，不承诺获批。
-const COUNTRY_INFO={
-  canada:{tag:"移民友好度天花板，福利与教育双在线",
-    intro:"加拿大常年稳居全球最受欢迎的移民国家前列：地广人稀、多元包容，对新移民几乎没有“外人”感。全民免费医疗、公立教育优质、护照免签全球 180+ 国家/地区，是想“一步到位拿成熟国家身份”的人的默认选项。",
-    good:["全民免费医疗（Medicare），看病不花钱","公立教育全球前列，子女可低成本读名校","移民路径成熟透明，打分制规则公开","福利完善：牛奶金、托儿补贴、退休金","承认双重国籍，住满 3 年即可入籍","自然环境与治安全球领先"],
-    paths:[["Express Entry 联邦快速通道","技术移民主力，按 CRS 打分择优邀请，年龄/学历/语言/经验是核心"],["省提名 PNP","绑定某省、对分数要求更低，紧缺职业更友好"],["留学转移民","读书→毕业工签→攒经验→转 PR，年轻人友好"],["创业 / 自雇","面向有商业计划或文体特长人士"]],
-    hook:"想要福利好、能落地生根的成熟国家身份？加拿大几乎绕不开。"},
-  australia:{tag:"阳光、高薪、技术移民老牌强国",
-    intro:"澳大利亚气候宜人、生活质量高，最低工资与人均收入常年全球领先，是技术移民的老牌目的地。打分制清晰，华人社区成熟，落地适应难度低。",
-    good:["阳光海岸 + 慢生活，幸福感拉满","时薪/最低工资全球前列，蓝领白领都体面","公立医疗 Medicare 覆盖","技术移民打分制透明可自评","华人多、配套成熟，落地不孤单","PR 满 4 年可入籍，护照强"],
-    paths:[["189 独立技术移民","不绑州、不绑雇主，凭分数走遍全澳"],["190 / 491 州担保","额外加分，对偏远地区更友好"],["雇主担保 482→186","有雇主即可，绕开高分竞争"],["投资 / 创业","面向资金充裕人群"]],
-    hook:"想要阳光、高收入和清晰的技术移民通道？澳洲值得认真算一算。"},
-  usa:{tag:"机会之地，人才与资本的终极舞台",
-    intro:"美国是全球事业与收入的天花板，顶尖高校、最强科研、最活跃的创业氛围都在这里。对高端人才和投资者，有不需要雇主的独立通道。",
-    good:["职业与收入上限全球最高","世界顶尖大学与科研资源","创新创业氛围无可替代","子女发展与教育空间大","杰出人才/国家利益豁免可自主申请"],
-    paths:[["EB-1A 杰出人才","面向各领域有突出成就者，无需雇主"],["EB-2 NIW 国家利益豁免","学历/成就达标即可自主申请，无需雇主"],["EB-5 投资移民","满足投资额与就业创造要求"],["职业 / 亲属移民","需关注排期"]],
-    hook:"如果你是某个领域的强者，美国能给的舞台别处给不了。"},
-  newzealand:{tag:"纯净自然 + 慢生活，技术移民门槛友好",
-    intro:"新西兰被称为“最后一片净土”，环境世界一流、节奏舒缓、治安极好，对紧缺职业和有本地雇主的人尤其友好。",
-    good:["环境与空气全球顶级","生活节奏慢、压力小","教育医疗体系完善","对紧缺职业与本地 offer 友好","英联邦护照，通行便利"],
-    paths:[["Skilled Migrant 技术移民","6 分制，看职业、收入与资质"],["创业 / 投资","面向有商业计划或资金人群"],["留学转移民","读书→工签→居留"]],
-    hook:"想换一种慢下来、靠近自然的活法？新西兰可能正合适。"},
-  uk:{tag:"老牌强国，教育与全球通行力俱佳",
-    intro:"英国教育底蕴深厚（罗素集团名校云集）、英语母语环境、金融与产业中心地位稳固，护照含金量高。对高端人才有不需雇主的通道。",
-    good:["顶尖教育，子女升学路径好","英语母语，无语言隔阂","NHS 公立医疗","护照通行力强","全球金融与文化中心"],
-    paths:[["Skilled Worker 工签","需持牌雇主担保 + 薪资达标"],["Global Talent 高端人才","领域成就达标，无需雇主"],["Innovator Founder 创业","有创新商业计划"],["留学转移民","读书→工签→满 5 年永居"]],
-    hook:"看重教育和英语环境？英国是绕不过的选择。"},
-  singapore:{tag:"低税、安全、亚洲枢纽，华人友好",
-    intro:"新加坡是全球最安全、最高效的城市之一，低税率、中英双语环境、顶尖教育与金融，且离中国近——很多人把它当作“不离亚洲的移民”。",
-    good:["治安全球最佳之一","税率低，财富友好","中英双语，文化无缝","教育金融世界一流","离中国近，往返方便"],
-    paths:[["EP 就业准证→PR","看学历与薪资，工作积累后申 PR"],["GIP 全球投资者计划","面向高净值人士的高额投资"],["留学转移民","名校路径"]],
-    hook:"想要低税、安全又不远离亚洲？新加坡很难被替代。"},
-  hongkong:{tag:"最快上车，离家近、文化通",
-    intro:"中国香港是周期最短、成本最低的身份方案之一：低税、国际金融中心、子女教育路径多（DSE/华侨生联考），且文化相通、离内地近，非常适合作为“快速上车”的过渡。",
-    good:["审批快、成本低，性价比极高","低税，营商自由","国际金融中心，机会多","子女可走 DSE / 华侨生联考","离内地近、语言文化相通","护照/特区护照通行力强"],
-    paths:[["高才通 TTPS","高薪人士或合资格名校毕业可快速申请"],["优才 QMAS","综合计分，达标即可"],["专才","有香港雇主"],["留学进修 IANG","在港读书后留港"]],
-    hook:"想最快拿到一个身份过渡、又不想离家太远？先看香港。"},
-  germany:{tag:"欧洲经济引擎，蓝卡通道清晰、公立免学费",
-    intro:"德国是欧洲制造业与工程强国，公立大学免学费、社会福利完善，欧盟蓝卡门槛清晰，拿到后可在欧盟范围内通行发展。",
-    good:["制造业/工程强国，就业机会实在","公立大学免学费","社会福利与医疗完善","欧盟身份，通行 27 国","蓝卡门槛清晰可预期"],
-    paths:[["欧盟蓝卡 EU Blue Card","认证学历 + 工作合同 + 薪资达标"],["找工作签证","先入境找工作再转工签"],["留学转移民","读书→工作→居留"],["创业签证","有商业计划"]],
-    hook:"理工/IT 背景想拿欧盟身份？德国蓝卡是条实在的路。"},
-  portugal:{tag:"欧洲身份性价比之选，气候宜人、门槛灵活",
-    intro:"葡萄牙气候温和、生活成本低、治安好，移民路径灵活（投资/被动收入/数字游民），部分项目对居住要求宽松，是性价比很高的欧盟身份入口。",
-    good:["气候宜人、生活成本低","治安好、节奏舒适","路径灵活，可投资或靠被动收入","欧盟身份，可通行申根","满 5 年可申永居/入籍，护照强"],
-    paths:[["黄金签证","投资基金或创造就业等合规方式"],["D7 被动收入","有稳定被动收入即可申请"],["D8 数字游民","远程工作者友好"]],
-    hook:"想用较轻的居住要求换一个欧盟身份？葡萄牙常是首选。"},
-  japan:{tag:"离家近、生活精致，高度人才快速永住",
-    intro:"日本医疗教育优质、治安极佳、生活便利精致，离中国近往返方便。高度人才积分制下，条件好的人最快 1–3 年即可申请永住。",
-    good:["治安全球顶级，生活便利","医疗教育优质","离中国近，往返成本低","生活精致、文化亲近","高度人才积分可快速永住"],
-    paths:[["高度人才签证 HSP","按学历/年收入/年龄/日语等积分，70 分起快速永住"],["工作签证→永住","正常工作积累后申请"],["经营管理签证","创业/投资经营"],["留学转移民","读书→就职"]],
-    hook:"想要离家近、生活质量高的选择？日本高度人才通道值得一看。"},
-};
+const EDU_LEVELS=["高中及以下","全日制大专","全日制本科","硕士","博士"];
+const SCHOOL_TIERS=["985 / 双一流","211 / 一本","普通本科","海外院校","大专 / 其他"];
+const TITLES=["无","技能等级（中级工+）","初级职称","中级职称","高级职称"];
+const SOCIAL=["未在目标城市缴纳","1 年以内","1–3 年","3–5 年","5–7 年","7 年以上"];
+const MOTIVES=["子女上学 / 高考","买房 / 买车资格","稳定与归属感","公共服务 / 医保","落户后规划发展"];
 
-const FIELDS=["IT / 软件","工程 / 制造","医疗 / 护理","金融 / 商科","科研 / 学术","教育 / 培训","技工 (电工/焊工/厨师等)","艺术 / 设计","管理 / 市场","其他"];
-const EDU_LEVELS=["高中及以下","大专","本科","硕士","博士"];
-const ENG_LEVELS=["几乎不会","基础（能日常）","中等（雅思5-6）","良好（雅思6.5-7）","优秀（雅思7.5+）"];
-const FUNDS=["50万以下","50–200万","200–500万","500–1000万","1000万以上"];
-const MOTIVES=["子女教育","事业发展","生活 / 居住环境","养老","资产配置 / 税务","护照 / 通行便利"];
-const TIES=["有海外亲属","有海外工作经历","有海外留学经历","目标国有雇主 / offer"];
+const DISCLAIMER="落户雷达提供的是基于你所填信息的落户竞争力自评与信息参考，<b>评分代表“竞争力/匹配度”，不代表落户审批结果或成功率</b>。各地落户政策、名额与细则经常调整，最终以当地公安、人社等官方部门口径为准。本工具<b>不构成落户、法律或政策承诺</b>，亦不提供代办服务。请在做出重大决定前以官方渠道或正规咨询为准。";
 
-const DISCLAIMER="移民雷达提供的是基于你所填信息的竞争力自评与信息参考，<b>评分代表“竞争力/匹配度”，不代表签证或永居获批概率</b>。各国移民政策、配额与审批标准经常变动，最终以官方与持牌移民顾问 / 律师的意见为准。本工具<b>不构成移民、法律或投资建议</b>，亦不提供中介代办。请在做出任何重大决定前咨询目标国持牌专业人士（如加拿大 RCIC、澳洲 MARA 注册顾问等）。";
-
-/* ---------------- 评分引擎（规则化、确定性） ---------------- */
-function ageScore(a){a=+a||0; if(a<18)return .25; if(a<=24)return .85; if(a<=30)return 1; if(a<=35)return .95; if(a<=40)return .78; if(a<=45)return .55; if(a<=50)return .32; return .15;}
-function eduScore(level,overseas){const m={"高中及以下":.2,"大专":.45,"本科":.7,"硕士":.88,"博士":1}; let s=m[level]??.5; if(overseas)s=Math.min(1,s+.1); return s;}
-function expScore(y,mgmt){y=+y||0; let s; if(y<=0)s=.1; else if(y<=2)s=.38; else if(y<=5)s=.66; else if(y<=9)s=.86; else s=1; if(mgmt)s=Math.min(1,s+.06); return s;}
-function engScore(level){const m={"几乎不会":0,"基础（能日常）":.28,"中等（雅思5-6）":.52,"良好（雅思6.5-7）":.8,"优秀（雅思7.5+）":1}; return m[level]??.4;}
-function fundsScore(f){const m={"50万以下":.05,"50–200万":.32,"200–500万":.58,"500–1000万":.82,"1000万以上":1}; return m[f]??.1;}
-function adaptScore(A){let s=.12; const t=A.ties||[]; s+=Math.min(.6,t.length*.18); if(A.overseasEdu)s+=.12; if(A.spouseStrong)s+=.1; return Math.min(1,s);}
-// 针对国家主语言的“语言要素”得分：英语国家用英语；德/日可用对应语言或英语折算
-function langForCountry(A,c){const eng=engScore(A.englishLevel); if(c.lang==="en")return eng;
-  if(c.lang==="de"){const de=({"无":0,"基础":.4,"中等":.7,"流利":1})[A.deLevel||"无"]||0; return Math.max(de, eng*.55);}
-  if(c.lang==="ja"){const ja=({"无":0,"基础":.4,"中等":.7,"流利":1})[A.jaLevel||"无"]||0; return Math.max(ja, eng*.4);}
-  return Math.max(eng*.5,.4); // 葡萄牙等：语言要求低，给基础分
-}
-function factorScores(A){
-  return {
-    age:ageScore(A.age),
-    edu:eduScore(A.education,A.overseasEdu),
-    exp:expScore(A.expYears,A.mgmt),
-    lang:engScore(A.englishLevel),
-    funds:fundsScore(A.funds),
-    adapt:adaptScore(A),
-  };
-}
-// 计算某国某路径的竞争力分（0-100）
-function scoreCountryPath(A,ckey,pkey){
-  const c=COUNTRIES[ckey]; const w=PATH_W[pkey]; if(!c||!w)return 0;
-  const f={age:ageScore(A.age),edu:eduScore(A.education,A.overseasEdu),exp:expScore(A.expYears,A.mgmt),
-    lang:langForCountry(A,c),funds:fundsScore(A.funds),adapt:adaptScore(A)};
-  let s=0,wt=0; for(const k in w){s+=w[k]*f[k];wt+=w[k];}
-  s=s/wt; // 归一
-  const open=(c.open&&c.open[pkey])||1;
-  s=s*open;
-  // 路径硬约束修正
-  if(pkey==="family"&&!(A.ties||[]).includes("有海外亲属"))s*=.4;       // 无海外亲属，团聚基本不适用
-  if(pkey==="invest"&&fundsScore(A.funds)<.3)s*=.5;                      // 投资路径资金不足
-  if(pkey==="study"&&(+A.age||0)>45)s*=.7;                              // 年龄偏大留学转移较难
-  if(pkey==="talent"&&eduScore(A.education,A.overseasEdu)<.7&&!A.mgmt)s*=.75;
+/* ---------------- 评分引擎 ---------------- */
+function eduScore(level){return ({"高中及以下":.2,"全日制大专":.45,"全日制本科":.72,"硕士":.88,"博士":1})[level]??.5;}
+function schoolScore(t){return ({"985 / 双一流":1,"211 / 一本":.82,"普通本科":.62,"海外院校":.9,"大专 / 其他":.42})[t]??.6;}
+function ageScore(a){a=+a||0;if(a<22)return .7;if(a<=30)return 1;if(a<=35)return .9;if(a<=40)return .7;if(a<=45)return .5;if(a<=50)return .3;return .15;}
+function socialScore(s){return ({"未在目标城市缴纳":.1,"1 年以内":.3,"1–3 年":.5,"3–5 年":.72,"5–7 年":.88,"7 年以上":1})[s]??.2;}
+function titleScore(t){return ({"无":.15,"技能等级（中级工+）":.5,"初级职称":.45,"中级职称":.75,"高级职称":1})[t]??.2;}
+function bonusScore(A){let s=.2;if(A.fresh)s=Math.max(s,.7);if(A.returnee){const sc=schoolScore(A.schoolTier);s=Math.max(s,sc>=.9?1:.7);}return Math.min(1,s);}
+function factorScores(A){return {edu:eduScore(A.education),school:schoolScore(A.schoolTier),age:ageScore(A.age),social:socialScore(A.social),title:titleScore(A.title),bonus:bonusScore(A)};}
+function scoreCityPath(A,ck,pk){
+  const c=CITIES[ck],w=PATH_W[pk];if(!c||!w)return 0;
+  const f=factorScores(A);
+  let s=0,wt=0;for(const k in w){s+=w[k]*f[k];wt+=w[k];}s/=wt;
+  s*=((c.open&&c.open[pk])||1);
+  if(pk==="fresh"&&!A.fresh)s*=.2;
+  if(pk==="returnee"&&!A.returnee)s*=.15;
+  if(pk==="talent"&&eduScore(A.education)<.7)s*=.55;
+  if(pk==="residence"&&socialScore(A.social)<.7)s*=.45;
+  if(pk==="points"&&socialScore(A.social)<.3)s*=.6;
+  if(pk==="invest"&&!A.invest)s*=.5;
+  if(pk==="family"&&!A.hasLocalFamily)s*=.3;
   return Math.max(4,Math.min(99,Math.round(s*100)));
 }
-// 在用户选定的路径里，为该国挑最佳路径
-function bestPathFor(A,ckey){
-  const c=COUNTRIES[ckey]; const cand=(A.paths&&A.paths.length?A.paths:c.paths).filter(p=>c.paths.includes(p));
-  const list=(cand.length?cand:c.paths).map(p=>({p,score:scoreCountryPath(A,ckey,p)})).sort((a,b)=>b.score-a.score);
-  return list[0];
+function bestPathFor(A,ck){
+  const c=CITIES[ck];let cand=(A.paths&&A.paths.length?A.paths:c.paths).filter(p=>c.paths.includes(p));
+  if(!cand.length)cand=c.paths;
+  return cand.map(p=>({p,score:scoreCityPath(A,ck,p)})).sort((a,b)=>b.score-a.score)[0];
 }
-function tierOf(s){ if(s>=78)return{k:"high",label:"高度匹配",color:"var(--t-high)"};
-  if(s>=62)return{k:"mid",label:"较有机会",color:"var(--t-mid)"};
-  if(s>=45)return{k:"low",label:"有难度·需提升",color:"var(--t-low)"};
-  return{k:"none",label:"暂不建议·路径受限",color:"var(--t-none)"};}
-function gradeOf(s){ if(s>=85)return"A"; if(s>=75)return"B+"; if(s>=65)return"B"; if(s>=55)return"C+"; if(s>=45)return"C"; return"D";}
-
+function tierOf(s){if(s>=78)return{k:"high",label:"高度匹配",color:"var(--t-high)"};if(s>=62)return{k:"mid",label:"较有机会",color:"var(--t-mid)"};if(s>=45)return{k:"low",label:"有难度·需补",color:"var(--t-low)"};return{k:"none",label:"暂不建议·门槛高",color:"var(--t-none)"};}
+function gradeOf(s){if(s>=85)return"A";if(s>=75)return"B+";if(s>=65)return"B";if(s>=55)return"C+";if(s>=45)return"C";return"D";}
 function computeResult(A){
-  const targets=(A.countries&&A.countries.length?A.countries:COUNTRY_ORDER.slice(0,5));
-  const rows=targets.map(ck=>{const bp=bestPathFor(A,ck);const c=COUNTRIES[ck];const t=tierOf(bp.score);
-    return {key:ck,flag:c.flag,name:c.name,score:bp.score,path:bp.p,pathLabel:PATHS[bp.p].short,tier:t,note:c.note};
-  }).sort((a,b)=>b.score-a.score);
+  const targets=(A.cities&&A.cities.length?A.cities:CITY_ORDER.slice(0,5));
+  const rows=targets.map(ck=>{const bp=bestPathFor(A,ck),c=CITIES[ck],t=tierOf(bp.score);
+    return {key:ck,fl:c.fl,name:c.name,score:bp.score,path:bp.p,pathLabel:PATHS[bp.p].short,tier:t,note:c.note};}).sort((a,b)=>b.score-a.score);
   const overall=rows.length?rows[0].score:0;
   const f=factorScores(A);
   const factors=[
-    {key:"age",name:"年龄",score:Math.round(f.age*100)},
     {key:"edu",name:"学历",score:Math.round(f.edu*100)},
-    {key:"lang",name:"语言",score:Math.round(f.lang*100)},
-    {key:"exp",name:"工作经验",score:Math.round(f.exp*100)},
-    {key:"funds",name:"资金实力",score:Math.round(f.funds*100)},
-    {key:"adapt",name:"适应力 / 关联",score:Math.round(f.adapt*100)},
+    {key:"school",name:"院校层次",score:Math.round(f.school*100)},
+    {key:"age",name:"年龄",score:Math.round(f.age*100)},
+    {key:"social",name:"社保年限",score:Math.round(f.social*100)},
+    {key:"title",name:"职称 / 技能",score:Math.round(f.title*100)},
+    {key:"bonus",name:"身份红利",score:Math.round(f.bonus*100)},
   ];
-  // 风险点（规则）
   const risks=[];
-  if(f.lang<.5)risks.push("语言尚未达到主流技术移民门槛，需要尽快考出合格的雅思 / 同等成绩。");
-  if((+A.age||0)>=40)risks.push("年龄在多数打分制里已过加分高峰，建议优先考虑对年龄不敏感的路径（如投资 / 雇主担保 / 香港高才）。");
-  if(f.edu<.7)risks.push("学历层次会限制部分技术移民与人才通道，可考虑先海外读书再转移民。");
-  if(f.exp<.5)risks.push("可计算的工作经验偏少，技术移民竞争力受限。");
-  if(f.funds<.3&&(A.paths||[]).some(p=>p==="invest"||p==="startup"))risks.push("当前资金量对投资 / 创业类路径偏紧，需重新评估预算或换路径。");
-  if(!risks.length)risks.push("整体条件均衡，建议聚焦 1–2 个最匹配国家深入准备，避免分散精力。");
-  return {overall,grade:gradeOf(overall),rows,factors,risks:risks.slice(0,4),factorRaw:f};
+  if(f.edu<.7)risks.push("学历是大城市落户最硬的门槛，本科以下多数人才引进通道走不通，可考虑提升学历或走积分/技能通道。");
+  if(f.social<.5)risks.push("目标城市社保/个税年限偏短，积分与居转户类通道受限，越早开始连续缴纳越有利。");
+  if((+A.age||0)>=40)risks.push("年龄已过多数落户通道的加分高峰，建议优先走学历核准或抓紧窗口。");
+  if(f.title<.5&&(A.paths||[]).includes("residence"))risks.push("居转户/积分很看职称，考一个中级职称能明显加分。");
+  if(!risks.length)risks.push("条件整体不错，建议锁定 1–2 个最匹配城市、确认细则后尽早启动。");
+  return {overall,grade:gradeOf(overall),rows,factors,risks:risks.slice(0,4)};
 }
 
-/* ---------------- 状态 / 存储 ---------------- */
-let A={}; let STEP=0; let userEmail=localStorage.getItem('ys_email')||'';
-function newAssessment(){A={id:'ys'+Date.now().toString(36),countries:[],paths:[],motive:[],ties:[],isPaid:false,createdAt:Date.now()};STEP=0;saveDB();}
-function saveDB(){try{localStorage.setItem('ys_current',JSON.stringify(A));}catch(e){}}
-function loadDB(){try{const s=localStorage.getItem('ys_current');if(s)A=JSON.parse(s);}catch(e){}}
+/* ---------------- 状态 ---------------- */
+let A={};let STEP=0;let userEmail=localStorage.getItem('hk_email')||'';
+function newAssessment(){A={id:'hk'+Date.now().toString(36),cities:[],paths:[],motive:[],isPaid:false,createdAt:Date.now()};STEP=0;saveDB();}
+function saveDB(){try{localStorage.setItem('hk_current',JSON.stringify(A));}catch(e){}}
+function loadDB(){try{const s=localStorage.getItem('hk_current');if(s)A=JSON.parse(s);}catch(e){}}
 
 /* ---------------- 路由 ---------------- */
 const RENDER={};
@@ -545,396 +388,248 @@ function go(v,arg){try{history.pushState({v,arg},'');}catch(e){}_render(v,arg);}
 window.addEventListener('popstate',e=>{const s=(e.state&&e.state.v)?e.state:{v:'home'};_render(s.v,s.arg);});
 function startAssessment(){newAssessment();go('assessment');}
 
-/* ---------------- 进度动画 ---------------- */
+/* ---------------- 进度 ---------------- */
 let _pTimer=null;
-function startProgress(title,stages,ms){
-  let i=0;const n=stages.length;ms=ms||9000;
-  app().innerHTML=`<div class="loading-bg"><div class="spinner"></div><div style="font-family:var(--serif);font-size:18px;color:var(--pine)">${esc(title)}</div><div class="pbar"><i id="pb"></i></div><div class="lstage" id="ps">${esc(stages[0])}</div></div>`;
+function startProgress(title,stages,ms){let i=0;const n=stages.length;ms=ms||9000;
+  app().innerHTML=`<div class="loading-bg"><div class="spinner"></div><div style="font-size:18px;color:var(--brand);font-weight:700">${esc(title)}</div><div class="pbar"><i id="pb"></i></div><div class="lstage" id="ps">${esc(stages[0])}</div></div>`;
   const pb=$('#pb'),ps=$('#ps');let pct=0;
-  _pTimer=setInterval(()=>{pct=Math.min(96,pct+Math.random()*9+3);if(pb)pb.style.width=pct+'%';i=Math.min(n-1,Math.floor(pct/100*n));if(ps)ps.textContent=stages[i];},ms/14);
-}
+  _pTimer=setInterval(()=>{pct=Math.min(96,pct+Math.random()*9+3);if(pb)pb.style.width=pct+'%';i=Math.min(n-1,Math.floor(pct/100*n));if(ps)ps.textContent=stages[i];},ms/14);}
 function finishProgress(){return new Promise(r=>{const pb=$('#pb');if(pb)pb.style.width='100%';clearInterval(_pTimer);setTimeout(r,250);});}
 function showLoading(t){app().innerHTML=`<div class="loading-bg"><div class="spinner"></div><div class="lstage">${esc(t||'处理中…')}</div></div>`;}
-function hideLoading(){}
 
-/* ---------------- AI 调用（带回退） ---------------- */
-async function aiPost(url,payload){
-  try{const ctrl=new AbortController();const to=setTimeout(()=>ctrl.abort(),150000);
-    const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:ctrl.signal});
-    clearTimeout(to);const j=await r.json();return (j&&j.ok)?j.data:null;
-  }catch(e){return null;}
-}
-function aiProfile(){
-  return {countries:(A.countries||[]).map(k=>COUNTRIES[k].name),paths:(A.paths||[]).map(k=>PATHS[k].short),
-    age:A.age,education:A.education,overseasEdu:A.overseasEdu?'有':'无',field:A.field,expYears:A.expYears,mgmt:A.mgmt?'有管理经历':'无',
-    englishLevel:A.englishLevel,funds:A.funds,maritalFamily:A.maritalFamily,spouseStrong:A.spouseStrong?'配偶学历/语言较强':'',
-    ties:A.ties,motive:A.motive,extra:A.extra||'',
-    deepInfo:{occupation:A.deepOcc||'',salary:A.deepSalary||'',languageScore:A.deepLang||'',netWorth:A.deepNet||'',jobOffer:A.deepOffer||'',spouse:A.deepSpouse||''},
-    deepQuestions:A.deepQs||[],deepAnswers:A.deepAnswers||{},
-    followUpQuestions:A.followUpQuestions||[],followUpAnswers:A.followUpAnswers||{}};
-}
+/* ---------------- AI ---------------- */
+async function aiPost(url,payload){try{const ctrl=new AbortController();const to=setTimeout(()=>ctrl.abort(),150000);
+  const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:ctrl.signal});
+  clearTimeout(to);const j=await r.json();return (j&&j.ok)?j.data:null;}catch(e){return null;}}
+function aiProfile(){return {cities:(A.cities||[]).map(k=>CITIES[k].name),paths:(A.paths||[]).map(k=>PATHS[k].short),
+  age:A.age,education:A.education,schoolTier:A.schoolTier,fresh:A.fresh?'应届毕业生':'非应届',returnee:A.returnee?'留学回国':'无',
+  social:A.social,title:A.title,hasLocalFamily:A.hasLocalFamily?'有本地直系亲属':'无',invest:A.invest?'考虑投资/纳税':'',
+  motive:A.motive,extra:A.extra||'',
+  deepInfo:{occupation:A.deepOcc||'',company:A.deepCompany||'',salary:A.deepSalary||'',socialDetail:A.deepSocial||'',houseTax:A.deepHouse||''},
+  deepQuestions:A.deepQs||[],deepAnswers:A.deepAnswers||{},
+  followUpQuestions:A.followUpQuestions||[],followUpAnswers:A.followUpAnswers||{}};}
 
-/* ============================================================
-   HOME
-============================================================ */
+/* ============================================================ HOME ============================================================ */
 RENDER.home=function(){
-  const chips=COUNTRY_ORDER.map(k=>`<span class="flagchip" onclick="go('country','${k}')"><span class="fl">${COUNTRIES[k].flag}</span>${COUNTRIES[k].name}<span class="ar">›</span></span>`).join('');
+  const chips=CITY_ORDER.map(k=>`<span class="citychip" onclick="go('city','${k}')"><span class="fl">${CITIES[k].fl}</span>${CITIES[k].name}<span class="ar">›</span></span>`).join('');
   app().innerHTML=`
   <section class="hero"><div class="container">
-    <div class="eyebrow">移民竞争力诊断 · 10 国对比 · 3 分钟</div>
-    <h1>同样的条件，<br>有人顺利上岸，<br>有人<span class="u">卡了三五年</span>。</h1>
-    <p class="sub">差别常常在一开始就选错了国家和路子。加拿大拼分数，香港看背景，葡萄牙看钱，澳洲挑职业——门道各不相同。把你的情况填进来，我帮你算清楚：哪个国家够得着、哪条路最省力、现在还差哪一步。</p>
+    <div class="eyebrow">落户竞争力诊断 · 10 城对比 · 3 分钟</div>
+    <h1>同样在大城市打拼，<br>有人落了户，<span class="u">有人卡在门槛外</span>。</h1>
+    <p class="sub">学历、社保年限、职称、应届/海归身份——每座城市的落户规则都不一样。把你的情况填进来，落户雷达按各地规则告诉你：哪个城市够得着、走哪条路、还差哪一步。</p>
     <div class="cta-row">
-      <button class="btn btn-clay btn-lg" onclick="startAssessment()">免费测我的移民竞争力 →</button>
+      <button class="btn btn-brand btn-lg" onclick="startAssessment()">免费测我的落户竞争力 →</button>
       <button class="btn btn-white btn-lg" onclick="viewSample('premium')">看一份样例报告 →</button>
     </div>
-    <div class="assist">完全免费开始 · 约 3 分钟 · 立即出结果，无需注册 · 仅供参考，非法律意见</div>
-    <div style="font-size:13px;color:var(--muted);margin-top:24px;margin-bottom:-14px">👇 点国家，先看看那里到底好在哪、怎么移</div>
-    <div class="flagband">${chips}</div>
+    <div class="assist">完全免费开始 · 约 3 分钟 · 立即出结果，无需注册 · 仅供参考，非官方承诺</div>
+    <div style="font-size:13px;color:var(--muted);margin-top:24px;margin-bottom:-14px">👇 点城市，先看看那里落户有多值、政策怎么走</div>
+    <div class="cityband">${chips}</div>
   </div></section>
 
   <section class="block alt"><div class="container">
-    <h2 class="sec-title">最贵的不是中介费，<span style="color:var(--clay)">是押错方向耗掉的那几年</span></h2>
+    <h2 class="sec-title">最耗的不是社保年限，<span style="color:var(--brand)">是稀里糊涂错过了窗口</span></h2>
     <div class="pain-grid">
-      ${["我这条件，到底够得上哪个国家？","三家中介三个说法，到底信谁？","技术、投资、留学转，我该走哪条？","是年龄拖后腿，还是语言、学历？","花几十万签约前，能不能先有个数？","全家一起走，配偶孩子能加多少分？"].map(q=>`<div class="pain"><span class="q">?</span><span>${q}</span></div>`).join('')}
+      ${["我这条件，到底能落哪个城市？","学历落户、积分、居转户，我该走哪条？","社保还要再交几年才够？","是学历卡我，还是差个职称？","为了孩子上学，到底来不来得及？","中介说花钱包落户，是真的吗？"].map(q=>`<div class="pain"><span class="q">?</span><span>${q}</span></div>`).join('')}
     </div>
   </div></section>
 
   <section class="block" id="how"><div class="container">
     <h2 class="sec-title">三分钟，先把自己的底摸清楚</h2>
-    <p class="sec-sub">它替代不了持牌顾问，但能让你在掏钱、签约之前，心里先有杆秤。</p>
+    <p class="sec-sub">它替代不了官方窗口，但能让你在花时间、找中介之前，心里先有杆秤。</p>
     <div class="steps">
-      <div class="step"><b>挑国家、选路子</b><span>从 10 个国家里勾你考虑过的，想走技术、投资还是留学转，自己选。</span></div>
-      <div class="step"><b>填背景，答几个问题</b><span>年龄、学历、语言、经验、资金这些填一下，再答 2–3 个关键追问。</span></div>
-      <div class="step"><b>看结果</b><span>哪个国家最稳、走哪条路、卡在哪一项，一张表说清楚。</span></div>
+      <div class="step"><b>挑城市、选方式</b><span>从 10 个大城市里勾你考虑的，想走学历、积分还是居转户，自己选。</span></div>
+      <div class="step"><b>填背景，答几个问题</b><span>学历、院校、年龄、社保年限、职称这些填一下，再答 2–3 个关键追问。</span></div>
+      <div class="step"><b>看结果</b><span>哪个城市最稳、走哪条路、卡在哪一项，一张表说清楚。</span></div>
     </div>
   </div></section>
 
   <section class="block alt"><div class="container tight">
     <div class="quote-band">
-      <div class="big">“别急着签中介。<br>花 3 分钟，先看看自己手里这副牌能打到哪。”</div>
+      <div class="big">“别急着找代办。<br>花 3 分钟，先看清自己离落户还差几步。”</div>
       <div class="small">不用注册、不用付钱，填完就出结果。</div>
-      <div style="margin-top:20px"><button class="btn btn-clay btn-lg" onclick="startAssessment()">免费开始 →</button></div>
+      <div style="margin-top:20px"><button class="btn btn-brand btn-lg" onclick="startAssessment()">免费开始 →</button></div>
     </div>
   </div></section>
 
   <section class="block"><div class="container">
     <h2 class="sec-title">测完，你大概能想明白这几件事</h2>
     <div class="value-strip">
-      ${[["🧭","该先攻哪个国家","不用一上来就广撒网、白交申请费"],["🎯","到底卡在哪","是年龄、语言还是资金，一眼看出来"],["🗺️","下一步做什么","先补语言还是先做认证，有先后"],["📋","签约前有个数","几十万花下去之前，先有个参照"],["👨‍👩‍👧","跟家人说得清","一份配偶、爸妈都看得懂的明白账"],["⚖️","听得出真假","中介说“你肯定能办”，你能自己判断"]].map(v=>`<div class="vchip"><div class="ic">${v[0]}</div><b>${v[1]}</b><p>${v[2]}</p></div>`).join('')}
+      ${[["🧭","该先攻哪个城市","不用盲目等社保、错过窗口"],["🎯","到底卡在哪","是学历、社保还是职称，一眼看出"],["🗺️","下一步做什么","先考职称还是先攒社保，有先后"],["📋","找代办前有个数","花钱之前，先有个客观参照"],["👨‍👩‍👧","为孩子算时间","上学/高考的落户时间窗对得上吗"],["⚖️","听得出真假","“包落户”的话术，你能自己判断"]].map(v=>`<div class="vchip"><div class="ic">${v[0]}</div><b>${v[1]}</b><p>${v[2]}</p></div>`).join('')}
     </div>
   </div></section>
 
   <section class="block alt" id="price"><div class="container">
-    <h2 class="sec-title" style="text-align:center">想看完整规划？测完再说也不迟</h2>
-    <p class="sec-sub" style="text-align:center;margin-left:auto;margin-right:auto">免费那版告诉你"行不行、去哪"，付费这版告诉你"具体怎么做"。一次买断，不订阅，能下载 PDF。</p>
+    <h2 class="sec-title" style="text-align:center">想看完整方案？测完再说也不迟</h2>
+    <p class="sec-sub" style="text-align:center;margin-left:auto;margin-right:auto">免费那版告诉你“行不行、去哪”，付费这版告诉你“具体怎么做”。一次买断，不订阅，能下载 PDF。</p>
     <div class="pricing">
       <div class="price-card">
-        <h3>竞争力诊断报告</h3>
+        <h3>落户竞争力诊断报告</h3>
         <div class="price">¥19<small> 一次性</small></div>
-        <p class="desc">想把每个国家差在哪、门槛多高、分怎么算，弄明白。</p>
-        <ul>${["六维竞争力详解","各国匹配度 + 最优路径","逐国关键门槛清单","主要风险与应对","语言 / 材料准备方向"].map(b=>`<li>${b}</li>`).join('')}</ul>
-        <button class="btn btn-pine btn-block" onclick="startAssessment()">免费测，测完可解锁</button>
+        <p class="desc">想把每个城市差在哪、门槛多高、分怎么算，弄明白。</p>
+        <ul>${["六维竞争力详解","各城市匹配度 + 最优落户方式","逐城关键门槛清单","主要风险与应对","材料 / 时间准备方向"].map(b=>`<li>${b}</li>`).join('')}</ul>
+        <button class="btn btn-brand btn-block" onclick="startAssessment()">免费测，测完可解锁</button>
       </div>
       <div class="price-card feat">
-        <span class="tag">规划更完整</span>
-        <h3>全路径移民规划报告</h3>
+        <span class="tag">方案更完整</span>
+        <h3>全路径落户规划报告</h3>
         <div class="price">¥49<small> 一次性</small></div>
-        <p class="desc">想要照着就能动手的多国方案、时间表和花钱预算。</p>
-        <ul>${["诊断版全部内容","Top 国家逐条路径详解","申请时间线（按月）","费用预算区间","替代路径 / Plan B","配偶子女加分策略","12 个月行动计划","家庭决策总结"].map(b=>`<li>${b}</li>`).join('')}</ul>
-        <button class="btn btn-clay btn-block" onclick="startAssessment()">免费测，测完可解锁</button>
+        <p class="desc">想要照着就能动手的城市路径、时间表和材料清单。</p>
+        <ul>${["诊断版全部内容","Top 城市逐条路径详解","落户时间线（按阶段）","材料清单 + 办理顺序","替代路径 / Plan B","职称/社保提升策略","12 个月行动计划","家庭/子女落户时间测算"].map(b=>`<li>${b}</li>`).join('')}</ul>
+        <button class="btn btn-gold btn-block" onclick="startAssessment()">免费测，测完可解锁</button>
       </div>
     </div>
     <div style="max-width:780px;margin:26px auto 0"><div class="disclaimer-box">${DISCLAIMER}</div></div>
   </div></section>`;
 };
 
-/* ============================================================
-   ASSESSMENT （多步）
-============================================================ */
-const STEP_LABELS=["国家","路径","背景","语言资金","家庭目标","追问"];
+/* ============================================================ ASSESSMENT ============================================================ */
+const STEP_LABELS=["城市","方式","学历","社保职称","目标","追问"];
 function stepperHTML(){return `<div class="stepper">${STEP_LABELS.map((l,i)=>`<div class="s ${i===STEP?'active':i<STEP?'done':''}">${i+1}.${l}</div>`).join('')}</div>`;}
-
 RENDER.assessment=function(){
   if(!A.id)newAssessment();
   let body='';
-  if(STEP===0)body=stepCountries();
-  else if(STEP===1)body=stepPaths();
-  else if(STEP===2)body=stepBackground();
-  else if(STEP===3)body=stepLangFunds();
-  else if(STEP===4)body=stepFamily();
-  else if(STEP===5)body=stepFollowUp();
-  app().innerHTML=`<div class="page"><div class="container tight">
-    <div class="panel">${stepperHTML()}${body}</div>
-    <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:14px">${DISCLAIMER}</p>
-  </div></div>`;
+  if(STEP===0)body=stepCities();else if(STEP===1)body=stepPaths();else if(STEP===2)body=stepEdu();
+  else if(STEP===3)body=stepSocial();else if(STEP===4)body=stepGoal();else if(STEP===5)body=stepFollowUp();
+  app().innerHTML=`<div class="page"><div class="container tight"><div class="panel">${stepperHTML()}${body}</div>
+    <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:14px">${DISCLAIMER}</p></div></div>`;
 };
-
-function stepCountries(){
-  const grid=COUNTRY_ORDER.map(k=>{const c=COUNTRIES[k];const sel=(A.countries||[]).includes(k);
-    return `<div class="choice ${sel?'sel':''}" onclick="toggleCountry('${k}')"><span class="fl">${c.flag}</span>${c.name}</div>`;}).join('');
-  return `<div class="eyebrow2">第一步</div>
-    <h2 style="font-size:24px;margin:6px 0 4px">你考虑去哪些国家？</h2>
-    <p style="color:var(--muted);font-size:14px;margin-bottom:16px">可多选（建议 2–5 个用于对比）。不确定也没关系，先全选感兴趣的，结果会帮你排序。</p>
+function stepCities(){
+  const grid=CITY_ORDER.map(k=>{const c=CITIES[k],sel=(A.cities||[]).includes(k);return `<div class="choice ${sel?'sel':''}" onclick="toggleCity('${k}')"><span style="margin-right:5px">${c.fl}</span>${c.name}</div>`;}).join('');
+  return `<div class="eyebrow2">第一步</div><h2 style="font-size:24px;margin:6px 0 4px">你考虑落户哪些城市？</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:16px">可多选（建议 2–5 个对比）。不确定就先全选感兴趣的，结果会帮你排序。</p>
     <div class="choices">${grid}</div>
     <div style="display:flex;justify-content:space-between;margin-top:26px;gap:10px">
       <button class="btn btn-ghost" onclick="go('home')">← 返回</button>
-      <button class="btn btn-pine" onclick="nextStep()" ${(A.countries||[]).length?'':'disabled'}>下一步 →</button>
-    </div>`;
+      <button class="btn btn-brand" onclick="nextStep()" ${(A.cities||[]).length?'':'disabled'}>下一步 →</button></div>`;
 }
-function toggleCountry(k){A.countries=A.countries||[];const i=A.countries.indexOf(k);if(i<0)A.countries.push(k);else A.countries.splice(i,1);saveDB();RENDER.assessment();}
-
+function toggleCity(k){syncInputs();A.cities=A.cities||[];const i=A.cities.indexOf(k);if(i<0)A.cities.push(k);else A.cities.splice(i,1);saveDB();RENDER.assessment();}
 function stepPaths(){
-  // 仅展示所选国家支持的路径并集
-  const avail=new Set();(A.countries||[]).forEach(k=>COUNTRIES[k].paths.forEach(p=>avail.add(p)));
+  const avail=new Set();(A.cities||[]).forEach(k=>CITIES[k].paths.forEach(p=>avail.add(p)));
   const list=Object.keys(PATHS).filter(p=>avail.has(p));
   const grid=list.map(p=>{const sel=(A.paths||[]).includes(p);return `<div class="choice ${sel?'sel':''}" onclick="togglePath('${p}')">${PATHS[p].label}</div>`;}).join('');
-  return `<div class="eyebrow2">第二步</div>
-    <h2 style="font-size:24px;margin:6px 0 4px">你倾向哪种移民路径？</h2>
-    <p style="color:var(--muted);font-size:14px;margin-bottom:16px">可多选，也可以不选（不选则系统自动为每个国家挑最优路径）。</p>
+  return `<div class="eyebrow2">第二步</div><h2 style="font-size:24px;margin:6px 0 4px">你倾向哪种落户方式？</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:16px">可多选，也可以不选（不选则系统为每个城市自动挑最优方式）。</p>
     <div class="choices">${grid}</div>
     <div style="display:flex;justify-content:space-between;margin-top:26px;gap:10px">
       <button class="btn btn-ghost" onclick="prevStep()">← 上一步</button>
-      <button class="btn btn-pine" onclick="nextStep()">下一步 →</button>
-    </div>`;
+      <button class="btn btn-brand" onclick="nextStep()">下一步 →</button></div>`;
 }
-function togglePath(p){A.paths=A.paths||[];const i=A.paths.indexOf(p);if(i<0)A.paths.push(p);else A.paths.splice(i,1);saveDB();RENDER.assessment();}
-
-function selHTML(id,label,options,val,hint){
-  return `<div class="field"><label>${label}</label><select id="${id}">
-    <option value="">请选择</option>${options.map(o=>`<option ${val===o?'selected':''}>${o}</option>`).join('')}</select>
-    ${hint?`<div class="hint">${hint}</div>`:''}</div>`;
-}
-function stepBackground(){
-  return `<div class="eyebrow2">第三步</div>
-    <h2 style="font-size:24px;margin:6px 0 12px">你的基本背景</h2>
+function togglePath(p){syncInputs();A.paths=A.paths||[];const i=A.paths.indexOf(p);if(i<0)A.paths.push(p);else A.paths.splice(i,1);saveDB();RENDER.assessment();}
+function selHTML(id,label,opts,val,hint){return `<div class="field"><label>${label}</label><select id="${id}"><option value="">请选择</option>${opts.map(o=>`<option ${val===o?'selected':''}>${o}</option>`).join('')}</select>${hint?`<div class="hint">${hint}</div>`:''}</div>`;}
+function stepEdu(){
+  return `<div class="eyebrow2">第三步</div><h2 style="font-size:24px;margin:6px 0 12px">你的学历与背景</h2>
+    <div class="grid2">${selHTML('education','最高学历',EDU_LEVELS,A.education)}${selHTML('schoolTier','院校层次',SCHOOL_TIERS,A.schoolTier,'落户多按全日制学历认定')}</div>
+    <div class="field"><label>年龄</label><input type="number" id="age" min="16" max="70" value="${esc(A.age||'')}" placeholder="如 30"></div>
     <div class="grid2">
-      <div class="field"><label>年龄</label><input type="number" id="age" min="16" max="70" value="${esc(A.age||'')}" placeholder="如 32"></div>
-      ${selHTML('education','最高学历',EDU_LEVELS,A.education)}
-    </div>
-    <div class="field"><label>是否有海外学历？</label>
-      <div class="choices"><div class="choice ${A.overseasEdu?'sel':''}" onclick="setBool('overseasEdu',true)">有</div><div class="choice ${A.overseasEdu===false?'sel':''}" onclick="setBool('overseasEdu',false)">无</div></div></div>
-    ${selHTML('field','专业 / 职业领域',FIELDS,A.field,'技工类（电工、焊工、厨师等）在加澳新等国常有专门通道')}
-    <div class="grid2">
-      <div class="field"><label>工作经验（年）</label><input type="number" id="expYears" min="0" max="50" value="${esc(A.expYears||'')}" placeholder="如 6"></div>
-      <div class="field"><label>是否有管理 / 高管经历？</label>
-        <div class="choices"><div class="choice ${A.mgmt?'sel':''}" onclick="setBool('mgmt',true)">有</div><div class="choice ${A.mgmt===false?'sel':''}" onclick="setBool('mgmt',false)">无</div></div></div>
+      <div class="field"><label>是否应届毕业生？</label><div class="choices"><div class="choice ${A.fresh?'sel':''}" onclick="setBool('fresh',true)">是</div><div class="choice ${A.fresh===false?'sel':''}" onclick="setBool('fresh',false)">否</div></div></div>
+      <div class="field"><label>是否留学回国？</label><div class="choices"><div class="choice ${A.returnee?'sel':''}" onclick="setBool('returnee',true)">是</div><div class="choice ${A.returnee===false?'sel':''}" onclick="setBool('returnee',false)">否</div></div></div>
     </div>
     <div style="display:flex;justify-content:space-between;margin-top:18px;gap:10px">
-      <button class="btn btn-ghost" onclick="saveBackground();prevStep()">← 上一步</button>
-      <button class="btn btn-pine" onclick="if(saveBackground())nextStep()">下一步 →</button>
-    </div>`;
-}
-// 重新渲染前，把当前页已输入但尚未保存的字段抓存下来，避免点选项导致输入被清空
-function syncInputs(){
-  const g=id=>{const e=$('#'+id);return e?e.value:undefined;};let v;
-  if((v=g('age'))!==undefined)A.age=v;
-  if((v=g('education'))!==undefined&&v)A.education=v;
-  if((v=g('field'))!==undefined&&v)A.field=v;
-  if((v=g('expYears'))!==undefined)A.expYears=v;
-  if((v=g('englishLevel'))!==undefined&&v)A.englishLevel=v;
-  if((v=g('funds'))!==undefined&&v)A.funds=v;
-  if((v=g('deLevel'))!==undefined)A.deLevel=v||'无';
-  if((v=g('jaLevel'))!==undefined)A.jaLevel=v||'无';
-  if((v=g('maritalFamily'))!==undefined&&v)A.maritalFamily=v;
-  if((v=g('extra'))!==undefined)A.extra=v;
+      <button class="btn btn-ghost" onclick="saveEdu();prevStep()">← 上一步</button>
+      <button class="btn btn-brand" onclick="if(saveEdu())nextStep()">下一步 →</button></div>`;
 }
 function setBool(k,v){syncInputs();A[k]=v;saveDB();RENDER.assessment();}
-function saveBackground(){A.age=$('#age')?.value||A.age;A.education=$('#education')?.value||A.education;A.field=$('#field')?.value||A.field;A.expYears=$('#expYears')?.value||A.expYears;saveDB();
-  if(!A.age||!A.education){toast('请填写年龄和最高学历');return false;}return true;}
-
-function stepLangFunds(){
-  return `<div class="eyebrow2">第四步</div>
-    <h2 style="font-size:24px;margin:6px 0 12px">语言与资金</h2>
-    ${selHTML('englishLevel','英语水平',ENG_LEVELS,A.englishLevel,'技术移民几乎都要英语成绩；没考过可按预估选')}
-    ${selHTML('funds','家庭可投入资金 / 可投资资产（人民币）',FUNDS,A.funds,'投资 / 创业类路径才高度看重这项；技术移民影响较小')}
-    <div class="field"><label>德语 / 日语水平（若考虑德国 / 日本，选填）</label>
-      <div class="grid2">
-        <select id="deLevel"><option value="">德语：无</option>${["基础","中等","流利"].map(o=>`<option ${A.deLevel===o?'selected':''}>${o}</option>`).join('')}</select>
-        <select id="jaLevel"><option value="">日语：无</option>${["基础","中等","流利"].map(o=>`<option ${A.jaLevel===o?'selected':''}>${o}</option>`).join('')}</select>
-      </div></div>
+function saveEdu(){A.education=$('#education')?.value||A.education;A.schoolTier=$('#schoolTier')?.value||A.schoolTier;A.age=$('#age')?.value||A.age;saveDB();if(!A.education||!A.age){toast('请填写最高学历和年龄');return false;}return true;}
+function stepSocial(){
+  return `<div class="eyebrow2">第四步</div><h2 style="font-size:24px;margin:6px 0 12px">社保与职称</h2>
+    ${selHTML('social','在目标城市的社保 / 个税年限',SOCIAL,A.social,'积分与居转户类通道很看这项；多城市则按你最久的那个填')}
+    ${selHTML('title','职称 / 技能等级',TITLES,A.title,'中级职称对居转户、积分加分明显')}
+    <div class="field"><label>是否考虑投资 / 纳税大户 / 创业落户？</label><div class="choices"><div class="choice ${A.invest?'sel':''}" onclick="setBool('invest',true)">考虑</div><div class="choice ${A.invest===false?'sel':''}" onclick="setBool('invest',false)">不考虑</div></div></div>
+    <div class="field"><label>目标城市是否有配偶 / 父母等直系亲属户口？</label><div class="choices"><div class="choice ${A.hasLocalFamily?'sel':''}" onclick="setBool('hasLocalFamily',true)">有</div><div class="choice ${A.hasLocalFamily===false?'sel':''}" onclick="setBool('hasLocalFamily',false)">无</div></div></div>
     <div style="display:flex;justify-content:space-between;margin-top:18px;gap:10px">
-      <button class="btn btn-ghost" onclick="saveLangFunds();prevStep()">← 上一步</button>
-      <button class="btn btn-pine" onclick="if(saveLangFunds())nextStep()">下一步 →</button>
-    </div>`;
+      <button class="btn btn-ghost" onclick="saveSocial();prevStep()">← 上一步</button>
+      <button class="btn btn-brand" onclick="if(saveSocial())nextStep()">下一步 →</button></div>`;
 }
-function saveLangFunds(){A.englishLevel=$('#englishLevel')?.value||A.englishLevel;A.funds=$('#funds')?.value||A.funds;A.deLevel=$('#deLevel')?.value||'无';A.jaLevel=$('#jaLevel')?.value||'无';saveDB();
-  if(!A.englishLevel){toast('请选择英语水平（可按预估）');return false;}return true;}
-
-function stepFamily(){
-  const ties=TIES.map(t=>`<div class="choice ${(A.ties||[]).includes(t)?'sel':''}" onclick="toggleArr('ties','${t}')">${t}</div>`).join('');
+function saveSocial(){A.social=$('#social')?.value||A.social;A.title=$('#title')?.value||A.title;saveDB();if(!A.social){toast('请选择社保 / 个税年限');return false;}return true;}
+function stepGoal(){
   const mot=MOTIVES.map(t=>`<div class="choice ${(A.motive||[]).includes(t)?'sel':''}" onclick="toggleArr('motive','${t}')">${t}</div>`).join('');
-  return `<div class="eyebrow2">第五步</div>
-    <h2 style="font-size:24px;margin:6px 0 12px">家庭与目标</h2>
-    ${selHTML('maritalFamily','家庭状况',["单身","已婚无子女","已婚有子女"],A.maritalFamily)}
-    <div class="field"><label>配偶是否学历较高 / 英语较好？（部分国家可加分，选填）</label>
-      <div class="choices"><div class="choice ${A.spouseStrong?'sel':''}" onclick="setBool('spouseStrong',true)">是</div><div class="choice ${A.spouseStrong===false?'sel':''}" onclick="setBool('spouseStrong',false)">否 / 不适用</div></div></div>
-    <div class="field"><label>关联条件（多选，选填）</label><div class="choices">${ties}</div></div>
-    <div class="field"><label>移民动机（多选，帮助匹配国家）</label><div class="choices">${mot}</div></div>
-    <div class="field"><label>还有什么想补充的？（选填）</label><textarea id="extra" placeholder="如：希望孩子尽快入读公立学校 / 已有某国 offer / 偏好低税…">${esc(A.extra||'')}</textarea></div>
+  return `<div class="eyebrow2">第五步</div><h2 style="font-size:24px;margin:6px 0 12px">你的落户目标</h2>
+    <div class="field"><label>落户动机（多选，帮助匹配方式）</label><div class="choices">${mot}</div></div>
+    <div class="field"><label>还有什么想补充的？（选填）</label><textarea id="extra" placeholder="如：孩子明年要上小学 / 已在某市交了4年社保 / 有中级职称…">${esc(A.extra||'')}</textarea></div>
     <div style="display:flex;justify-content:space-between;margin-top:18px;gap:10px">
-      <button class="btn btn-ghost" onclick="saveFamily();prevStep()">← 上一步</button>
-      <button class="btn btn-clay" onclick="if(saveFamily())genFollowUp()">生成针对性追问 →</button>
-    </div>`;
+      <button class="btn btn-ghost" onclick="saveGoal();prevStep()">← 上一步</button>
+      <button class="btn btn-gold" onclick="saveGoal();genFollowUp()">生成针对性追问 →</button></div>`;
 }
 function toggleArr(key,v){syncInputs();A[key]=A[key]||[];const i=A[key].indexOf(v);if(i<0)A[key].push(v);else A[key].splice(i,1);saveDB();RENDER.assessment();}
-function saveFamily(){A.maritalFamily=$('#maritalFamily')?.value||A.maritalFamily;A.extra=$('#extra')?.value||'';saveDB();
-  if(!A.maritalFamily){toast('请选择家庭状况');return false;}return true;}
-
-/* ---- 追问 ---- */
-function buildFollowUp(){
-  const qs=[];
-  if(engScore(A.englishLevel)<.8)qs.push({q:"你是否已有有效的英语成绩（雅思/托福/PTE）？分数大概多少？打算何时考？",r:"语言分是技术移民最关键的可变项",key:"q_lang"});
-  if((A.paths||[]).includes('invest')||(A.paths||[]).includes('startup'))qs.push({q:"用于投资/创业的资金大致是多少、资金来源是否可解释（合法证明）？",r:"投资类路径对资金额度与来源合规要求高",key:"q_funds"});
-  qs.push({q:"你的职业具体是什么？是否接近目标国的紧缺职业清单？",r:"职业是否在清单上直接决定技术移民可行性",key:"q_occ"});
-  if((+A.age||0)>=38)qs.push({q:"你能接受先以工签/留学等方式过渡，再转永居吗？",r:"年龄偏大时，过渡路径往往更现实",key:"q_bridge"});
-  return qs.slice(0,3);
-}
+function saveGoal(){A.extra=$('#extra')?.value||'';saveDB();return true;}
+function syncInputs(){const g=id=>{const e=$('#'+id);return e?e.value:undefined;};let v;
+  if((v=g('age'))!==undefined)A.age=v;if((v=g('education'))!==undefined&&v)A.education=v;if((v=g('schoolTier'))!==undefined&&v)A.schoolTier=v;
+  if((v=g('social'))!==undefined&&v)A.social=v;if((v=g('title'))!==undefined&&v)A.title=v;if((v=g('extra'))!==undefined)A.extra=v;}
+function buildFollowUp(){const qs=[];
+  if(socialScore(A.social)<.7)qs.push({q:"你在目标城市的社保/个税是否连续、无断缴？目前累计多久？",r:"积分与居转户对连续缴纳要求很严",key:"q_soc"});
+  if(eduScore(A.education)<.88)qs.push({q:"是否考虑提升学历或考职称（如中级）来达标？",r:"学历/职称常是落户的硬门槛",key:"q_edu"});
+  qs.push({q:"你目前的职业和单位性质是什么（国企/外企/民企/体制内）？是否在重点产业/园区？",r:"部分城市对重点单位、园区有专门人才引进通道",key:"q_job"});
+  return qs.slice(0,3);}
 async function genFollowUp(){
   A.followUpQuestions=buildFollowUp();
-  startProgress('移民雷达正在生成关键追问…',['读取你的背景','定位最影响判断的盲点','生成针对性追问'],6000);
-  const ai=await aiPost('/api/follow-up',{profile:aiProfile()});
-  await finishProgress();
-  if(ai&&Array.isArray(ai.questions)&&ai.questions.length){
-    A.followUpQuestions=ai.questions.slice(0,3).map(q=>({q:q.question||q.q||'',r:q.reason||q.r||'',key:q.fieldKey||q.key||('q'+Math.random().toString(36).slice(2,6))})).filter(x=>x.q);
-  }
-  saveDB();STEP=5;RENDER.assessment();window.scrollTo(0,0);
-}
-function stepFollowUp(){
-  const qs=A.followUpQuestions||[];
-  return `<div class="eyebrow2">第六步 · 移民雷达追问</div>
-    <h2 style="font-size:24px;margin:6px 0 4px">再补几个关键问题</h2>
-    <p style="color:var(--muted);font-size:14px;margin-bottom:16px">这些会直接影响你的竞争力判断，回答得越具体越准。</p>
-    ${qs.map((q,i)=>`<div class="field"><label>${i+1}. ${esc(q.q)}</label>
-      <div class="hint" style="margin:0 0 7px">💡 ${esc(q.r||'')}</div>
-      <textarea id="fu_${q.key}" placeholder="你的回答（可简短）">${esc((A.followUpAnswers||{})[q.key]||'')}</textarea></div>`).join('')}
+  startProgress('落户雷达正在生成关键追问…',['读取你的背景','定位最影响落户的盲点','生成针对性追问'],6000);
+  const ai=await aiPost('/api/follow-up',{profile:aiProfile()});await finishProgress();
+  if(ai&&Array.isArray(ai.questions)&&ai.questions.length)A.followUpQuestions=ai.questions.slice(0,3).map(q=>({q:q.question||q.q||'',r:q.reason||q.r||'',key:q.fieldKey||q.key||('q'+Math.random().toString(36).slice(2,6))})).filter(x=>x.q);
+  saveDB();STEP=5;RENDER.assessment();window.scrollTo(0,0);}
+function stepFollowUp(){const qs=A.followUpQuestions||[];
+  return `<div class="eyebrow2">第六步 · 落户雷达追问</div><h2 style="font-size:24px;margin:6px 0 4px">再补几个关键问题</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:16px">这些会直接影响落户竞争力判断，回答得越具体越准。</p>
+    ${qs.map((q,i)=>`<div class="field"><label>${i+1}. ${esc(q.q)}</label><div class="hint" style="margin:0 0 7px">💡 ${esc(q.r||'')}</div><textarea id="fu_${q.key}" placeholder="你的回答（可简短）">${esc((A.followUpAnswers||{})[q.key]||'')}</textarea></div>`).join('')}
     <div style="display:flex;justify-content:space-between;margin-top:18px;gap:10px">
       <button class="btn btn-ghost" onclick="saveFollowUp();STEP=4;RENDER.assessment();window.scrollTo(0,0)">← 上一步</button>
-      <button class="btn btn-clay btn-lg" onclick="saveFollowUp();generateFreeResult()">生成免费初测结果 →</button>
-    </div>`;
+      <button class="btn btn-gold btn-lg" onclick="saveFollowUp();generateFreeResult()">生成免费初测结果 →</button></div>`;
 }
 function saveFollowUp(){A.followUpAnswers=A.followUpAnswers||{};(A.followUpQuestions||[]).forEach(q=>{const el=$('#fu_'+q.key);if(el)A.followUpAnswers[q.key]=el.value;});saveDB();}
-
-/* ---- 追问回馈到字段（让回答影响评分） ---- */
 async function applyFollowUpCorrections(){
-  const ai=await aiPost('/api/extract',{profile:{fields:{age:A.age,education:A.education,englishLevel:A.englishLevel,funds:A.funds,expYears:A.expYears,field:A.field},followUpQuestions:A.followUpQuestions,followUpAnswers:A.followUpAnswers}});
-  const c=ai&&ai.corrections;if(c&&typeof c==='object'){
-    if(c.englishLevel&&ENG_LEVELS.includes(c.englishLevel))A.englishLevel=c.englishLevel;
-    if(c.funds&&FUNDS.includes(c.funds))A.funds=c.funds;
-    if(c.expYears)A.expYears=c.expYears;
-    if(c.occupationInDemand==='是')A.occInDemand=true;
-    saveDB();
-  }
-}
+  const ai=await aiPost('/api/extract',{profile:{fields:{age:A.age,education:A.education,schoolTier:A.schoolTier,social:A.social,title:A.title},followUpQuestions:A.followUpQuestions,followUpAnswers:A.followUpAnswers}});
+  const c=ai&&ai.corrections;if(c&&typeof c==='object'){if(c.education&&EDU_LEVELS.includes(c.education))A.education=c.education;if(c.social&&SOCIAL.includes(c.social))A.social=c.social;if(c.title&&TITLES.includes(c.title))A.title=c.title;saveDB();}}
 
-/* ============================================================
-   FREE RESULT
-============================================================ */
+/* ============================================================ FREE RESULT ============================================================ */
 async function generateFreeResult(){
-  startProgress('移民雷达正在生成初测结果…',['汇总你的背景','按各国打分逻辑评估','对比匹配度','识别主要风险','生成初步判断'],9000);
+  startProgress('落户雷达正在生成初测结果…',['汇总你的背景','按各地落户规则评估','对比城市匹配度','识别主要风险','生成初步判断'],9000);
   await applyFollowUpCorrections();
-  const res=computeResult(A);
-  A.freeResult=res;saveDB();
-  const ai=await aiPost('/api/free-result',{profile:aiProfile(),overall:res.overall,grade:res.grade,verdicts:res.rows.map(r=>({country:r.name,path:r.pathLabel,tier:r.tier.label,score:r.score}))});
+  const res=computeResult(A);A.freeResult=res;saveDB();
+  const ai=await aiPost('/api/free-result',{profile:aiProfile(),overall:res.overall,grade:res.grade,verdicts:res.rows.map(r=>({city:r.name,path:r.pathLabel,tier:r.tier.label,score:r.score}))});
   await finishProgress();
   if(ai&&ai.summary){A.freeResult.aiSummary=ai.summary;A.freeResult.aiRisks=ai.topRisks;A.freeResult.aiAdvice=ai.shortAdvice;saveDB();}
   go('freeResult');
 }
-function barsHTML(factors){
-  return `<div class="bars">${factors.map(f=>{const col=f.score>=70?'var(--pine)':f.score>=45?'var(--gold)':'var(--clay)';
-    return `<div class="bar-row"><div class="nm">${f.name}</div><div class="bar-track"><div class="bar-fill" style="width:${f.score}%;background:${col}"></div></div><div class="vl">${f.score}</div></div>`;}).join('')}</div>`;
-}
-// 真·六边形雷达图（松绿/陶土配色，与 OfferScope 蓝色五边形区分）
-function hexRadarSVG(factors){
-  const N=factors.length, cx=170, cy=158, R=112;
-  const ang=i=>(-Math.PI/2)+i*2*Math.PI/N;
-  const pt=(i,r)=>[cx+Math.cos(ang(i))*R*r, cy+Math.sin(ang(i))*R*r];
-  const poly=(r,arr)=>arr.map((_,i)=>pt(i,r).join(',')).join(' ');
-  let rings='';
-  [0.25,0.5,0.75,1].forEach(r=>{rings+=`<polygon points="${poly(r,factors)}" fill="none" stroke="#E0D6C2" stroke-width="1"/>`;});
-  let axes='';
-  factors.forEach((f,i)=>{const[x,y]=pt(i,1);axes+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#E0D6C2" stroke-width="1"/>`;});
-  const dataPts=factors.map((f,i)=>pt(i,Math.max(.04,f.score/100)).join(',')).join(' ');
-  let dots='',labels='';
-  factors.forEach((f,i)=>{const[dx,dy]=pt(i,Math.max(.04,f.score/100));dots+=`<circle cx="${dx}" cy="${dy}" r="3.4" fill="#14503F"/>`;
-    const[lx,ly]=pt(i,1.22);const anchor=Math.abs(lx-cx)<8?'middle':(lx>cx?'start':'end');
-    labels+=`<text x="${lx}" y="${ly-2}" font-size="12.5" font-weight="700" fill="#1B2A24" text-anchor="${anchor}">${esc(f.name)}</text>`+
-            `<text x="${lx}" y="${ly+13}" font-size="11" fill="#6E7B73" text-anchor="${anchor}">${f.score}</text>`;});
-  return `<div style="text-align:center"><svg viewBox="0 0 340 320" style="max-width:340px;width:100%" xmlns="http://www.w3.org/2000/svg">
-    ${rings}${axes}
-    <polygon points="${dataPts}" fill="rgba(30,107,84,.22)" stroke="#1E6B54" stroke-width="2.2"/>
-    ${dots}${labels}
-  </svg></div>`;
-}
-function crowsHTML(rows,locked){
-  return rows.map((r,i)=>`<div class="crow">
-    <div class="fl">${r.flag}</div>
-    <div class="info"><div class="cn">${i===0?'⭐ ':''}${r.name}<span style="color:var(--muted);font-weight:400;font-size:13px"> · 推荐：${r.pathLabel}</span></div>
-      <div class="pl">${esc(r.note)}</div></div>
-    <div class="sc"><b style="color:${r.tier.color}">${r.score}</b><br><span class="tier-pill" style="background:${r.tier.color}">${r.tier.label}</span></div>
-  </div>`).join('');
-}
+function barsHTML(factors){return `<div class="bars">${factors.map(f=>{const col=f.score>=70?'var(--brand)':f.score>=45?'var(--gold)':'var(--brand2)';return `<div class="bar-row"><div class="nm">${f.name}</div><div class="bar-track"><div class="bar-fill" style="width:${f.score}%;background:${col}"></div></div><div class="vl">${f.score}</div></div>`;}).join('')}</div>`;}
+function hexRadarSVG(factors){const N=factors.length,cx=170,cy=158,R=112;const ang=i=>(-Math.PI/2)+i*2*Math.PI/N;const pt=(i,r)=>[cx+Math.cos(ang(i))*R*r,cy+Math.sin(ang(i))*R*r];const poly=(r)=>factors.map((_,i)=>pt(i,r).join(',')).join(' ');
+  let rings='';[0.25,0.5,0.75,1].forEach(r=>{rings+=`<polygon points="${poly(r)}" fill="none" stroke="#E6D8C8" stroke-width="1"/>`;});
+  let axes='';factors.forEach((f,i)=>{const[x,y]=pt(i,1);axes+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#E6D8C8" stroke-width="1"/>`;});
+  const data=factors.map((f,i)=>pt(i,Math.max(.04,f.score/100)).join(',')).join(' ');
+  let dots='',labels='';factors.forEach((f,i)=>{const[dx,dy]=pt(i,Math.max(.04,f.score/100));dots+=`<circle cx="${dx}" cy="${dy}" r="3.4" fill="#8E2C3B"/>`;const[lx,ly]=pt(i,1.22);const an=Math.abs(lx-cx)<8?'middle':(lx>cx?'start':'end');labels+=`<text x="${lx}" y="${ly-2}" font-size="12.5" font-weight="700" fill="#241A1C" text-anchor="${an}">${esc(f.name)}</text><text x="${lx}" y="${ly+13}" font-size="11" fill="#7A6B6E" text-anchor="${an}">${f.score}</text>`;});
+  return `<div style="text-align:center"><svg viewBox="0 0 340 320" style="max-width:340px;width:100%" xmlns="http://www.w3.org/2000/svg">${rings}${axes}<polygon points="${data}" fill="rgba(142,44,59,.2)" stroke="#8E2C3B" stroke-width="2.2"/>${dots}${labels}</svg></div>`;}
+function crowsHTML(rows){return rows.map((r,i)=>`<div class="crow"><div class="fl">${r.fl}</div><div class="info"><div class="cn">${i===0?'⭐ ':''}${r.name}<span style="color:var(--muted);font-weight:400;font-size:13px"> · 推荐：${r.pathLabel}</span></div><div class="pl">${esc(r.note)}</div></div><div class="sc"><b style="color:${r.tier.color}">${r.score}</b><br><span class="tier-pill" style="background:${r.tier.color}">${r.tier.label}</span></div></div>`).join('');}
 RENDER.freeResult=function(){
-  const fr=A.freeResult;if(!fr){go('home');return;}
-  window.scrollTo(0,0);
-  const summary=fr.aiSummary||`从你目前填写的信息看，综合移民竞争力约为 ${fr.grade} 档（${fr.overall}/100）。在你考虑的国家里，「${fr.rows[0].name}」按「${fr.rows[0].pathLabel}」路径匹配度最高。完整报告会逐国拆解门槛、差距与可执行的提升方案。`;
+  const fr=A.freeResult;if(!fr){go('home');return;}window.scrollTo(0,0);
+  const summary=fr.aiSummary||`从你目前填写的信息看，综合落户竞争力约为 ${fr.grade} 档（${fr.overall}/100）。在你考虑的城市里，「${fr.rows[0].name}」按「${fr.rows[0].pathLabel}」匹配度最高。完整报告会逐城拆解门槛、差距与可执行的提升方案。`;
   const risks=(fr.aiRisks&&fr.aiRisks.length?fr.aiRisks:fr.risks);
   app().innerHTML=`<div class="page"><div class="container tight">
     <div class="panel" style="text-align:center">
-      <div class="eyebrow2">移民雷达 · 初测结果</div>
-      <h1 style="font-size:25px;margin:6px 0 16px">你的移民竞争力初测已生成</h1>
+      <div class="eyebrow2">落户雷达 · 初测结果</div>
+      <h1 style="font-size:25px;margin:6px 0 16px">你的落户竞争力初测已生成</h1>
       <div class="grade-badge"><div class="g">${fr.grade}</div><div class="l">综合 ${fr.overall}/100</div></div>
-      <p style="max-width:36em;margin:18px auto 0;color:#3c4a43">${esc(summary)}</p>
+      <p style="max-width:36em;margin:18px auto 0;color:#4a3c3e">${esc(summary)}</p>
       <div style="margin-top:16px"><button class="btn btn-white" onclick="showShareImage()">📷 生成分享图</button></div>
     </div>
-
-    <div class="panel">
-      <h2 style="font-size:19px;color:var(--pine);margin-bottom:6px">各国匹配度排名</h2>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:14px">分数为“竞争力 / 匹配度”，非获批概率。已为每个国家挑出你最具优势的路径。</p>
-      ${crowsHTML(fr.rows)}
-    </div>
-
-    <div class="panel">
-      <h2 style="font-size:19px;color:var(--pine);margin-bottom:10px">你的竞争力六维</h2>
-      ${barsHTML(fr.factors)}
-    </div>
-
-    <div class="panel">
-      <h2 style="font-size:19px;color:var(--clay);margin-bottom:10px">⚠️ 主要风险点</h2>
-      <ul class="plain">${risks.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>
-      ${fr.aiAdvice?`<p style="margin-top:12px;color:#3c4a43"><b>一句建议：</b>${esc(fr.aiAdvice)}</p>`:''}
-    </div>
-
+    <div class="panel"><h2 style="font-size:19px;color:var(--brand);margin-bottom:6px">各城市匹配度排名</h2>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:14px">分数为“竞争力 / 匹配度”，非审批结果。已为每个城市挑出你最有优势的落户方式。</p>${crowsHTML(fr.rows)}</div>
+    <div class="panel"><h2 style="font-size:19px;color:var(--brand);margin-bottom:10px">你的竞争力六维</h2>${barsHTML(fr.factors)}</div>
+    <div class="panel"><h2 style="font-size:19px;color:var(--brand2);margin-bottom:10px">⚠️ 主要风险点</h2><ul class="plain">${risks.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>${fr.aiAdvice?`<p style="margin-top:12px;color:#4a3c3e"><b>一句建议：</b>${esc(fr.aiAdvice)}</p>`:''}</div>
     <div class="panel" style="text-align:center">
-      <h2 style="font-size:27px;font-weight:800;font-family:var(--serif);color:var(--pine);line-height:1.35">免费初测只给方向<br>完整报告告诉你 <span style="color:var(--clay)">“到底怎么做”</span></h2>
-      <p style="color:#3c4a43;font-size:15.5px;max-width:34em;margin:12px auto 0">你已经看到大方向。完整报告会把 <b style="color:var(--ink)">${esc(fr.rows.slice(0,3).map(r=>r.flag+r.name).join('、'))}${fr.rows.length>3?` 等 ${fr.rows.length} 个国家`:''}</b> 逐一拆到 <b style="color:var(--clay)">“差几分、做什么、花多少、多久成”</b>。</p>
-
+      <h2 style="font-size:22px;font-weight:800;color:var(--brand);line-height:1.35">免费初测只给方向<br>完整报告告诉你 <span style="color:var(--brand2)">“到底怎么落”</span></h2>
+      <p style="color:#4a3c3e;font-size:15.5px;max-width:34em;margin:12px auto 0">你已经看到大方向。完整报告会把 <b>${esc(fr.rows.slice(0,3).map(r=>r.fl+r.name).join('、'))}</b> 逐城拆到 <b style="color:var(--brand2)">“差什么、做什么、多久能落”</b>。</p>
       <div class="unlock-list">
-        ${[
-          ["🎯","逐国路径详解",`${fr.rows.slice(0,3).map(r=>r.name).join('、')} 每国的推荐路径 + 为什么是它`,""],
-          ["📊","打分估算 + 近期分数线","如“加拿大 CRS 约 430–460、近期线 480+”，差在哪一项",""],
-          ["🪜","要达标，你得做什么","把目标国从当前档位提升一档的具体动作清单",""],
-          ["🧭","六维雷达 + 逐项详解","每一维卡在哪、怎么补、补了能加多少",""],
-          ["🗓","申请时间线（按月）","从备考、认证到递交，每个阶段干什么","规划版"],
-          ["💰","费用预算拆解","语言 / 认证 / 签证 / 可选中介，各花多少","规划版"],
-          ["🛟","Plan B","主线走不通时，退一步怎么走","规划版"],
-          ["👨‍👩‍👧","家庭决策总结","配偶子女加分 + 给全家看的明白账","规划版"],
-        ].map(x=>`<div class="ul-item">${x[3]?`<span class="pp">${x[3]}</span>`:''}<b>${x[0]} ${x[1]}</b><span>${x[2]}</span></div>`).join('')}
+        ${[["🎯","逐城落户路径",`${fr.rows.slice(0,3).map(r=>r.name).join('、')} 每城的推荐方式 + 为什么`,""],["📊","门槛对照","学历/社保/职称/年龄到底差多少",""],["🪜","要达标，你得做什么","把目标城市从“有难度”提到“较有机会”的动作",""],["🧭","六维雷达 + 详解","每一维卡在哪、怎么补",""],["🗓","落户时间线","按阶段：先做什么、再做什么","规划版"],["📁","材料清单 + 办理顺序","少跑冤枉路","规划版"],["🛟","Plan B","主线走不通时的退路","规划版"],["👨‍👩‍👧","子女落户时间测算","赶不赶得上上学/高考","规划版"]].map(x=>`<div class="ul-item">${x[3]?`<span class="pp">${x[3]}</span>`:''}<b>${x[0]} ${x[1]}</b><span>${x[2]}</span></div>`).join('')}
       </div>
-
       <div class="lock-wrap"><div class="blur">
         <div class="scorecard" style="margin:0;text-align:left">
-          <div class="sc-head"><span class="fl">${fr.rows[0].flag}</span><span class="nm">${esc(fr.rows[0].name)} · ${esc(fr.rows[0].pathLabel)}</span><span class="sc-score"><b style="color:var(--pine)">${fr.rows[0].score}</b></span></div>
-          <div class="gauge"><i style="width:${fr.rows[0].score}%;background:var(--pine)"></i></div>
-          <div class="pts"><div class="cell"><span class="k">打分 / 门槛估算</span><span class="v">CRS 约 ███–███</span></div><div class="cell"><span class="k">大致周期</span><span class="v">约 ██ 个月</span></div><div class="cell"><span class="k">永居 / 入籍</span><span class="v">██████</span></div></div>
-          <b style="display:block;margin-top:10px">关键门槛</b><ul class="plain"><li>████████████████</li><li>██████████</li></ul>
-          <b style="display:block;margin-top:10px">费用预算</b><table class="costtab"><tr><td>██████</td><td>█.█–█ 万</td></tr><tr><td>████</td><td>█ 万</td></tr></table>
+          <div class="sc-head"><span class="fl">${fr.rows[0].fl}</span><span class="nm">${esc(fr.rows[0].name)} · ${esc(fr.rows[0].pathLabel)}</span><span class="sc-score"><b style="color:var(--brand)">${fr.rows[0].score}</b></span></div>
+          <div class="gauge"><i style="width:${fr.rows[0].score}%;background:var(--brand)"></i></div>
+          <div class="pts"><div class="cell"><span class="k">门槛对照</span><span class="v">社保 █/█ 年</span></div><div class="cell"><span class="k">预计周期</span><span class="v">约 ██ 个月</span></div></div>
+          <b style="display:block;margin-top:10px">关键门槛</b><ul class="plain"><li>██████████████</li><li>██████████</li></ul>
         </div>
-      </div><div class="veil"><div class="lk">🔒</div><b>为你生成的逐国方案、打分、时间线与预算已就绪</b><span style="color:var(--muted);font-size:13px">解锁后立即查看全部内容</span></div></div>
-
+      </div><div class="veil"><div class="lk">🔒</div><b>为你生成的逐城方案、门槛、时间线已就绪</b><span style="color:var(--muted);font-size:13px">解锁后立即查看全部内容</span></div></div>
       <div style="display:flex;flex-direction:column;gap:12px;max-width:400px;margin:6px auto 0">
-        <button class="btn btn-pine btn-lg btn-block" onclick="go('checkout','standard_report')"><span style="display:block;width:100%;text-align:center;line-height:1.35">解锁诊断报告 ¥${PRODUCTS.standard_report.price}<br><span style="font-size:12px;font-weight:600;opacity:.85">逐国路径 · 打分估算 · 六维详解 · 关键门槛</span></span></button>
-        <button class="btn btn-clay btn-lg btn-block" onclick="go('checkout','premium_report')"><span style="display:block;width:100%;text-align:center;line-height:1.35">全路径规划报告 ¥${PRODUCTS.premium_report.price}　<span style="font-size:11px;background:#fff;color:var(--clay);padding:1px 7px;border-radius:999px;font-weight:700">更超值</span><br><span style="font-size:12px;font-weight:600;opacity:.92">诊断版全部 + 时间线 + 费用拆解 + Plan B + 行动计划</span></span></button>
+        <button class="btn btn-brand btn-lg btn-block" onclick="go('checkout','standard_report')"><span style="display:block;width:100%;text-align:center;line-height:1.35">解锁诊断报告 ¥${PRODUCTS.standard_report.price}<br><span style="font-size:12px;font-weight:600;opacity:.85">逐城路径 · 门槛对照 · 六维详解</span></span></button>
+        <button class="btn btn-gold btn-lg btn-block" onclick="go('checkout','premium_report')"><span style="display:block;width:100%;text-align:center;line-height:1.35">全路径规划报告 ¥${PRODUCTS.premium_report.price}　<span style="font-size:11px;background:#fff;color:var(--gold);padding:1px 7px;border-radius:999px;font-weight:700">更超值</span><br><span style="font-size:12px;font-weight:600;opacity:.92">诊断版全部 + 时间线 + 材料清单 + Plan B</span></span></button>
       </div>
       <p style="font-size:13px;color:var(--muted);margin-top:14px">一次付费，无订阅，永久查看，可下载 PDF。</p>
       <div style="margin-top:10px"><button class="btn btn-ghost" onclick="startAssessment()">重新测一次</button></div>
@@ -942,354 +637,251 @@ RENDER.freeResult=function(){
     <p style="font-size:12px;color:var(--muted);margin-top:8px">${DISCLAIMER}</p>
   </div></div>`;
 };
-
-/* ---- 分享图（初测结果卡片） ---- */
-function showShareImage(){
-  const fr=A.freeResult;if(!fr){toast('请先完成测评');return;}
-  const top=fr.rows.slice(0,3);
+function showShareImage(){const fr=A.freeResult;if(!fr){toast('请先完成测评');return;}const top=fr.rows.slice(0,3);
   const ov=document.createElement('div');ov.className='share-overlay';ov.id='shareOv';
   ov.innerHTML=`<div class="share-card" id="shareCard">
-    <div class="sh-brand"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="15" fill="rgba(255,255,255,.12)"/><circle cx="16" cy="16" r="10" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.3"/><ellipse cx="16" cy="16" rx="5" ry="10" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.3"/><line x1="6" y1="16" x2="26" y2="16" stroke="#fff" stroke-opacity=".5" stroke-width="1.3"/><path d="M16 7 L18 15 L16 14 L14 15 Z" fill="#C6603D"/><circle cx="16" cy="16" r="1.6" fill="#fff"/></svg>移民雷达 · YiminScope</div>
-    <div style="font-size:14px;opacity:.9;margin-top:14px">我的移民竞争力初测</div>
+    <div class="sh-brand"><svg viewBox="0 0 40 40" width="22" height="22"><rect x="2" y="2" width="36" height="36" rx="9" fill="rgba(255,255,255,.15)"/><rect x="8.5" y="20" width="5" height="11" rx="1" fill="#fff" fill-opacity=".85"/><rect x="15.5" y="14" width="5" height="17" rx="1" fill="#fff" fill-opacity=".85"/><rect x="22.5" y="9" width="5" height="22" rx="1" fill="#fff"/><circle cx="25" cy="6.5" r="2.4" fill="#C2A14D"/></svg>落户雷达 · HukouScope</div>
+    <div style="font-size:14px;opacity:.9;margin-top:14px">我的落户竞争力初测</div>
     <div class="sh-grade"><div class="g">${fr.grade}</div><div class="s">综合竞争力 ${fr.overall} / 100</div></div>
-    <div style="font-size:12px;opacity:.85;margin-bottom:8px">最匹配的目的地 ↓</div>
-    ${top.map(r=>`<div class="sh-row"><span class="fl">${r.flag}</span><span class="nm">${esc(r.name)}<br><span style="font-weight:400;opacity:.8;font-size:11px">推荐：${esc(r.pathLabel)}</span></span><span class="tp" style="background:${r.tier.color};color:#fff">${r.tier.label}</span><span class="sc">${r.score}</span></div>`).join('')}
-    <div style="text-align:center;font-size:13px;opacity:.92;margin-top:14px">你也测测自己适合移民哪个国家 →</div>
-    <div class="sh-foot"><span class="u">yiminscope.com</span><span class="c">免费测 · 移民雷达</span></div>
-  </div>
-  <div style="display:flex;gap:10px" class="no-print">
-    <button class="btn btn-clay" onclick="dlShareImage()">下载图片</button>
-    <button class="btn btn-white" onclick="document.getElementById('shareOv').remove()">关闭</button>
-  </div>
-  <div style="color:rgba(255,255,255,.75);font-size:12px">下载失败也可直接长按 / 截图保存</div>`;
-  ov.addEventListener('click',e=>{if(e.target===ov)ov.remove();});
-  document.body.appendChild(ov);
-}
-function dlShareImage(){const card=document.getElementById('shareCard');if(!card||typeof html2canvas==='undefined'){toast('请直接截图保存');return;}
-  html2canvas(card,{scale:2,backgroundColor:null,useCORS:true}).then(cv=>{const a=document.createElement('a');a.download='移民雷达-初测结果.png';a.href=cv.toDataURL('image/png');a.click();}).catch(()=>toast('生成失败，请直接截图'));}
+    <div style="font-size:12px;opacity:.85;margin-bottom:8px">最匹配的城市 ↓</div>
+    ${top.map(r=>`<div class="sh-row"><span class="fl">${r.fl}</span><span class="nm">${esc(r.name)}<br><span style="font-weight:400;opacity:.8;font-size:11px">推荐：${esc(r.pathLabel)}</span></span><span class="tp" style="background:${r.tier.color};color:#fff">${r.tier.label}</span><span class="sc">${r.score}</span></div>`).join('')}
+    <div style="text-align:center;font-size:13px;opacity:.92;margin-top:14px">你也测测自己能落哪个城市 →</div>
+    <div class="sh-foot"><span class="u">hukouscope.com</span><span class="c">免费测 · 落户雷达</span></div></div>
+  <div style="display:flex;gap:10px"><button class="btn btn-gold" onclick="dlShareImage()">下载图片</button><button class="btn btn-white" onclick="document.getElementById('shareOv').remove()">关闭</button></div>
+  <div style="color:rgba(255,255,255,.75);font-size:12px">下载失败也可直接截图保存</div>`;
+  ov.addEventListener('click',e=>{if(e.target===ov)ov.remove();});document.body.appendChild(ov);}
+function dlShareImage(){const card=document.getElementById('shareCard');if(!card||typeof html2canvas==='undefined'){toast('请直接截图保存');return;}html2canvas(card,{scale:2,backgroundColor:null,useCORS:true}).then(cv=>{const a=document.createElement('a');a.download='落户雷达-初测结果.png';a.href=cv.toDataURL('image/png');a.click();}).catch(()=>toast('生成失败，请直接截图'));}
 
-/* ============================================================
-   CHECKOUT + PAY
-============================================================ */
-const PRODUCTS={standard_report:{name:"移民竞争力诊断报告",price:19},premium_report:{name:"全路径移民规划报告",price:49}};
+/* ============================================================ CHECKOUT + PAY ============================================================ */
+const PRODUCTS={standard_report:{name:"落户竞争力诊断报告",price:19},premium_report:{name:"全路径落户规划报告",price:49}};
 let PAY_POLL=null,PAY_CHANNEL='wxpay';
 RENDER.checkout=function(productType){
   productType=productType||'standard_report';const p=PRODUCTS[productType];PAY_CHANNEL='wxpay';
-  app().innerHTML=`<div class="page"><div class="container" style="max-width:460px">
-    <div class="panel">
-      <div class="eyebrow2">确认订单</div>
-      <h1 style="font-size:22px;margin:6px 0 18px;font-family:var(--serif)">${esc(p.name)}</h1>
-      <div style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><span>${esc(p.name)}</span><b>¥${p.price}</b></div>
-      <div style="display:flex;justify-content:space-between;padding:14px 0;font-size:18px"><b>应付</b><b style="color:var(--pine)">¥${p.price}</b></div>
-      <div class="field"><label>邮箱（选填）</label><input id="coEmail" type="email" placeholder="留邮箱方便找回报告，不填也可直接支付" value="${esc(userEmail)}"></div>
-      <div class="field"><label>支付方式</label><div class="choices" id="payChannel"><div class="choice sel" data-ch="wxpay">💚 微信支付</div></div></div>
-      <button class="btn btn-clay btn-block btn-lg" onclick="startPay('${productType}')">去支付 ¥${p.price}</button>
-      <div style="font-size:12px;color:var(--muted);margin-top:14px;text-align:center">支付成功后本页自动解锁报告。一次付费，无订阅，无中介推销。</div>
-      <div style="margin-top:10px;text-align:center"><button class="btn btn-ghost" onclick="go('freeResult')">返回</button></div>
-    </div>
-    <p style="font-size:12px;color:var(--muted);margin-top:12px">${DISCLAIMER}</p>
-  </div></div>`;
+  app().innerHTML=`<div class="page"><div class="container" style="max-width:460px"><div class="panel">
+    <div class="eyebrow2">确认订单</div><h1 style="font-size:22px;margin:6px 0 18px">${esc(p.name)}</h1>
+    <div style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><span>${esc(p.name)}</span><b>¥${p.price}</b></div>
+    <div style="display:flex;justify-content:space-between;padding:14px 0;font-size:18px"><b>应付</b><b style="color:var(--brand)">¥${p.price}</b></div>
+    <div class="field"><label>邮箱（选填）</label><input id="coEmail" type="email" placeholder="留邮箱方便找回报告，不填也可直接支付" value="${esc(userEmail)}"></div>
+    <div class="field"><label>支付方式</label><div class="choices"><div class="choice sel">💚 微信支付</div></div></div>
+    <button class="btn btn-gold btn-block btn-lg" onclick="startPay('${productType}')">去支付 ¥${p.price}</button>
+    <div style="font-size:12px;color:var(--muted);margin-top:14px;text-align:center">支付成功后本页自动解锁报告。一次付费，无订阅，无代办推销。</div>
+    <div style="margin-top:10px;text-align:center"><button class="btn btn-ghost" onclick="go('freeResult')">返回</button></div>
+  </div><p style="font-size:12px;color:var(--muted);margin-top:12px">${DISCLAIMER}</p></div></div>`;
   window.scrollTo(0,0);
 };
 async function startPay(productType){
-  const e=($('#coEmail')?.value||'').trim();
-  if(e&&!/.+@.+\..+/.test(e)){toast('邮箱格式好像不对，可修正或留空');return;}
-  userEmail=e;localStorage.setItem('ys_email',e);
-  const isWeChat=/MicroMessenger/i.test(navigator.userAgent);
-  let payWin=null;
+  const e=($('#coEmail')?.value||'').trim();if(e&&!/.+@.+\..+/.test(e)){toast('邮箱格式好像不对，可修正或留空');return;}
+  userEmail=e;localStorage.setItem('hk_email',e);
+  const isWeChat=/MicroMessenger/i.test(navigator.userAgent);let payWin=null;
   if(!isWeChat){try{payWin=window.open('','_blank');}catch(err){}}
-  showLoading('正在创建订单…');
-  let r=null;
+  showLoading('正在创建订单…');let r=null;
   try{const resp=await fetch('/api/pay/create',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({assessmentId:A.id,productType,channel:PAY_CHANNEL,email:e})});r=await resp.json();}catch(err){}
   if(!r||!r.ok){if(payWin){try{payWin.close();}catch(e){}}toast('创建订单失败，请稍后重试');return;}
   if(r.devMock){if(payWin){try{payWin.close();}catch(e){}}showPayWaiting(productType,r.outTradeNo,true);return;}
   if(isWeChat){try{window.open(r.payUrl,'_blank');}catch(e){try{location.href=r.payUrl;}catch(e2){}}}
-  else if(payWin&&!payWin.closed){try{payWin.location.href=r.payUrl;}catch(e){}}
-  else{try{window.open(r.payUrl,'_blank');}catch(e){}}
+  else if(payWin&&!payWin.closed){try{payWin.location.href=r.payUrl;}catch(e){}}else{try{window.open(r.payUrl,'_blank');}catch(e){}}
   showPayWaiting(productType,r.outTradeNo,false,r.payUrl);
 }
-function showPayWaiting(productType,outTradeNo,devMock,payUrl){
-  window.scrollTo(0,0);
+function showPayWaiting(productType,outTradeNo,devMock,payUrl){window.scrollTo(0,0);
   app().innerHTML=`<div class="page"><div class="container" style="max-width:460px"><div class="panel" style="text-align:center">
-    <div class="spinner" style="margin:6px auto 14px"></div>
-    <h2 style="font-size:20px;font-family:var(--serif)">等待支付完成…</h2>
+    <div class="spinner" style="margin:6px auto 14px"></div><h2 style="font-size:20px">等待支付完成…</h2>
     <p style="color:var(--muted);font-size:14px;margin-top:8px">${devMock?'本地未配置真实支付。点下方按钮模拟支付成功以测试流程。':'请在新打开的页面用微信扫码支付，完成后本页会自动解锁报告。'}</p>
-    ${devMock?`<button class="btn btn-clay btn-lg" style="margin-top:16px" onclick="devPay('${outTradeNo}','${productType}')">模拟支付成功（测试）</button>`:''}
-    ${(!devMock&&payUrl)?`<a class="btn btn-clay btn-lg" style="margin-top:16px;display:inline-block;text-decoration:none" href="${payUrl}" target="_blank" rel="noopener">没有自动跳转？点此打开支付页面</a>`:''}
+    ${devMock?`<button class="btn btn-gold btn-lg" style="margin-top:16px" onclick="devPay('${outTradeNo}','${productType}')">模拟支付成功（测试）</button>`:''}
+    ${(!devMock&&payUrl)?`<a class="btn btn-gold btn-lg" style="margin-top:16px;display:inline-block;text-decoration:none" href="${payUrl}" target="_blank" rel="noopener">没有自动跳转？点此打开支付页面</a>`:''}
     <div style="margin-top:16px"><button class="btn btn-ghost" onclick="stopPayPoll();go('checkout','${productType}')">返回</button></div>
     <p style="font-size:12px;color:var(--muted);margin-top:12px" id="payPollHint"></p>
     ${(!devMock)?`<p style="font-size:12px;color:var(--muted);margin-top:6px">微信内若无法支付，请点右上角「···」用浏览器打开。</p>`:''}
   </div></div></div>`;
-  if(!devMock)beginPayPoll(outTradeNo,productType);
-}
+  if(!devMock)beginPayPoll(outTradeNo,productType);}
 function beginPayPoll(outTradeNo,productType){let n=0;stopPayPoll();PAY_POLL=setInterval(async()=>{n++;const h=$('#payPollHint');if(h)h.textContent=`已检测 ${n} 次…（最长约 5 分钟）`;
-  try{const r=await fetch('/api/pay/status?outTradeNo='+encodeURIComponent(outTradeNo));const j=await r.json();if(j&&j.paid){stopPayPoll();markPaid(productType);}}catch(e){}
-  if(n>=100)stopPayPoll();},3000);}
+  try{const r=await fetch('/api/pay/status?outTradeNo='+encodeURIComponent(outTradeNo));const j=await r.json();if(j&&j.paid){stopPayPoll();markPaid(productType);}}catch(e){}if(n>=100)stopPayPoll();},3000);}
 function stopPayPoll(){if(PAY_POLL){clearInterval(PAY_POLL);PAY_POLL=null;}}
 function devPay(outTradeNo,productType){fetch('/api/pay/mock-paid?outTradeNo='+encodeURIComponent(outTradeNo)).then(()=>markPaid(productType));}
 function markPaid(productType){A.isPaid=true;A.reportType=productType;saveDB();if(A.deepenDone){go('report');}else{prepDeepen();}}
-// 付费后：调用 DeepSeek 生成更深入、对症的追问（成本已被付费覆盖），再进入深化页
+
 async function prepDeepen(){
   if(!A.deepQs||!A.deepQs.length){
-    startProgress('已解锁 · 正在为你准备更深入的问题…',['读取你的目标国与路径','针对各国规则定位关键点','生成更细的追问'],6000);
-    const ai=await aiPost('/api/follow-up',{profile:aiProfile(),deep:true});
-    await finishProgress();
-    A.deepQs=(ai&&Array.isArray(ai.questions)&&ai.questions.length)
-      ? ai.questions.slice(0,6).map(q=>({q:q.question||q.q||'',r:q.reason||q.r||'',key:q.fieldKey||q.key||('dq'+Math.random().toString(36).slice(2,6))})).filter(x=>x.q)
-      : [];
+    startProgress('已解锁 · 正在为你准备更深入的问题…',['读取你的目标城市与方式','针对各地规则定位关键点','生成更细的追问'],6000);
+    const ai=await aiPost('/api/follow-up',{profile:aiProfile(),deep:true});await finishProgress();
+    A.deepQs=(ai&&Array.isArray(ai.questions)&&ai.questions.length)?ai.questions.slice(0,6).map(q=>({q:q.question||q.q||'',r:q.reason||q.r||'',key:q.fieldKey||q.key||('dq'+Math.random().toString(36).slice(2,6))})).filter(x=>x.q):[];
     saveDB();
   }
   go('deepen');
 }
-RENDER.deepen=function(){
-  window.scrollTo(0,0);
-  const dq=A.deepQs||[];
+RENDER.deepen=function(){window.scrollTo(0,0);const dq=A.deepQs||[];
   app().innerHTML=`<div class="page"><div class="container tight"><div class="panel">
-    <div class="eyebrow2">已解锁 · 让报告更准（可跳过）</div>
-    <h1 style="font-size:23px;font-family:var(--serif);margin:6px 0 4px">回答得越细，报告越值</h1>
-    <p style="color:var(--muted);font-size:14px;margin-bottom:18px">你已经付费，移民雷达会针对你的目标国把报告做到更精确。下面这些<b>都可以不填</b>，但填了，"差几分、走哪条、花多少"会算得准很多。</p>
-    <h3 style="font-size:15px;color:var(--pine);margin-bottom:8px">基础补充</h3>
-    <div class="field"><label>你的具体职业 / 工种</label><input type="text" id="dOcc" value="${esc(A.deepOcc||'')}" placeholder="如：高级软件工程师 / 注册护士 / 电工"></div>
+    <div class="eyebrow2">已解锁 · 让报告更准（可跳过）</div><h1 style="font-size:23px;margin:6px 0 4px">回答得越细，报告越值</h1>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:18px">你已经付费，落户雷达会针对你的目标城市把报告做到更精确。下面这些<b>都可以不填</b>，但填了，“差多少、走哪条、多久能落”会算得准很多。</p>
+    <h3 style="font-size:15px;color:var(--brand);margin-bottom:8px">基础补充</h3>
+    <div class="field"><label>你的具体职业 / 岗位</label><input type="text" id="dOcc" value="${esc(A.deepOcc||'')}" placeholder="如：软件工程师 / 教师 / 护士"></div>
     <div class="grid2">
-      <div class="field"><label>当前税前年薪（人民币）</label><input type="text" id="dSalary" value="${esc(A.deepSalary||'')}" placeholder="如 45 万"></div>
-      <div class="field"><label>已有语言实考分（如有）</label><input type="text" id="dLang" value="${esc(A.deepLang||'')}" placeholder="如 雅思 6.5 / 无"></div>
+      <div class="field"><label>单位性质 / 是否重点产业</label><input type="text" id="dCompany" value="${esc(A.deepCompany||'')}" placeholder="如：民企 / 国企 / 园区重点企业"></div>
+      <div class="field"><label>当前税前年薪（选填）</label><input type="text" id="dSalary" value="${esc(A.deepSalary||'')}" placeholder="如 30 万"></div>
     </div>
     <div class="grid2">
-      <div class="field"><label>可投资净资产（人民币）</label><input type="text" id="dNet" value="${esc(A.deepNet||'')}" placeholder="如 300 万 / 暂不考虑投资"></div>
-      <div class="field"><label>是否已有目标国 offer / 雇主</label><input type="text" id="dOffer" value="${esc(A.deepOffer||'')}" placeholder="如 有澳洲雇主意向 / 无"></div>
+      <div class="field"><label>社保/个税缴纳详情</label><input type="text" id="dSocial" value="${esc(A.deepSocial||'')}" placeholder="如：上海连续缴4年、无断缴"></div>
+      <div class="field"><label>是否有房 / 大额纳税（选填）</label><input type="text" id="dHouse" value="${esc(A.deepHouse||'')}" placeholder="如：有房 / 年纳税10万+"></div>
     </div>
-    <div class="field"><label>配偶情况（如随行）</label><input type="text" id="dSpouse" value="${esc(A.deepSpouse||'')}" placeholder="如 配偶硕士、雅思6.0、护士 / 不随行"></div>
-    ${dq.length?`<h3 style="font-size:15px;color:var(--pine);margin:18px 0 8px">针对你的目标国，移民雷达还想确认</h3>
-    ${dq.map((q,i)=>`<div class="field"><label>${i+1}. ${esc(q.q)}</label><div class="hint" style="margin:0 0 7px">💡 ${esc(q.r||'')}</div><textarea id="dq_${q.key}" placeholder="你的回答（可简短，可跳过）">${esc((A.deepAnswers||{})[q.key]||'')}</textarea></div>`).join('')}`:''}
+    ${dq.length?`<h3 style="font-size:15px;color:var(--brand);margin:18px 0 8px">针对你的目标城市，落户雷达还想确认</h3>${dq.map((q,i)=>`<div class="field"><label>${i+1}. ${esc(q.q)}</label><div class="hint" style="margin:0 0 7px">💡 ${esc(q.r||'')}</div><textarea id="dq_${q.key}" placeholder="你的回答（可简短，可跳过）">${esc((A.deepAnswers||{})[q.key]||'')}</textarea></div>`).join('')}`:''}
     <div style="display:flex;gap:10px;margin-top:8px">
       <button class="btn btn-ghost" onclick="saveDeepen();generateFullReport()">跳过，直接生成</button>
-      <button class="btn btn-clay btn-lg" style="flex:1" onclick="saveDeepen();generateFullReport()">生成我的完整报告 →</button>
-    </div>
+      <button class="btn btn-gold btn-lg" style="flex:1" onclick="saveDeepen();generateFullReport()">生成我的完整报告 →</button></div>
   </div></div></div>`;
 };
-function saveDeepen(){A.deepOcc=$('#dOcc')?.value||'';A.deepSalary=$('#dSalary')?.value||'';A.deepLang=$('#dLang')?.value||'';A.deepNet=$('#dNet')?.value||'';A.deepOffer=$('#dOffer')?.value||'';A.deepSpouse=$('#dSpouse')?.value||'';
-  A.deepAnswers=A.deepAnswers||{};(A.deepQs||[]).forEach(q=>{const el=$('#dq_'+q.key);if(el)A.deepAnswers[q.key]=el.value;});
-  A.deepenDone=true;saveDB();}
+function saveDeepen(){A.deepOcc=$('#dOcc')?.value||'';A.deepCompany=$('#dCompany')?.value||'';A.deepSalary=$('#dSalary')?.value||'';A.deepSocial=$('#dSocial')?.value||'';A.deepHouse=$('#dHouse')?.value||'';
+  A.deepAnswers=A.deepAnswers||{};(A.deepQs||[]).forEach(q=>{const el=$('#dq_'+q.key);if(el)A.deepAnswers[q.key]=el.value;});A.deepenDone=true;saveDB();}
 
-/* ============================================================
-   FULL REPORT
-============================================================ */
-function ruleReport(){
-  const res=A.freeResult||computeResult(A);
-  const top=res.rows.slice(0,3);
-  return {reportType:A.reportType||'premium_report',overall:res.overall,grade:res.grade,factors:res.factors,rows:res.rows,
-    countryPlans:top.map(r=>({country:r.name,key:r.key,flag:r.flag,recommendedPath:PATHS[r.path].label,score:r.score,tier:r.tier.label})),
-    risks:res.risks};
-}
+/* ============================================================ FULL REPORT ============================================================ */
+function ruleReport(){const res=A.freeResult||computeResult(A);return {reportType:A.reportType||'premium_report',overall:res.overall,grade:res.grade,factors:res.factors,rows:res.rows,risks:res.risks};}
 async function generateFullReport(){
-  startProgress('移民雷达正在生成你的完整报告…',['读取你的完整背景','逐国评估路径与门槛','测算时间线与预算','撰写提升方案','生成家庭决策总结','整理行动清单'],26000);
-  const base=ruleReport();
-  const ai=await aiPost('/api/full-report',{report:base,profile:aiProfile()});
-  await finishProgress();
-  A.fullReport=base;if(ai&&typeof ai==='object')A.fullReport.ai=ai;saveDB();
-  go('report');
+  startProgress('落户雷达正在生成你的完整报告…',['读取你的完整背景','逐城评估路径与门槛','测算时间线与材料','撰写提升方案','整理行动清单'],26000);
+  const base=ruleReport();const ai=await aiPost('/api/full-report',{report:base,profile:aiProfile()});await finishProgress();
+  A.fullReport=base;if(ai&&typeof ai==='object')A.fullReport.ai=ai;saveDB();go('report');
 }
 RENDER.report=function(){
-  if(!A.isPaid&&!A.isSample){go('checkout');return;}
-  if(!A.fullReport){generateFullReport();return;}
-  window.scrollTo(0,0);
-  const R=A.fullReport,ai=R.ai||{};const isPrem=(R.reportType==='premium_report')||A.isSample;
-  let n=0;const num=()=>++n;
-  const sevColor=s=>s==='高'?'var(--clay)':s==='中'?'var(--gold)':'var(--pine2)';
+  if(!A.isPaid&&!A.isSample){go('checkout');return;}if(!A.fullReport){generateFullReport();return;}window.scrollTo(0,0);
+  const R=A.fullReport,ai=R.ai||{};const isPrem=(R.reportType==='premium_report')||A.isSample;let n=0;const num=()=>++n;
+  const sevColor=s=>s==='高'?'var(--brand2)':s==='中'?'var(--gold)':'var(--t-high)';
   app().innerHTML=`<div class="page"><div class="container report-wrap">
-    ${A.isSample?`<div class="kbox" style="margin-bottom:14px;background:var(--gold)">样例报告（示意） · 数据为虚构演示</div>`:''}
-    <div class="rsec" style="text-align:center;background:var(--pine);color:#fff;border:none">
-      <div style="font-family:var(--serif);font-size:13px;letter-spacing:2px;opacity:.8">YIMINSCOPE 移民雷达</div>
-      <h1 style="font-size:26px;margin:8px 0">${isPrem?'全路径移民规划报告':'移民竞争力诊断报告'}</h1>
-      <div style="font-family:var(--serif);font-size:44px">${R.grade} <span style="font-size:20px;opacity:.85">/ ${R.overall}分</span></div>
-      <div style="opacity:.85;font-size:14px;margin-top:4px">${(R.rows||[]).slice(0,3).map(r=>r.flag+r.name).join('　')}</div>
+    ${A.isSample?`<div style="background:var(--gold);color:#fff;border-radius:12px;padding:12px;text-align:center;margin-bottom:14px;font-weight:700">样例报告（示意） · 数据为虚构演示</div>`:''}
+    <div class="rsec" style="text-align:center;background:var(--brand);color:#fff;border:none">
+      <div style="font-size:13px;letter-spacing:2px;opacity:.85">HUKOUSCOPE 落户雷达</div>
+      <h1 style="font-size:26px;margin:8px 0">${isPrem?'全路径落户规划报告':'落户竞争力诊断报告'}</h1>
+      <div style="font-size:44px;font-weight:800">${R.grade} <span style="font-size:20px;opacity:.85">/ ${R.overall}分</span></div>
+      <div style="opacity:.85;font-size:14px;margin-top:4px">${(R.rows||[]).slice(0,3).map(r=>r.fl+r.name).join('　')}</div>
     </div>
-
     <div class="report-actions no-print">
       <button class="btn btn-ghost" onclick="window.print()">📄 下载 / 打印 PDF</button>
-      ${A.isSample?`<button class="btn btn-clay" onclick="startAssessment()">测我自己的 →</button>`:`<button class="btn btn-ghost" onclick="go('freeResult')">← 返回初测</button>`}
+      ${A.isSample?`<button class="btn btn-gold" onclick="startAssessment()">测我自己的 →</button>`:`<button class="btn btn-ghost" onclick="go('freeResult')">← 返回初测</button>`}
     </div>
-
     <div class="rsec"><h2><span class="num">${num()}</span>整体判断</h2>
-      <p style="color:#3c4a43">${esc((ai.executiveSummary&&ai.executiveSummary.oneSentenceConclusion)||`你的综合移民竞争力为 ${R.grade} 档；最匹配的方向是 ${(R.rows[0]||{}).name} 的 ${PATHS[(R.rows[0]||{}).path||'skilled'].short} 路径。`)}</p>
-      ${ai.executiveSummary?`<h3>最大机会</h3><p style="color:#3c4a43">${esc(ai.executiveSummary.bestCountryWhy||'')}</p><h3>最大风险</h3><p style="color:#3c4a43">${esc(ai.executiveSummary.mainRisk||'')}</p><h3>建议策略</h3><p style="color:#3c4a43">${esc(ai.executiveSummary.recommendedStrategy||'')}</p>`:''}
+      <p style="color:#4a3c3e">${esc((ai.executiveSummary&&ai.executiveSummary.oneSentenceConclusion)||`你的综合落户竞争力为 ${R.grade} 档；最匹配的是 ${(R.rows[0]||{}).name} 的 ${PATHS[(R.rows[0]||{}).path||'talent'].short}。`)}</p>
+      ${ai.executiveSummary?`<h3>最大机会</h3><p style="color:#4a3c3e">${esc(ai.executiveSummary.bestCityWhy||'')}</p><h3>最大风险</h3><p style="color:#4a3c3e">${esc(ai.executiveSummary.mainRisk||'')}</p><h3>建议策略</h3><p style="color:#4a3c3e">${esc(ai.executiveSummary.recommendedStrategy||'')}</p>`:''}
     </div>
-
-    <div class="rsec"><h2><span class="num">${num()}</span>各国匹配度</h2>${crowsHTML(R.rows)}
-      ${ai.comparisonInsight?`<p style="color:#3c4a43;margin-top:12px;background:var(--pine-soft);padding:14px 16px;border-radius:10px"><b>横向对比：</b>${esc(ai.comparisonInsight)}</p>`:''}
-    </div>
-
+    <div class="rsec"><h2><span class="num">${num()}</span>各城市匹配度</h2>${crowsHTML(R.rows)}
+      ${ai.comparisonInsight?`<p style="color:#4a3c3e;margin-top:12px;background:var(--brand-soft);padding:14px 16px;border-radius:10px"><b>横向对比：</b>${esc(ai.comparisonInsight)}</p>`:''}</div>
     <div class="rsec"><h2><span class="num">${num()}</span>竞争力六维</h2>
-      <div class="six-wrap">
-        <div class="six-radar">${hexRadarSVG(R.factors)}</div>
-        <div class="six-bars">${barsHTML(R.factors)}</div>
-      </div>
-      ${(ai.factorAdvice&&ai.factorAdvice.length)?`<div style="margin-top:6px">${ai.factorAdvice.map(f=>`<h3>${esc(f.factor)}</h3><p style="color:#3c4a43">${esc(f.analysis||'')}</p><p style="color:var(--pine2);font-size:14px">↳ ${esc(f.improvementAdvice||'')}</p>`).join('')}</div>`:''}
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center" class="six-wrap">
+        <div>${hexRadarSVG(R.factors)}</div><div>${barsHTML(R.factors)}</div></div>
+      ${(ai.factorAdvice&&ai.factorAdvice.length)?`<div style="margin-top:6px">${ai.factorAdvice.map(f=>`<h3>${esc(f.factor)}</h3><p style="color:#4a3c3e">${esc(f.analysis||'')}</p><p style="color:var(--brand);font-size:14px">↳ ${esc(f.improvementAdvice||'')}</p>`).join('')}</div>`:''}
     </div>
-
-    ${(ai.countryPlans&&ai.countryPlans.length)?`<div class="rsec"><h2><span class="num">${num()}</span>逐国路径详解${isPrem?'':'（节选）'}</h2>
-      ${ai.countryPlans.map(cp=>{const cr=(R.rows||[]).find(x=>x.name===cp.country)||{};const tc=(cr.tier&&cr.tier.color)||'var(--pine)';return `<div class="scorecard">
-        <div class="sc-head"><span class="fl">${cr.flag||'🌍'}</span><span class="nm">${esc(cp.country)}</span><span class="pathtag">${esc(cp.recommendedPath||cr.pathLabel||'')}</span>
-          <span class="sc-score"><b style="color:${tc}">${cr.score||''}</b>${cr.tier?`<br><span class="tier-pill" style="background:${tc}">${cr.tier.label}</span>`:''}</span></div>
+    ${(ai.cityPlans&&ai.cityPlans.length)?`<div class="rsec"><h2><span class="num">${num()}</span>逐城路径详解${isPrem?'':'（节选）'}</h2>
+      ${ai.cityPlans.map(cp=>{const cr=(R.rows||[]).find(x=>x.name===cp.city)||{};const tc=(cr.tier&&cr.tier.color)||'var(--brand)';return `<div class="scorecard">
+        <div class="sc-head"><span class="fl">${cr.fl||'🏙️'}</span><span class="nm">${esc(cp.city)}</span><span class="pathtag">${esc(cp.recommendedPath||cr.pathLabel||'')}</span><span class="sc-score"><b style="color:${tc}">${cr.score||''}</b>${cr.tier?`<br><span class="tier-pill" style="background:${tc}">${cr.tier.label}</span>`:''}</span></div>
         ${cr.score?`<div class="gauge"><i style="width:${cr.score}%;background:${tc}"></i></div>`:''}
-        <p style="color:#3c4a43">${esc(cp.whyPath||'')}</p>
-        ${(cp.pointsEstimate||cp.processingTime)?`<div class="pts">${cp.pointsEstimate?`<div class="cell"><span class="k">打分 / 门槛估算</span><span class="v">${esc(cp.pointsEstimate)}</span></div>`:''}${cp.processingTime?`<div class="cell"><span class="k">大致周期</span><span class="v">${esc(cp.processingTime)}</span></div>`:''}${cp.prCitizenship?`<div class="cell"><span class="k">永居 / 入籍</span><span class="v">${esc(cp.prCitizenship)}</span></div>`:''}</div>`:''}
-        ${cp.keyThresholds&&cp.keyThresholds.length?`<b style="display:block;margin-top:10px">关键门槛</b><ul class="plain">${cp.keyThresholds.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+        <p style="color:#4a3c3e">${esc(cp.whyPath||'')}</p>
+        ${(cp.thresholds||cp.processingTime)?`<div class="pts">${cp.thresholds?`<div class="cell"><span class="k">门槛对照</span><span class="v">${esc(cp.thresholds)}</span></div>`:''}${cp.processingTime?`<div class="cell"><span class="k">预计周期</span><span class="v">${esc(cp.processingTime)}</span></div>`:''}</div>`:''}
+        ${cp.keyRequirements&&cp.keyRequirements.length?`<b style="display:block;margin-top:10px">关键门槛</b><ul class="plain">${cp.keyRequirements.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
         ${cp.improvementToQualify&&cp.improvementToQualify.length?`<b style="display:block;margin-top:10px">要达标，你需要</b><ul class="plain">${cp.improvementToQualify.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
         ${isPrem&&cp.timeline&&cp.timeline.length?`<b style="display:block;margin-top:10px">时间线</b><ul class="tl">${cp.timeline.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
-        ${isPrem&&cp.costBreakdown&&cp.costBreakdown.length?`<b style="display:block;margin-top:10px">费用预算${cp.costRange?`（合计约 ${esc(cp.costRange)}）`:''}</b><table class="costtab">${cp.costBreakdown.map(c=>`<tr><td>${esc(c.item||'')}</td><td>${esc(c.amount||'')}</td></tr>`).join('')}</table>`:(isPrem&&cp.costRange?`<p style="margin-top:8px"><b>费用预算：</b>${esc(cp.costRange)}</p>`:'')}
-        ${cp.risks&&cp.risks.length?`<b style="display:block;margin-top:10px">风险与应对</b><ul class="plain">${cp.risks.map(x=>`<li><span class="sev" style="background:${sevColor(x.severity)}">${esc(x.severity||'中')}</span> ${esc(x.risk||'')}——${esc(x.howToReduce||'')}</li>`).join('')}</ul>`:''}
         ${isPrem&&cp.docChecklist&&cp.docChecklist.length?`<b style="display:block;margin-top:10px">材料清单</b><ul class="plain">${cp.docChecklist.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+        ${cp.risks&&cp.risks.length?`<b style="display:block;margin-top:10px">风险与应对</b><ul class="plain">${cp.risks.map(x=>`<li><span class="sev" style="background:${sevColor(x.severity)}">${esc(x.severity||'中')}</span> ${esc(x.risk||'')}——${esc(x.howToReduce||'')}</li>`).join('')}</ul>`:''}
       </div>`;}).join('')}</div>`:''}
-
-    ${ai.languagePlan?`<div class="rsec"><h2><span class="num">${num()}</span>语言准备</h2><p style="color:#3c4a43">${esc(ai.languagePlan)}</p></div>`:''}
-
-    ${isPrem&&ai.familyStrategy?`<div class="rsec"><h2><span class="num">${num()}</span>配偶 / 子女加分策略</h2><p style="color:#3c4a43">${esc(ai.familyStrategy)}</p></div>`:''}
-
+    ${isPrem&&ai.familyPlan?`<div class="rsec"><h2><span class="num">${num()}</span>家庭 / 子女落户测算</h2><p style="color:#4a3c3e">${esc(ai.familyPlan)}</p></div>`:''}
     ${isPrem&&ai.actionPlan?`<div class="rsec"><h2><span class="num">${num()}</span>行动计划</h2>
-      ${[['未来 3 个月','next3Months'],['未来 6 个月','next6Months'],['未来 12 个月','next12Months']].map(([t,k])=>(ai.actionPlan[k]&&ai.actionPlan[k].length)?`<h3>${t}</h3><ul class="plain">${ai.actionPlan[k].map(x=>`<li>${esc(typeof x==='string'?x:(x.task||''))}${(x&&x.expectedImpact)?` <span style="color:var(--pine2)">（${esc(x.expectedImpact)}）</span>`:''}</li>`).join('')}</ul>`:'').join('')}
-    </div>`:''}
-
-    ${isPrem&&ai.planB?`<div class="rsec"><h2><span class="num">${num()}</span>Plan B（主线走不通时）</h2><p style="color:#3c4a43">${esc(ai.planB)}</p></div>`:''}
-
-    <div class="rsec"><h2><span class="num">${num()}</span>主要风险</h2>
-      <ul class="plain">${(R.risks||[]).map(r=>`<li>${esc(r)}</li>`).join('')}</ul></div>
-
-    ${isPrem&&ai.familyFriendlySummary?`<div class="rsec"><h2><span class="num">${num()}</span>家庭决策总结</h2>
-      <p style="color:#3c4a43">${esc(ai.familyFriendlySummary.summary||'')}</p>
-      ${ai.familyFriendlySummary.riskExplanation?`<h3>风险怎么看</h3><p style="color:#3c4a43">${esc(ai.familyFriendlySummary.riskExplanation)}</p>`:''}
-      ${ai.familyFriendlySummary.budgetAndDecisionAdvice?`<h3>预算与决策</h3><p style="color:#3c4a43">${esc(ai.familyFriendlySummary.budgetAndDecisionAdvice)}</p>`:''}
-    </div>`:''}
-
+      ${[['未来 3 个月','next3Months'],['未来 6 个月','next6Months'],['未来 12 个月','next12Months']].map(([t,k])=>(ai.actionPlan[k]&&ai.actionPlan[k].length)?`<h3>${t}</h3><ul class="plain">${ai.actionPlan[k].map(x=>`<li>${esc(typeof x==='string'?x:(x.task||''))}${(x&&x.expectedImpact)?` <span style="color:var(--brand)">（${esc(x.expectedImpact)}）</span>`:''}</li>`).join('')}</ul>`:'').join('')}</div>`:''}
+    ${isPrem&&ai.planB?`<div class="rsec"><h2><span class="num">${num()}</span>Plan B（主线走不通时）</h2><p style="color:#4a3c3e">${esc(ai.planB)}</p></div>`:''}
+    <div class="rsec"><h2><span class="num">${num()}</span>主要风险</h2><ul class="plain">${(R.risks||[]).map(r=>`<li>${esc(r)}</li>`).join('')}</ul></div>
+    ${isPrem&&ai.friendlySummary?`<div class="rsec"><h2><span class="num">${num()}</span>一句话总结</h2><p style="color:#4a3c3e">${esc(ai.friendlySummary)}</p></div>`:''}
     <div class="disclaimer-box">${DISCLAIMER}</div>
   </div></div>`;
 };
 
-/* ---- 样例报告 ---- */
 function viewSample(tier){
   A={id:'sample',isSample:true,isPaid:true,reportType:tier==='standard'?'standard_report':'premium_report',
-    countries:["canada","australia","hongkong","portugal"],paths:["skilled","invest"],
-    age:34,education:"硕士",overseasEdu:false,field:"IT / 软件",expYears:8,mgmt:true,
-    englishLevel:"良好（雅思6.5-7）",funds:"200–500万",maritalFamily:"已婚有子女",spouseStrong:true,
-    ties:["有海外工作经历"],motive:["子女教育","事业发展"],deLevel:"无",jaLevel:"无"};
-  A.freeResult=computeResult(A);
-  A.fullReport=ruleReport();
-  A.fullReport.ai=SAMPLE_AI;
-  go('report');
+    cities:["shanghai","hangzhou","shenzhen"],paths:["residence","talent","returnee"],
+    age:31,education:"硕士",schoolTier:"211 / 一本",fresh:false,returnee:false,social:"3–5 年",title:"中级职称",invest:false,hasLocalFamily:false,motive:["子女上学 / 高考","稳定与归属感"]};
+  A.freeResult=computeResult(A);A.fullReport=ruleReport();A.fullReport.ai=SAMPLE_AI;go('report');
 }
 const SAMPLE_AI={
-  executiveSummary:{oneSentenceConclusion:"以你 34 岁、硕士、8 年 IT 管理经验、雅思 6.5–7、200–500 万可投资金的条件，技术移民竞争力较强，加拿大 Express Entry 与香港高才/优才是当前性价比最高的两条路。",
-    bestCountryWhy:"加拿大对 IT 职业友好、年龄仍在加分区间、英语达标，CRS 有冲击邀请线的基础；香港高才通对名校/高薪人群门槛清晰、周期短，可作为快速落地的并行选项。",
-    mainRisk:"年龄已接近 CRS 年龄加分的下行拐点，越晚启动分数越受影响；雅思若能冲到 7（CLB9）将显著提分。",
-    recommendedStrategy:"双线并行：1) 立刻准备雅思冲 CLB9 + 做学历认证(ECA)，主攻加拿大 EE；2) 同步评估香港高才通快速取得身份，给孩子教育与家庭过渡留出缓冲。"},
-  comparisonInsight:"加拿大是中长期主线：流程透明、福利好，但要拼分数、周期一年多。香港快、成本低、文化近，适合先拿身份过渡，缺点是续签要求实际居住/工作。简单说——想一步到位拿成熟国家身份选加拿大，想先上车再说选香港，两条并不冲突。",
-  factorAdvice:[
-    {factor:"语言",analysis:"雅思 6.5–7 已过技术移民门槛，但距离加拿大 CRS 高分段(CLB9，约 7 分)仍差一档。",improvementAdvice:"用 2–3 个月专项冲刺写作与口语，目标四项 7 分，CRS 可增加可观分数。"},
-    {factor:"年龄",analysis:"34 岁仍处于多数打分制的加分区间，但加拿大 CRS 在 35 岁后逐年扣分。",improvementAdvice:"把握 12 个月窗口尽快递交 EE 资料，越早越有利。"}],
-  countryPlans:[
-    {country:"加拿大",recommendedPath:"技术移民（Express Entry）",whyPath:"IT 职业紧缺、年龄语言达标，联邦 EE + 省提名(如 BC/安省科技类)双通道命中率更高。",
-     pointsEstimate:"CRS 自评约 430–460；近期通用类邀请线约 480+，省提名(+600)可大幅拉高（数字仅参考，以官方为准）",
-     processingTime:"入池到获 PR 约 12–18 个月",
-     prCitizenship:"登陆即拿 PR，住满约 3 年(1095 天)可申请入籍",
-     keyThresholds:["雅思建议四项 7（CLB9）","学历认证 ECA","NOC 职业代码匹配","CRS 自评分对照近期邀请分数线"],
-     timeline:["第1-3月：雅思冲分 + ECA 认证","第3-4月：入池 EE / 递交省提名意向","第5-10月：等待邀请并准备 PR 材料","第10-14月：递交 PR 申请"],
-     costRange:"8–15 万人民币",
-     costBreakdown:[{item:"雅思考试 + 培训",amount:"0.5–2 万"},{item:"学历认证 ECA",amount:"约 0.2 万"},{item:"签证申请费(全家)",amount:"约 1–1.5 万"},{item:"体检/无犯罪/公证翻译",amount:"约 0.5 万"},{item:"持牌顾问(可选)",amount:"2–8 万"}],
-     improvementToQualify:["雅思四项达到 7 分","完成 ECA 学历认证","核对职业是否在目标省提名清单"],
-     risks:[{severity:"中",risk:"邀请分数线逐年走高",howToReduce:"冲高语言分 + 申请省提名额外加分"}],
-     docChecklist:["护照","学历及 ECA 报告","雅思成绩","工作证明与推荐信","无犯罪记录","体检报告"]},
-    {country:"中国香港",recommendedPath:"高才通 TTPS / 优才 QMAS",whyPath:"周期短、对高薪或名校背景人群门槛清晰，适合作为快速取得身份的并行方案。",
-     pointsEstimate:"高才通看上年收入或合资格名校；优才综合计分制(年龄/学历/经验/语言等)，达标即可，无固定分数线公示",
-     processingTime:"高才通约 2–4 个月出签",
-     prCitizenship:"通常连续居住满 7 年可申请香港永久居民",
-     keyThresholds:["高才通：上年收入达标 或 毕业于合资格名校","优才：综合计分达标"],
-     timeline:["第1月：核对资格并备齐收入/学历证明","第2-4月：递交并等待审批","获批后赴港安排居住与续签规划"],
-     costRange:"1–3 万人民币（自办）",
-     costBreakdown:[{item:"材料公证/翻译",amount:"约 0.2–0.5 万"},{item:"签证申请费",amount:"较低"},{item:"赴港安排(交通/短租)",amount:"按需"}],
-     improvementToQualify:["准备完整收入证明","规划赴港居住以满足通常性居住要求"],
-     risks:[{severity:"低",risk:"需满足续签的居住/工作要求",howToReduce:"提前规划在港工作或业务安排"}],
-     docChecklist:["护照/通行证","学历证明","收入/税单证明","工作证明"]}],
-  languagePlan:"以加拿大为主目标，语言是当前最划算的提分项：建议报一个 3 个月雅思冲刺(重点写作 6.5→7、口语 6.5→7)，四项 7 分对 CRS 提升明显。香港路径对中文母语者语言压力小。",
-  familyStrategy:"配偶学历/语言较好，在加拿大 EE 里可贡献配偶加分；建议配偶同步考雅思。子女随行可享受目标国教育资源，是你“子女教育”动机的直接落点。",
-  actionPlan:{next3Months:[{task:"报名雅思冲刺并启动 ECA 认证",expectedImpact:"打通 EE 入池前提"},{task:"核对 NOC 职业代码与省提名清单"}],
-    next6Months:[{task:"入池 Express Entry 并提交省提名意向"},{task:"并行递交香港高才通"}],
-    next12Months:[{task:"收到邀请后递交 PR 完整材料"},{task:"规划登陆与安家预算"}]},
-  planB:"如果一年内雅思冲不到 CLB9、CRS 够不着邀请线：先用香港高才通拿身份过渡，同时考虑加拿大省提名(对分数要求较低)或留学转移民(读个一年制硕士走毕业工签→EE)，把主线往后顺一两年也不亏。",
-  familyFriendlySummary:{summary:"你们家条件不错，重点不是“能不能移”，而是“先走哪条、怎么排时间”。加拿大是中长期主线，香港是快速过渡，可以两条腿走路。",
-    riskExplanation:"主要风险是时间——年龄和分数线都在往不利方向走，越早启动越好。",
-    budgetAndDecisionAdvice:"主线预算预留 10–15 万（自办+少量服务费），香港自办成本很低。建议先用 3 个月把语言和认证做完，再决定是否找持牌顾问代办复杂环节。"}
+  executiveSummary:{oneSentenceConclusion:"以你 31 岁、硕士（211）、上海连续社保 3–5 年、有中级职称的条件，上海居转户是当前最现实的主线，杭州学历落户可作为更快的备选。",
+    bestCityWhy:"上海居转户对“社保年限+中级职称”路径友好，你已具备中级职称、社保也在累积，按部就班最稳；杭州对硕士几乎是落地即可，机动性最高。",
+    mainRisk:"上海居转户最看社保连续性与个税匹配，断缴或个税与社保基数不匹配会前功尽弃；时间成本也最高（通常需累计满 7 年）。",
+    recommendedStrategy:"双线并行：1) 上海保持社保个税连续、确认职称已用于落户、向 7 年居转户推进；2) 同步把杭州学历落户作为“随时可落”的备选，给孩子上学留出确定性。"},
+  comparisonInsight:"上海门槛最高但含金量最高、适合长期深耕；杭州对硕士几乎零门槛、最快拿到；深圳核准类同样快但你社保在上海、需重新累积。简单说：求稳长期选上海，求快选杭州。",
+  factorAdvice:[{factor:"社保年限",analysis:"上海社保 3–5 年，距居转户常见的 7 年还有缺口，且要求连续无断缴、个税匹配。",improvementAdvice:"保持连续缴纳，核对个税与社保基数是否匹配，把每一年都做实。"},
+    {factor:"职称 / 技能",analysis:"已有中级职称，是居转户的关键加分项，用好它能缩短路径。",improvementAdvice:"确认职称专业与岗位匹配、可用于落户申报。"}],
+  cityPlans:[
+    {city:"上海",recommendedPath:"居转户（社保年限）",whyPath:"你已有中级职称 + 持续社保，走“7年居住证+社保+中级职称”这条最稳，不依赖高薪或高学历加分。",
+     thresholds:"社保 约4/7 年",processingTime:"累计满7年后审批约 3–6 个月",
+     keyRequirements:["持《上海居住证》并累计满7年","期间社保累计满7年、个税匹配","中级及以上职称（或满足社保倍数）","无违反计划生育/无重大违法"],
+     improvementToQualify:["保持社保个税连续不断缴","确认职称可用于落户申报","提前备齐居住证累计月份证明"],
+     timeline:["持续：保持社保个税连续","满7年：提交居转户申请","审批3-6个月：等待公示与落户"],
+     docChecklist:["居住证及累计记录","社保/个税清单","职称证书","学历学位","劳动合同"],
+     risks:[{severity:"高",risk:"社保断缴或个税不匹配",howToReduce:"换工作时无缝衔接社保，核对个税基数"}]},
+    {city:"杭州",recommendedPath:"学历 / 人才引进",whyPath:"硕士在杭州基本可“先落户后就业”或缴纳社保即可落，是你最快拿到的城市。",
+     thresholds:"硕士 + 社保即可",processingTime:"材料齐全约 1–2 个月",
+     keyRequirements:["全日制硕士及以上","在杭缴纳社保（部分政策研究生可先落）","年龄符合要求"],
+     improvementToQualify:["在杭落实一份缴社保的工作","准备学历学位认证"],
+     timeline:["第1月：落实社保单位","第1-2月：线上申请+审核","落户：办理准迁与户口迁移"],
+     docChecklist:["学历学位证","社保记录","身份证/户口本","报到证（如有）"],
+     risks:[{severity:"低",risk:"政策按年度微调",howToReduce:"申请前在官方平台核对最新口径"}]}],
+  familyPlan:"若以孩子上学为目标：上海居转户时间最长，要倒推孩子入学/高考时间是否赶得上；杭州落户快，能更快锁定学籍。建议按孩子关键时间点反推，必要时先落杭州保底。",
+  actionPlan:{next3Months:[{task:"核对上海社保个税连续性与基数匹配",expectedImpact:"确保居转户年限做实"},{task:"评估杭州学历落户作为快速备选"}],
+    next6Months:[{task:"确认中级职称可用于上海落户申报"}],next12Months:[{task:"按7年节点准备居转户材料；或先落杭州"}]},
+  planB:"如果上海居转户时间来不及（孩子上学紧迫），就先走杭州学历落户拿到一个稳的身份，再视情况考虑是否长期转上海。",
+  friendlySummary:"你的条件不差，关键是“求稳还是求快”。上海是长期主线、杭州是快速保底，两条腿走路最安心；最该盯紧的是上海社保千万别断。"
 };
 
-/* ---- 国家介绍页 ---- */
-function startAssessmentFor(key){newAssessment();A.countries=[key];saveDB();go('assessment');}
-RENDER.country=function(key){
-  const c=COUNTRIES[key],info=COUNTRY_INFO[key];
-  if(!c||!info){go('home');return;}
-  window.scrollTo(0,0);
-  const others=COUNTRY_ORDER.filter(k=>k!==key).map(k=>`<span class="flagchip" onclick="go('country','${k}')"><span class="fl">${COUNTRIES[k].flag}</span>${COUNTRIES[k].name}<span class="ar">›</span></span>`).join('');
+/* 城市介绍页 */
+const CITY_INFO={
+  shanghai:{tag:"机会与资源顶配，落户也最讲究年限",intro:"上海是国内资源、就业、教育的天花板之一，落户含金量极高。主路径是居转户（社保年限+职称）、留学生落户、应届生打分和重点机构人才引进。",good:["顶级就业与收入机会","优质教育医疗资源","落户后子女教育红利大","国际化、产业齐全","居转户路径清晰可规划","临港/张江等区域有政策倾斜"],paths:[["居转户","持居住证+社保满7年+中级职称或社保倍数"],["留学生落户","看院校层次与社保倍数，相对快"],["应届生落户","按打分（72分）+ 重点高校加分"],["人才引进","重点机构/高层次人才走快速通道"]],hook:"想长期扎根、给孩子最好的资源？上海值得规划。"},
+  beijing:{tag:"资源最集中，落户也最难",intro:"北京资源高度集中，但落户是全国最难的：积分落户名额极少、单位进京指标稀缺。适合有强单位背景或长期积分规划的人。",good:["首都资源与机会","顶尖高校与医疗","落户后教育红利极高","央企/事业单位机会多"],paths:[["人才引进","依赖单位进京指标，门槛高"],["积分落户","年度积分制，名额少、竞争激烈"],["应届生落户","重点单位进京指标，稀缺"]],hook:"如果有强单位背景，北京值得长期争取。"},
+  shenzhen:{tag:"年轻、友好、来了就是深圳人",intro:"深圳是大城市里落户相对最友好的之一：核准类（本科+社保、年龄达标可直接）、积分入户、留学生落户，效率高。",good:["落户门槛相对低、效率高","创新创业氛围强","年轻、包容、机会多","本科核准类可较快落户","气候宜人、薪资高"],paths:[["核准类（学历）","本科+社保、年龄达标可直接核准"],["积分入户","学历+社保+年龄综合打分"],["留学生落户","海归友好"]],hook:"想快速落户、奔事业？深圳门槛友好。"},
+  guangzhou:{tag:"务实宜居，学历落户友好",intro:"广州学历入户（本科+社保）、积分入户、留学生落户都较成熟，生活成本相对友好，性价比高。",good:["学历入户友好","生活成本相对低","教育医疗资源好","务实宜居、华南中心"],paths:[["学历入户","本科+社保达标"],["积分入户","综合打分"],["留学生落户","海归通道"]],hook:"想要一线城市资源又不想太卷？广州务实友好。"},
+  hangzhou:{tag:"数字人才友好，硕士几乎落地即落",intro:"杭州抢人政策友好：本科+社保可落、研究生可先落后就业、留学生落户、积分落户，互联网与数字产业机会多。",good:["硕士基本落地即可落","数字/互联网产业发达","环境宜居、生活品质高","人才补贴政策多"],paths:[["学历/人才引进","本科+社保，研究生更快"],["留学生落户","海归友好"],["积分落户","综合通道"]],hook:"互联网/数字背景、学历不错？杭州最快拿到。"},
+  chengdu:{tag:"安逸宜居，抢人门槛低",intro:"成都抢人政策友好，全日制大专及以上学历入户、积分入户、社保入户门槛较低，生活幸福感高。",good:["落户门槛低、抢人友好","生活成本低、安逸宜居","西南中心、机会增长快","美食与生活品质"],paths:[["学历入户","全日制大专+可落"],["积分入户","综合打分"],["社保入户","缴纳社保达标"]],hook:"想要低门槛 + 高幸福感？成都很合适。"},
+  suzhou:{tag:"产业强、宜居，门槛适中",intro:"苏州制造业与外资发达，学历落户+社保落户+积分落户门槛适中，紧邻上海、生活宜居。",good:["产业发达、就业机会多","紧邻上海、区位好","生活宜居、成本适中","学历落户友好"],paths:[["学历落户","本科+社保"],["社保落户","缴纳达标"],["积分落户","综合通道"]],hook:"想靠近上海又落户更容易？苏州值得看。"},
+  nanjing:{tag:"科教强市，对年轻人友好",intro:"南京高校云集、科教发达，研究生可直接落、本科+社保、积分落户，对年轻人和人才友好。",good:["科教资源强、高校多","研究生直接落户","生活品质好、底蕴深","长三角重要节点"],paths:[["人才引进","研究生直接落、本科+社保"],["积分落户","综合通道"]],hook:"科研/教育背景、想要底蕴城市？南京友好。"},
+  wuhan:{tag:"大学生之城，落户门槛低",intro:"武汉是著名的大学生之城，毕业生落户、学历落户、积分落户门槛较低，中部崛起机会多。",good:["大学生落户极友好","中部中心、机会增长","生活成本低","高校与产业资源"],paths:[["毕业生/学历落户","毕业生与本科友好"],["积分落户","综合通道"]],hook:"刚毕业或学历不错、看好中部？武汉门槛低。"},
+  tianjin:{tag:"海河英才 + 高考红利",intro:"天津海河英才计划（学历型/资格型/技能型）门槛友好，且高考竞争相对小，是不少家庭为孩子教育考虑的选择。",good:["海河英才落户友好","高考竞争相对小（家庭关注）","紧邻北京、区位好","教育医疗资源不错"],paths:[["海河英才（学历型）","学历+年龄达标"],["资格/技能型","职称或技能等级"],["积分落户","综合通道"]],hook:"为孩子教育/高考考虑？天津值得算一算。"},
+};
+function startCityAssess(key){newAssessment();A.cities=[key];saveDB();go('assessment');}
+RENDER.city=function(key){
+  const c=CITIES[key],info=CITY_INFO[key];if(!c||!info){go('home');return;}window.scrollTo(0,0);
+  const others=CITY_ORDER.filter(k=>k!==key).map(k=>`<span class="citychip" onclick="go('city','${k}')"><span class="fl">${CITIES[k].fl}</span>${CITIES[k].name}<span class="ar">›</span></span>`).join('');
   app().innerHTML=`<div class="page"><div class="container tight">
-    <div style="margin-bottom:14px"><button class="btn btn-ghost" style="padding:8px 14px;font-size:14px" onclick="go('home')">← 所有国家</button></div>
-    <div class="panel" style="background:var(--pine);color:#fff;border:none">
-      <div style="font-size:54px;line-height:1">${c.flag}</div>
-      <h1 style="font-size:30px;font-family:var(--serif);margin:8px 0 4px">移民${c.name}</h1>
-      <div style="font-size:17px;opacity:.92">${info.tag}</div>
-    </div>
-    <div class="panel"><p style="color:#3c4a43;font-size:16px;line-height:1.8">${info.intro}</p></div>
-    <div class="panel">
-      <h2 style="font-size:19px;color:var(--pine);font-family:var(--serif);margin-bottom:12px">为什么是这里</h2>
-      <div class="good-grid">${info.good.map(g=>`<div class="good-item"><span class="tick">✓</span><span>${esc(g)}</span></div>`).join('')}</div>
-    </div>
-    <div class="panel">
-      <h2 style="font-size:19px;color:var(--pine);font-family:var(--serif);margin-bottom:6px">主要移民路径</h2>
+    <div style="margin-bottom:14px"><button class="btn btn-ghost" style="padding:8px 14px;font-size:14px" onclick="go('home')">← 所有城市</button></div>
+    <div class="panel" style="background:var(--brand);color:#fff;border:none">
+      <div style="font-size:46px;line-height:1">${c.fl}</div>
+      <h1 style="font-size:30px;margin:8px 0 4px;font-weight:800">${esc(c.name)}落户</h1>
+      <div style="font-size:16px;opacity:.92">${esc(info.tag)}</div></div>
+    <div class="panel"><p style="font-size:16px;line-height:1.8">${esc(info.intro)}</p></div>
+    <div class="panel"><h2 style="font-size:19px;color:var(--brand);margin-bottom:12px">为什么值得落这里</h2>
+      <div class="good-grid">${info.good.map(g=>`<div class="good-item"><span class="tick">✓</span><span>${esc(g)}</span></div>`).join('')}</div></div>
+    <div class="panel"><h2 style="font-size:19px;color:var(--brand);margin-bottom:6px">主要落户方式</h2>
       <p style="color:var(--muted);font-size:13px;margin-bottom:12px">${esc(c.note)}</p>
-      ${info.paths.map(p=>`<div class="path-item"><b>${esc(p[0])}</b><span>${esc(p[1])}</span></div>`).join('')}
-    </div>
-    <div class="panel" style="text-align:center;background:linear-gradient(180deg,#fff,#fdf3ec)">
-      <div style="font-family:var(--serif);font-size:21px;color:var(--ink);margin-bottom:6px">${esc(info.hook)}</div>
-      <p style="color:var(--muted);font-size:14px;margin-bottom:16px">那……以你的条件，够得上吗？3 分钟测一下就知道。</p>
+      ${info.paths.map(p=>`<div class="path-item"><b>${esc(p[0])}</b><span>${esc(p[1])}</span></div>`).join('')}</div>
+    <div class="panel" style="text-align:center;background:linear-gradient(180deg,#fff,#fdf3ef)">
+      <div style="font-size:21px;font-weight:800;color:var(--ink);margin-bottom:6px">${esc(info.hook)}</div>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:16px">以你的条件，能不能落、走哪条路？3 分钟测一下就知道。</p>
       <div style="display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto">
-        <button class="btn btn-clay btn-lg btn-block" onclick="startAssessmentFor('${key}')">测我适不适合移民${c.name} →</button>
-        <button class="btn btn-white btn-block" onclick="viewSample('premium')">先看一份样例报告</button>
-      </div>
-    </div>
-    <div class="panel">
-      <h3 style="font-size:15px;color:var(--ink);margin-bottom:10px">看看别的国家</h3>
-      <div class="flagband" style="margin-top:0;flex-wrap:wrap;overflow:visible">${others}</div>
-    </div>
+        <button class="btn btn-brand btn-lg btn-block" onclick="startCityAssess('${key}')">测我能不能落${esc(c.name)} →</button>
+        <button class="btn btn-white btn-block" onclick="viewSample('premium')">先看一份样例报告</button></div></div>
+    <div class="panel"><h3 style="font-size:15px;margin-bottom:10px">看看别的城市</h3>
+      <div class="cityband" style="flex-wrap:wrap;overflow:visible">${others}</div></div>
     <p style="font-size:12px;color:var(--muted);margin-top:8px">${DISCLAIMER}</p>
   </div></div>`;
 };
 
-/* ---- 法务页 ---- */
-function legalPage(title,html){app().innerHTML=`<div class="page"><div class="container tight"><div class="panel"><h1 style="font-size:24px;font-family:var(--serif);color:var(--pine);margin-bottom:14px">${title}</h1>${html}<div style="margin-top:20px"><button class="btn btn-ghost" onclick="go('home')">← 返回首页</button></div></div></div></div>`;}
-RENDER.terms=()=>legalPage('服务条款',`<p style="color:#3c4a43">移民雷达（YiminScope）是一款基于用户自填信息的移民竞争力自评与信息参考工具。</p><h3 style="margin:14px 0 6px">1. 服务性质</h3><p style="color:#3c4a43">本站提供的所有评分、排名、路径建议与报告均为<b>信息参考</b>，代表“竞争力/匹配度”，<b>不代表签证或永居获批概率</b>，不构成移民、法律或投资建议。</p><h3 style="margin:14px 0 6px">2. 付费与交付</h3><p style="color:#3c4a43">付费产品为一次性购买的在线报告及可下载/打印的 PDF，分为 ¥19 诊断版与 ¥49 规划版。交付物为在线报告页面与可打印 PDF。</p><h3 style="margin:14px 0 6px">3. 免责</h3><p style="color:#3c4a43">各国移民政策与配额经常变动，用户应在做出重大决定前咨询目标国持牌移民顾问或律师。本站不对依据报告所作决策的结果承担责任。</p>`);
-RENDER.privacy=()=>legalPage('隐私政策',`<p style="color:#3c4a43">我们仅收集为生成报告所必需的信息（你填写的背景、可选的邮箱）。</p><ul class="plain"><li>评测数据保存在你本地浏览器，用于生成报告。</li><li>邮箱（若填写）仅用于订单记录与后续可能的报告找回，不会出售或用于无关营销。</li><li>模型处理通过服务器安全代理调用，密钥不暴露于前端。</li></ul>`);
-RENDER.disclaimer=()=>legalPage('免责声明',`<div class="disclaimer-box">${DISCLAIMER}</div><p style="color:#3c4a43;margin-top:14px">移民雷达不是移民中介，不提供代办服务，与任何中介不存在导流返佣关系。我们的目标是让你在花钱、签约之前，先有一个客观、中立的自我参照。</p>`);
+/* 法务 */
+function legalPage(title,html){app().innerHTML=`<div class="page"><div class="container tight"><div class="panel"><h1 style="font-size:24px;color:var(--brand);margin-bottom:14px;font-weight:800">${title}</h1>${html}<div style="margin-top:20px"><button class="btn btn-ghost" onclick="go('home')">← 返回首页</button></div></div></div></div>`;}
+RENDER.terms=()=>legalPage('服务条款',`<p style="color:#4a3c3e">落户雷达（HukouScope）是一款基于用户自填信息的落户竞争力自评与信息参考工具。</p><h3 style="margin:14px 0 6px">1. 服务性质</h3><p style="color:#4a3c3e">本站所有评分、排名、路径建议与报告均为<b>信息参考</b>，代表“竞争力/匹配度”，<b>不代表落户审批结果</b>，不构成落户、法律或政策承诺。</p><h3 style="margin:14px 0 6px">2. 付费与交付</h3><p style="color:#4a3c3e">付费产品为一次性购买的在线报告及可下载/打印 PDF，分为 ¥19 诊断版与 ¥49 规划版。</p><h3 style="margin:14px 0 6px">3. 免责</h3><p style="color:#4a3c3e">各地落户政策与名额经常调整，用户应以当地官方部门口径为准。本站不对依据报告所作决策的结果承担责任。</p>`);
+RENDER.privacy=()=>legalPage('隐私政策',`<p style="color:#4a3c3e">我们仅收集为生成报告所必需的信息（你填写的背景、可选的邮箱）。</p><ul class="plain"><li>评测数据保存在你本地浏览器，用于生成报告。</li><li>邮箱（若填写）仅用于订单记录与后续报告找回，不会出售或用于无关营销。</li><li>模型处理通过服务器安全代理调用，密钥不暴露于前端。</li></ul>`);
+RENDER.disclaimer=()=>legalPage('免责声明',`<div class="disclaimer-box">${DISCLAIMER}</div><p style="color:#4a3c3e;margin-top:14px">落户雷达不是落户代办机构，不提供代办服务，与任何中介不存在导流返佣关系。我们的目标是让你在花时间、花钱之前，先有一个客观、中立的自我参照。</p>`);
 
-/* ---- 启动 ---- */
-// 支付返回：URL 带 ys_paid=订单号 时，确认支付并自动跳到报告（修复手机端付完落到错误页）
+/* 支付返回 + 启动 */
 async function resumeAfterPay(outTradeNo){
-  showLoading('支付确认中…');
-  let paid=false,pt=A.reportType||'premium_report';
-  for(let i=0;i<8;i++){
-    try{const r=await fetch('/api/pay/status?outTradeNo='+encodeURIComponent(outTradeNo));const j=await r.json();
-      if(j&&j.found){if(j.productType)pt=j.productType;if(j.paid){paid=true;break;}}}catch(e){}
-    await new Promise(s=>setTimeout(s,1500));
-  }
+  showLoading('支付确认中…');let paid=false,pt=A.reportType||'premium_report';
+  for(let i=0;i<8;i++){try{const r=await fetch('/api/pay/status?outTradeNo='+encodeURIComponent(outTradeNo));const j=await r.json();if(j&&j.found){if(j.productType)pt=j.productType;if(j.paid){paid=true;break;}}}catch(e){}await new Promise(s=>setTimeout(s,1500));}
   try{history.replaceState({v:'home'},'',location.pathname);}catch(e){}
-  if(paid){
-    A.isPaid=true;A.reportType=pt;saveDB();
-    if(A.freeResult){ if(A.deepenDone){go('report');}else{prepDeepen();} }
-    else { go('report'); }
-  }else{
-    toast('支付尚未确认，如已付款请稍候在“等待支付”页查看');
-    go(A.freeResult?'freeResult':'home');
-  }
+  if(paid){A.isPaid=true;A.reportType=pt;saveDB();if(A.freeResult){if(A.deepenDone){go('report');}else{prepDeepen();}}else{go('report');}}
+  else{toast('支付尚未确认，如已付款请稍候在“等待支付”页查看');go(A.freeResult?'freeResult':'home');}
 }
 window.addEventListener('DOMContentLoaded',()=>{
   loadDB();if(!A||!A.id)newAssessment();
-  let psp='';try{psp=new URLSearchParams(location.search).get('ys_paid')||'';}catch(e){}
-  if(psp){ try{history.replaceState({v:'home'},'');}catch(e){} resumeAfterPay(psp); return; }
+  let psp='';try{psp=new URLSearchParams(location.search).get('hk_paid')||'';}catch(e){}
+  if(psp){try{history.replaceState({v:'home'},'');}catch(e){}resumeAfterPay(psp);return;}
   try{history.replaceState({v:'home'},'');}catch(e){}RENDER.home();
 });
 function prevStep(){if(STEP>0){STEP--;RENDER.assessment();window.scrollTo(0,0);}}

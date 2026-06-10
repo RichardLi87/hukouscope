@@ -1,7 +1,7 @@
 {
-  "name": "yiminscope",
+  "name": "hukouscope",
   "version": "0.1.0",
-  "description": "YiminScope 移民雷达 — AI 移民竞争力诊断（多国对比 + DeepSeek 接入）",
+  "description": "HukouScope 落户雷达 — AI 大城市落户竞争力诊断（多城市 + DeepSeek 接入）",
   "private": true,
   "scripts": {
     "start": "node --env-file=.env server.js",
