@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>移民雷达 YiminScope · 在递交移民申请之前，先看清你最适合去哪</title>
-<meta name="description" content="AI 移民竞争力诊断：10 个发达国家对比，先看清你最适合去哪、走哪条路。免费测，3 分钟出结果。">
+<meta name="description" content="移民雷达 · 移民竞争力诊断：10 个发达国家对比，先看清你最适合去哪、走哪条路。免费测，3 分钟出结果。">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 :root{
   --pine:#14503F; --pine2:#1E6B54; --pine-soft:#E8F0EA;
@@ -210,6 +211,28 @@ footer.site .legal-links a{color:#9fb0a7}
 .pbar i{display:block;height:100%;width:0;background:var(--pine);transition:width .4s}
 .lstage{font-size:13px;color:var(--muted);min-height:18px}
 
+/* 分享卡片 */
+.share-overlay{position:fixed;inset:0;background:rgba(20,30,25,.72);z-index:500;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;overflow:auto}
+.share-card{width:332px;background:linear-gradient(165deg,#14503F,#1E6B54);color:#fff;border-radius:18px;padding:26px 22px 22px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.share-card .sh-brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:700;font-size:16px}
+.share-card .sh-grade{text-align:center;margin:14px 0}
+.share-card .sh-grade .g{font-family:var(--serif);font-size:60px;font-weight:700;line-height:1}
+.share-card .sh-grade .s{font-size:13px;opacity:.85}
+.share-card .sh-row{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border-radius:10px;padding:9px 12px;margin-bottom:8px}
+.share-card .sh-row .fl{font-size:22px}
+.share-card .sh-row .nm{flex:1;font-weight:600;font-size:14px}
+.share-card .sh-row .tp{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+.share-card .sh-row .sc{font-family:var(--serif);font-weight:700;font-size:16px;min-width:26px;text-align:right}
+.share-card .sh-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.22)}
+.share-card .sh-foot .u{font-family:var(--serif);font-weight:700}
+.share-card .sh-foot .c{font-size:12px;opacity:.85}
+/* 解锁清单（付费转化） */
+.unlock-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left;margin:18px 0}
+@media(max-width:560px){.unlock-list{grid-template-columns:1fr}}
+.ul-item{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;position:relative}
+.ul-item b{display:block;font-size:14.5px;color:var(--ink);margin-bottom:3px}
+.ul-item span{font-size:12.5px;color:var(--muted);line-height:1.5}
+.ul-item .pp{position:absolute;top:10px;right:10px;font-size:10px;background:var(--clay);color:#fff;padding:1px 7px;border-radius:999px;font-weight:700}
 /* 国家介绍页 */
 .good-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:560px){.good-grid{grid-template-columns:1fr}}
@@ -281,7 +304,7 @@ footer.site .legal-links a{color:#9fb0a7}
 <footer class="site">
   <div class="container">
     <div style="font-family:var(--serif);font-size:18px;color:#fff">移民雷达 · YiminScope</div>
-    <div style="margin-top:6px">AI 移民竞争力诊断 · 多国对比 · 仅供参考，非法律意见</div>
+    <div style="margin-top:6px">移民竞争力诊断 · 多国对比 · 仅供参考，非法律意见</div>
     <div class="legal-links">
       <a href="#" onclick="go('terms');return false">服务条款</a>
       <a href="#" onclick="go('privacy');return false">隐私政策</a>
@@ -524,6 +547,7 @@ function aiProfile(){
     englishLevel:A.englishLevel,funds:A.funds,maritalFamily:A.maritalFamily,spouseStrong:A.spouseStrong?'配偶学历/语言较强':'',
     ties:A.ties,motive:A.motive,extra:A.extra||'',
     deepInfo:{occupation:A.deepOcc||'',salary:A.deepSalary||'',languageScore:A.deepLang||'',netWorth:A.deepNet||'',jobOffer:A.deepOffer||'',spouse:A.deepSpouse||''},
+    deepQuestions:A.deepQs||[],deepAnswers:A.deepAnswers||{},
     followUpQuestions:A.followUpQuestions||[],followUpAnswers:A.followUpAnswers||{}};
 }
 
@@ -584,7 +608,7 @@ RENDER.home=function(){
     <div class="pricing">
       <div class="price-card">
         <h3>竞争力诊断报告</h3>
-        <div class="price">¥39<small> 一次性</small></div>
+        <div class="price">¥19<small> 一次性</small></div>
         <p class="desc">想把每个国家差在哪、门槛多高、分怎么算，弄明白。</p>
         <ul>${["六维竞争力详解","各国匹配度 + 最优路径","逐国关键门槛清单","主要风险与应对","语言 / 材料准备方向"].map(b=>`<li>${b}</li>`).join('')}</ul>
         <button class="btn btn-pine btn-block" onclick="startAssessment()">免费测，测完可解锁</button>
@@ -592,7 +616,7 @@ RENDER.home=function(){
       <div class="price-card feat">
         <span class="tag">规划更完整</span>
         <h3>全路径移民规划报告</h3>
-        <div class="price">¥99<small> 一次性</small></div>
+        <div class="price">¥49<small> 一次性</small></div>
         <p class="desc">想要照着就能动手的多国方案、时间表和花钱预算。</p>
         <ul>${["诊断版全部内容","Top 国家逐条路径详解","申请时间线（按月）","费用预算区间","替代路径 / Plan B","配偶子女加分策略","12 个月行动计划","家庭决策总结"].map(b=>`<li>${b}</li>`).join('')}</ul>
         <button class="btn btn-clay btn-block" onclick="startAssessment()">免费测，测完可解锁</button>
@@ -678,7 +702,21 @@ function stepBackground(){
       <button class="btn btn-pine" onclick="if(saveBackground())nextStep()">下一步 →</button>
     </div>`;
 }
-function setBool(k,v){A[k]=v;saveDB();RENDER.assessment();}
+// 重新渲染前，把当前页已输入但尚未保存的字段抓存下来，避免点选项导致输入被清空
+function syncInputs(){
+  const g=id=>{const e=$('#'+id);return e?e.value:undefined;};let v;
+  if((v=g('age'))!==undefined)A.age=v;
+  if((v=g('education'))!==undefined&&v)A.education=v;
+  if((v=g('field'))!==undefined&&v)A.field=v;
+  if((v=g('expYears'))!==undefined)A.expYears=v;
+  if((v=g('englishLevel'))!==undefined&&v)A.englishLevel=v;
+  if((v=g('funds'))!==undefined&&v)A.funds=v;
+  if((v=g('deLevel'))!==undefined)A.deLevel=v||'无';
+  if((v=g('jaLevel'))!==undefined)A.jaLevel=v||'无';
+  if((v=g('maritalFamily'))!==undefined&&v)A.maritalFamily=v;
+  if((v=g('extra'))!==undefined)A.extra=v;
+}
+function setBool(k,v){syncInputs();A[k]=v;saveDB();RENDER.assessment();}
 function saveBackground(){A.age=$('#age')?.value||A.age;A.education=$('#education')?.value||A.education;A.field=$('#field')?.value||A.field;A.expYears=$('#expYears')?.value||A.expYears;saveDB();
   if(!A.age||!A.education){toast('请填写年龄和最高学历');return false;}return true;}
 
@@ -713,10 +751,10 @@ function stepFamily(){
     <div class="field"><label>还有什么想补充的？（选填）</label><textarea id="extra" placeholder="如：希望孩子尽快入读公立学校 / 已有某国 offer / 偏好低税…">${esc(A.extra||'')}</textarea></div>
     <div style="display:flex;justify-content:space-between;margin-top:18px;gap:10px">
       <button class="btn btn-ghost" onclick="saveFamily();prevStep()">← 上一步</button>
-      <button class="btn btn-clay" onclick="if(saveFamily())genFollowUp()">生成 AI 追问 →</button>
+      <button class="btn btn-clay" onclick="if(saveFamily())genFollowUp()">生成针对性追问 →</button>
     </div>`;
 }
-function toggleArr(key,v){A[key]=A[key]||[];const i=A[key].indexOf(v);if(i<0)A[key].push(v);else A[key].splice(i,1);saveDB();RENDER.assessment();}
+function toggleArr(key,v){syncInputs();A[key]=A[key]||[];const i=A[key].indexOf(v);if(i<0)A[key].push(v);else A[key].splice(i,1);saveDB();RENDER.assessment();}
 function saveFamily(){A.maritalFamily=$('#maritalFamily')?.value||A.maritalFamily;A.extra=$('#extra')?.value||'';saveDB();
   if(!A.maritalFamily){toast('请选择家庭状况');return false;}return true;}
 
@@ -741,7 +779,7 @@ async function genFollowUp(){
 }
 function stepFollowUp(){
   const qs=A.followUpQuestions||[];
-  return `<div class="eyebrow2">第六步 · AI 追问</div>
+  return `<div class="eyebrow2">第六步 · 移民雷达追问</div>
     <h2 style="font-size:24px;margin:6px 0 4px">再补几个关键问题</h2>
     <p style="color:var(--muted);font-size:14px;margin-bottom:16px">这些会直接影响你的竞争力判断，回答得越具体越准。</p>
     ${qs.map((q,i)=>`<div class="field"><label>${i+1}. ${esc(q.q)}</label>
@@ -824,6 +862,7 @@ RENDER.freeResult=function(){
       <h1 style="font-size:25px;margin:6px 0 16px">你的移民竞争力初测已生成</h1>
       <div class="grade-badge"><div class="g">${fr.grade}</div><div class="l">综合 ${fr.overall}/100</div></div>
       <p style="max-width:36em;margin:18px auto 0;color:#3c4a43">${esc(summary)}</p>
+      <div style="margin-top:16px"><button class="btn btn-white" onclick="showShareImage()">📷 生成分享图</button></div>
     </div>
 
     <div class="panel">
@@ -844,13 +883,35 @@ RENDER.freeResult=function(){
     </div>
 
     <div class="panel" style="text-align:center">
-      <h2 style="font-size:21px;color:var(--ink)">免费初测只是方向 · 完整报告告诉你“怎么做”</h2>
+      <h2 style="font-size:27px;font-weight:800;font-family:var(--serif);color:var(--pine);line-height:1.35">免费初测只给方向<br>完整报告告诉你 <span style="color:var(--clay)">“到底怎么做”</span></h2>
+      <p style="color:#3c4a43;font-size:15.5px;max-width:34em;margin:12px auto 0">你已经看到大方向。完整报告会把 <b style="color:var(--ink)">${esc(fr.rows.slice(0,3).map(r=>r.flag+r.name).join('、'))}${fr.rows.length>3?` 等 ${fr.rows.length} 个国家`:''}</b> 逐一拆到 <b style="color:var(--clay)">“差几分、做什么、花多少、多久成”</b>。</p>
+
+      <div class="unlock-list">
+        ${[
+          ["🎯","逐国路径详解",`${fr.rows.slice(0,3).map(r=>r.name).join('、')} 每国的推荐路径 + 为什么是它`,""],
+          ["📊","打分估算 + 近期分数线","如“加拿大 CRS 约 430–460、近期线 480+”，差在哪一项",""],
+          ["🪜","要达标，你得做什么","把目标国从当前档位提升一档的具体动作清单",""],
+          ["🧭","六维雷达 + 逐项详解","每一维卡在哪、怎么补、补了能加多少",""],
+          ["🗓","申请时间线（按月）","从备考、认证到递交，每个阶段干什么","规划版"],
+          ["💰","费用预算拆解","语言 / 认证 / 签证 / 可选中介，各花多少","规划版"],
+          ["🛟","Plan B","主线走不通时，退一步怎么走","规划版"],
+          ["👨‍👩‍👧","家庭决策总结","配偶子女加分 + 给全家看的明白账","规划版"],
+        ].map(x=>`<div class="ul-item">${x[3]?`<span class="pp">${x[3]}</span>`:''}<b>${x[0]} ${x[1]}</b><span>${x[2]}</span></div>`).join('')}
+      </div>
+
       <div class="lock-wrap"><div class="blur">
-        <div class="module-grid">${["六维竞争力详解","逐国关键门槛清单","各国最优路径详解","申请时间线（按月）","费用预算区间","替代路径 / Plan B","配偶子女加分策略","语言/材料准备","12 个月行动计划","风险与应对","落地与永居路径","家庭决策总结"].map(m=>`<div class="module-chip">🔒 ${m}</div>`).join('')}</div>
-      </div><div class="veil"><div class="lk">🔒</div><b>完整的逐国路径、门槛、时间线与预算已就绪</b><span style="color:var(--muted);font-size:13px">解锁后立即查看为你生成的全部内容</span></div></div>
-      <div style="display:flex;flex-direction:column;gap:12px;max-width:380px;margin:6px auto 0">
-        <button class="btn btn-pine btn-lg btn-block" onclick="go('checkout','standard_report')">解锁诊断报告 ¥${PRODUCTS.standard_report.price}</button>
-        <button class="btn btn-clay btn-lg btn-block" onclick="go('checkout','premium_report')"><span style="display:block;width:100%;text-align:center;line-height:1.35">全路径规划报告 ¥${PRODUCTS.premium_report.price}<br><span style="font-size:13px;font-weight:600;opacity:.9">含逐国路径 + 时间线 + 预算</span></span></button>
+        <div class="scorecard" style="margin:0;text-align:left">
+          <div class="sc-head"><span class="fl">${fr.rows[0].flag}</span><span class="nm">${esc(fr.rows[0].name)} · ${esc(fr.rows[0].pathLabel)}</span><span class="sc-score"><b style="color:var(--pine)">${fr.rows[0].score}</b></span></div>
+          <div class="gauge"><i style="width:${fr.rows[0].score}%;background:var(--pine)"></i></div>
+          <div class="pts"><div class="cell"><span class="k">打分 / 门槛估算</span><span class="v">CRS 约 ███–███</span></div><div class="cell"><span class="k">大致周期</span><span class="v">约 ██ 个月</span></div><div class="cell"><span class="k">永居 / 入籍</span><span class="v">██████</span></div></div>
+          <b style="display:block;margin-top:10px">关键门槛</b><ul class="plain"><li>████████████████</li><li>██████████</li></ul>
+          <b style="display:block;margin-top:10px">费用预算</b><table class="costtab"><tr><td>██████</td><td>█.█–█ 万</td></tr><tr><td>████</td><td>█ 万</td></tr></table>
+        </div>
+      </div><div class="veil"><div class="lk">🔒</div><b>为你生成的逐国方案、打分、时间线与预算已就绪</b><span style="color:var(--muted);font-size:13px">解锁后立即查看全部内容</span></div></div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:400px;margin:6px auto 0">
+        <button class="btn btn-pine btn-lg btn-block" onclick="go('checkout','standard_report')"><span style="display:block;width:100%;text-align:center;line-height:1.35">解锁诊断报告 ¥${PRODUCTS.standard_report.price}<br><span style="font-size:12px;font-weight:600;opacity:.85">逐国路径 · 打分估算 · 六维详解 · 关键门槛</span></span></button>
+        <button class="btn btn-clay btn-lg btn-block" onclick="go('checkout','premium_report')"><span style="display:block;width:100%;text-align:center;line-height:1.35">全路径规划报告 ¥${PRODUCTS.premium_report.price}　<span style="font-size:11px;background:#fff;color:var(--clay);padding:1px 7px;border-radius:999px;font-weight:700">更超值</span><br><span style="font-size:12px;font-weight:600;opacity:.92">诊断版全部 + 时间线 + 费用拆解 + Plan B + 行动计划</span></span></button>
       </div>
       <p style="font-size:13px;color:var(--muted);margin-top:14px">一次付费，无订阅，永久查看，可下载 PDF。</p>
       <div style="margin-top:10px"><button class="btn btn-ghost" onclick="startAssessment()">重新测一次</button></div>
@@ -859,10 +920,35 @@ RENDER.freeResult=function(){
   </div></div>`;
 };
 
+/* ---- 分享图（初测结果卡片） ---- */
+function showShareImage(){
+  const fr=A.freeResult;if(!fr){toast('请先完成测评');return;}
+  const top=fr.rows.slice(0,3);
+  const ov=document.createElement('div');ov.className='share-overlay';ov.id='shareOv';
+  ov.innerHTML=`<div class="share-card" id="shareCard">
+    <div class="sh-brand"><svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="15" fill="rgba(255,255,255,.12)"/><circle cx="16" cy="16" r="10" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.3"/><ellipse cx="16" cy="16" rx="5" ry="10" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.3"/><line x1="6" y1="16" x2="26" y2="16" stroke="#fff" stroke-opacity=".5" stroke-width="1.3"/><path d="M16 7 L18 15 L16 14 L14 15 Z" fill="#C6603D"/><circle cx="16" cy="16" r="1.6" fill="#fff"/></svg>移民雷达 · YiminScope</div>
+    <div style="font-size:14px;opacity:.9;margin-top:14px">我的移民竞争力初测</div>
+    <div class="sh-grade"><div class="g">${fr.grade}</div><div class="s">综合竞争力 ${fr.overall} / 100</div></div>
+    <div style="font-size:12px;opacity:.85;margin-bottom:8px">最匹配的目的地 ↓</div>
+    ${top.map(r=>`<div class="sh-row"><span class="fl">${r.flag}</span><span class="nm">${esc(r.name)}<br><span style="font-weight:400;opacity:.8;font-size:11px">推荐：${esc(r.pathLabel)}</span></span><span class="tp" style="background:${r.tier.color};color:#fff">${r.tier.label}</span><span class="sc">${r.score}</span></div>`).join('')}
+    <div style="text-align:center;font-size:13px;opacity:.92;margin-top:14px">你也测测自己适合移民哪个国家 →</div>
+    <div class="sh-foot"><span class="u">yiminscope.com</span><span class="c">免费测 · 移民雷达</span></div>
+  </div>
+  <div style="display:flex;gap:10px" class="no-print">
+    <button class="btn btn-clay" onclick="dlShareImage()">下载图片</button>
+    <button class="btn btn-white" onclick="document.getElementById('shareOv').remove()">关闭</button>
+  </div>
+  <div style="color:rgba(255,255,255,.75);font-size:12px">下载失败也可直接长按 / 截图保存</div>`;
+  ov.addEventListener('click',e=>{if(e.target===ov)ov.remove();});
+  document.body.appendChild(ov);
+}
+function dlShareImage(){const card=document.getElementById('shareCard');if(!card||typeof html2canvas==='undefined'){toast('请直接截图保存');return;}
+  html2canvas(card,{scale:2,backgroundColor:null,useCORS:true}).then(cv=>{const a=document.createElement('a');a.download='移民雷达-初测结果.png';a.href=cv.toDataURL('image/png');a.click();}).catch(()=>toast('生成失败，请直接截图'));}
+
 /* ============================================================
    CHECKOUT + PAY
 ============================================================ */
-const PRODUCTS={standard_report:{name:"移民竞争力诊断报告",price:39},premium_report:{name:"全路径移民规划报告",price:99}};
+const PRODUCTS={standard_report:{name:"移民竞争力诊断报告",price:19},premium_report:{name:"全路径移民规划报告",price:49}};
 let PAY_POLL=null,PAY_CHANNEL='wxpay';
 RENDER.checkout=function(productType){
   productType=productType||'standard_report';const p=PRODUCTS[productType];PAY_CHANNEL='wxpay';
@@ -918,13 +1004,28 @@ function beginPayPoll(outTradeNo,productType){let n=0;stopPayPoll();PAY_POLL=set
   if(n>=100)stopPayPoll();},3000);}
 function stopPayPoll(){if(PAY_POLL){clearInterval(PAY_POLL);PAY_POLL=null;}}
 function devPay(outTradeNo,productType){fetch('/api/pay/mock-paid?outTradeNo='+encodeURIComponent(outTradeNo)).then(()=>markPaid(productType));}
-function markPaid(productType){A.isPaid=true;A.reportType=productType;saveDB();go(A.deepenDone?'report':'deepen');}
+function markPaid(productType){A.isPaid=true;A.reportType=productType;saveDB();if(A.deepenDone){go('report');}else{prepDeepen();}}
+// 付费后：调用 DeepSeek 生成更深入、对症的追问（成本已被付费覆盖），再进入深化页
+async function prepDeepen(){
+  if(!A.deepQs||!A.deepQs.length){
+    startProgress('已解锁 · 正在为你准备更深入的问题…',['读取你的目标国与路径','针对各国规则定位关键点','生成更细的追问'],6000);
+    const ai=await aiPost('/api/follow-up',{profile:aiProfile(),deep:true});
+    await finishProgress();
+    A.deepQs=(ai&&Array.isArray(ai.questions)&&ai.questions.length)
+      ? ai.questions.slice(0,6).map(q=>({q:q.question||q.q||'',r:q.reason||q.r||'',key:q.fieldKey||q.key||('dq'+Math.random().toString(36).slice(2,6))})).filter(x=>x.q)
+      : [];
+    saveDB();
+  }
+  go('deepen');
+}
 RENDER.deepen=function(){
   window.scrollTo(0,0);
+  const dq=A.deepQs||[];
   app().innerHTML=`<div class="page"><div class="container tight"><div class="panel">
-    <div class="eyebrow2">最后一步 · 让报告更准（可跳过）</div>
-    <h1 style="font-size:23px;font-family:var(--serif);margin:6px 0 4px">再补几项，报告会具体很多</h1>
-    <p style="color:var(--muted);font-size:14px;margin-bottom:16px">这些信息能让 AI 把"加拿大 CRS 大概多少分、香港高才够不够"算得更准。<b>都可以不填</b>，直接生成也行。</p>
+    <div class="eyebrow2">已解锁 · 让报告更准（可跳过）</div>
+    <h1 style="font-size:23px;font-family:var(--serif);margin:6px 0 4px">回答得越细，报告越值</h1>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:18px">你已经付费，移民雷达会针对你的目标国把报告做到更精确。下面这些<b>都可以不填</b>，但填了，"差几分、走哪条、花多少"会算得准很多。</p>
+    <h3 style="font-size:15px;color:var(--pine);margin-bottom:8px">基础补充</h3>
     <div class="field"><label>你的具体职业 / 工种</label><input type="text" id="dOcc" value="${esc(A.deepOcc||'')}" placeholder="如：高级软件工程师 / 注册护士 / 电工"></div>
     <div class="grid2">
       <div class="field"><label>当前税前年薪（人民币）</label><input type="text" id="dSalary" value="${esc(A.deepSalary||'')}" placeholder="如 45 万"></div>
@@ -935,13 +1036,17 @@ RENDER.deepen=function(){
       <div class="field"><label>是否已有目标国 offer / 雇主</label><input type="text" id="dOffer" value="${esc(A.deepOffer||'')}" placeholder="如 有澳洲雇主意向 / 无"></div>
     </div>
     <div class="field"><label>配偶情况（如随行）</label><input type="text" id="dSpouse" value="${esc(A.deepSpouse||'')}" placeholder="如 配偶硕士、雅思6.0、护士 / 不随行"></div>
+    ${dq.length?`<h3 style="font-size:15px;color:var(--pine);margin:18px 0 8px">针对你的目标国，移民雷达还想确认</h3>
+    ${dq.map((q,i)=>`<div class="field"><label>${i+1}. ${esc(q.q)}</label><div class="hint" style="margin:0 0 7px">💡 ${esc(q.r||'')}</div><textarea id="dq_${q.key}" placeholder="你的回答（可简短，可跳过）">${esc((A.deepAnswers||{})[q.key]||'')}</textarea></div>`).join('')}`:''}
     <div style="display:flex;gap:10px;margin-top:8px">
-      <button class="btn btn-ghost" onclick="generateFullReport()">跳过，直接生成</button>
+      <button class="btn btn-ghost" onclick="saveDeepen();generateFullReport()">跳过，直接生成</button>
       <button class="btn btn-clay btn-lg" style="flex:1" onclick="saveDeepen();generateFullReport()">生成我的完整报告 →</button>
     </div>
   </div></div></div>`;
 };
-function saveDeepen(){A.deepOcc=$('#dOcc')?.value||'';A.deepSalary=$('#dSalary')?.value||'';A.deepLang=$('#dLang')?.value||'';A.deepNet=$('#dNet')?.value||'';A.deepOffer=$('#dOffer')?.value||'';A.deepSpouse=$('#dSpouse')?.value||'';A.deepenDone=true;saveDB();}
+function saveDeepen(){A.deepOcc=$('#dOcc')?.value||'';A.deepSalary=$('#dSalary')?.value||'';A.deepLang=$('#dLang')?.value||'';A.deepNet=$('#dNet')?.value||'';A.deepOffer=$('#dOffer')?.value||'';A.deepSpouse=$('#dSpouse')?.value||'';
+  A.deepAnswers=A.deepAnswers||{};(A.deepQs||[]).forEach(q=>{const el=$('#dq_'+q.key);if(el)A.deepAnswers[q.key]=el.value;});
+  A.deepenDone=true;saveDB();}
 
 /* ============================================================
    FULL REPORT
@@ -1126,7 +1231,7 @@ RENDER.country=function(key){
     </div>
     <div class="panel">
       <h3 style="font-size:15px;color:var(--ink);margin-bottom:10px">看看别的国家</h3>
-      <div class="flagband" style="margin-top:0">${others}</div>
+      <div class="flagband" style="margin-top:0;flex-wrap:wrap;overflow:visible">${others}</div>
     </div>
     <p style="font-size:12px;color:var(--muted);margin-top:8px">${DISCLAIMER}</p>
   </div></div>`;
@@ -1134,8 +1239,8 @@ RENDER.country=function(key){
 
 /* ---- 法务页 ---- */
 function legalPage(title,html){app().innerHTML=`<div class="page"><div class="container tight"><div class="panel"><h1 style="font-size:24px;font-family:var(--serif);color:var(--pine);margin-bottom:14px">${title}</h1>${html}<div style="margin-top:20px"><button class="btn btn-ghost" onclick="go('home')">← 返回首页</button></div></div></div></div>`;}
-RENDER.terms=()=>legalPage('服务条款',`<p style="color:#3c4a43">移民雷达（YiminScope）是一款基于用户自填信息的移民竞争力自评与信息参考工具。</p><h3 style="margin:14px 0 6px">1. 服务性质</h3><p style="color:#3c4a43">本站提供的所有评分、排名、路径建议与报告均为<b>信息参考</b>，代表“竞争力/匹配度”，<b>不代表签证或永居获批概率</b>，不构成移民、法律或投资建议。</p><h3 style="margin:14px 0 6px">2. 付费与交付</h3><p style="color:#3c4a43">付费产品为一次性购买的在线报告及可下载/打印的 PDF，分为 ¥39 诊断版与 ¥99 规划版。交付物为在线报告页面与可打印 PDF。</p><h3 style="margin:14px 0 6px">3. 免责</h3><p style="color:#3c4a43">各国移民政策与配额经常变动，用户应在做出重大决定前咨询目标国持牌移民顾问或律师。本站不对依据报告所作决策的结果承担责任。</p>`);
-RENDER.privacy=()=>legalPage('隐私政策',`<p style="color:#3c4a43">我们仅收集为生成报告所必需的信息（你填写的背景、可选的邮箱）。</p><ul class="plain"><li>评测数据保存在你本地浏览器，用于生成报告。</li><li>邮箱（若填写）仅用于订单记录与后续可能的报告找回，不会出售或用于无关营销。</li><li>AI 处理通过服务器安全代理调用，密钥不暴露于前端。</li></ul>`);
+RENDER.terms=()=>legalPage('服务条款',`<p style="color:#3c4a43">移民雷达（YiminScope）是一款基于用户自填信息的移民竞争力自评与信息参考工具。</p><h3 style="margin:14px 0 6px">1. 服务性质</h3><p style="color:#3c4a43">本站提供的所有评分、排名、路径建议与报告均为<b>信息参考</b>，代表“竞争力/匹配度”，<b>不代表签证或永居获批概率</b>，不构成移民、法律或投资建议。</p><h3 style="margin:14px 0 6px">2. 付费与交付</h3><p style="color:#3c4a43">付费产品为一次性购买的在线报告及可下载/打印的 PDF，分为 ¥19 诊断版与 ¥49 规划版。交付物为在线报告页面与可打印 PDF。</p><h3 style="margin:14px 0 6px">3. 免责</h3><p style="color:#3c4a43">各国移民政策与配额经常变动，用户应在做出重大决定前咨询目标国持牌移民顾问或律师。本站不对依据报告所作决策的结果承担责任。</p>`);
+RENDER.privacy=()=>legalPage('隐私政策',`<p style="color:#3c4a43">我们仅收集为生成报告所必需的信息（你填写的背景、可选的邮箱）。</p><ul class="plain"><li>评测数据保存在你本地浏览器，用于生成报告。</li><li>邮箱（若填写）仅用于订单记录与后续可能的报告找回，不会出售或用于无关营销。</li><li>模型处理通过服务器安全代理调用，密钥不暴露于前端。</li></ul>`);
 RENDER.disclaimer=()=>legalPage('免责声明',`<div class="disclaimer-box">${DISCLAIMER}</div><p style="color:#3c4a43;margin-top:14px">移民雷达不是移民中介，不提供代办服务，与任何中介不存在导流返佣关系。我们的目标是让你在花钱、签约之前，先有一个客观、中立的自我参照。</p>`);
 
 /* ---- 启动 ---- */

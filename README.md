@@ -24,7 +24,7 @@ node --env-file=.env server.js      # 需要 Node 18+
 - **不同评分引擎**：按各国移民打分逻辑（加澳新 points、香港高才/优才、德国蓝卡、葡萄牙投资、日本 HSP 等）规则化计算竞争力与匹配档位。
 
 ## 部署（与 OfferScope 同机共存）
-1. 服务器上 `git clone` 本仓库到新目录，放好 `.env`（PORT=3001，SITE_URL 改成 yiminscope 域名）。
+1. 服务器上 `git clone` 本仓库到新目录，放好 `.env`（PORT=3001，SITE_URL=https://yiminscope.com）。
 2. `pm2 start "node --env-file=.env server.js" --name yiminscope`
 3. nginx 新增一个 server 块，把 yiminscope 域名反代到 `127.0.0.1:3001`，配 HTTPS。
 4. ZPay 回调用 `https://你的域名/api/pay/notify`（SITE_URL 决定）。
