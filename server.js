@@ -1,4 +1,4 @@
-// OfferScope 本地服务器：托管静态站 + 安全代理 DeepSeek（key 只在服务器端）。
+// YiminScope 移民雷达 本地服务器：托管静态站 + 安全代理 DeepSeek（key 只在服务器端）。
 // 运行：  node --env-file=.env server.js   （Node 18+）
 const http = require("http");
 const fs = require("fs");
@@ -133,7 +133,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log("OfferScope 已启动 → http://localhost:" + PORT);
+  console.log("YiminScope 移民雷达 已启动 → http://localhost:" + PORT);
   console.log("DeepSeek key：" + (process.env.DEEPSEEK_API_KEY ? "已配置 ✓" : "未配置（将回退到规则引擎）"));
   console.log("ZPay 支付：" + (pay.configured() ? ("已配置 ✓ · 回调 " + pay.SITE + "/api/pay/notify") : "未配置（结算页用本地模拟）"));
 });

@@ -1,7 +1,7 @@
 {
-  "name": "offerscope",
-  "version": "0.2.0",
-  "description": "OfferScope 录取雷达 — AI 留学申请诊断（原型 + DeepSeek 接入）",
+  "name": "yiminscope",
+  "version": "0.1.0",
+  "description": "YiminScope 移民雷达 — AI 移民竞争力诊断（多国对比 + DeepSeek 接入）",
   "private": true,
   "scripts": {
     "start": "node --env-file=.env server.js",
