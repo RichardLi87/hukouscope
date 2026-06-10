@@ -286,6 +286,9 @@ footer.site .legal-links a{color:#9fb0a7}
   .pts .cell{min-width:0;flex:1}
   .crow{padding:13px 12px}
   .crow .fl{font-size:26px}
+  .value-strip{grid-template-columns:1fr 1fr}
+  .vchip{padding:14px 12px}
+  .vchip p{font-size:12px}
 }
 @media print{header.site,footer.site,.report-actions,.no-print{display:none!important}body{background:#fff}.rsec{break-inside:avoid;box-shadow:none}.page{padding:0}.six-wrap{grid-template-columns:1fr 1fr}}
 </style>
@@ -574,7 +577,7 @@ RENDER.home=function(){
   app().innerHTML=`
   <section class="hero"><div class="container">
     <div class="eyebrow">移民竞争力诊断 · 10 国对比 · 3 分钟</div>
-    <h1>同样的条件，有人顺利上岸，<br>有人<span class="u">卡了三五年</span>。</h1>
+    <h1>同样的条件，<br>有人顺利上岸，<br>有人<span class="u">卡了三五年</span>。</h1>
     <p class="sub">差别常常在一开始就选错了国家和路子。加拿大拼分数，香港看背景，葡萄牙看钱，澳洲挑职业——门道各不相同。把你的情况填进来，我帮你算清楚：哪个国家够得着、哪条路最省力、现在还差哪一步。</p>
     <div class="cta-row">
       <button class="btn btn-clay btn-lg" onclick="startAssessment()">免费测我的移民竞争力 →</button>
@@ -613,7 +616,7 @@ RENDER.home=function(){
   <section class="block"><div class="container">
     <h2 class="sec-title">测完，你大概能想明白这几件事</h2>
     <div class="value-strip">
-      ${[["🧭","该先攻哪个国家","不用一上来就广撒网、白交申请费"],["🎯","到底卡在哪","是年龄、语言还是资金，一眼看出来"],["📋","签约前有个数","几十万花下去之前，先有个参照"],["👨‍👩‍👧","跟家人说得清","一份配偶、爸妈都看得懂的明白账"],["⚖️","听得出真假","中介说“你肯定能办”，你能自己判断"]].map(v=>`<div class="vchip"><div class="ic">${v[0]}</div><b>${v[1]}</b><p>${v[2]}</p></div>`).join('')}
+      ${[["🧭","该先攻哪个国家","不用一上来就广撒网、白交申请费"],["🎯","到底卡在哪","是年龄、语言还是资金，一眼看出来"],["🗺️","下一步做什么","先补语言还是先做认证，有先后"],["📋","签约前有个数","几十万花下去之前，先有个参照"],["👨‍👩‍👧","跟家人说得清","一份配偶、爸妈都看得懂的明白账"],["⚖️","听得出真假","中介说“你肯定能办”，你能自己判断"]].map(v=>`<div class="vchip"><div class="ic">${v[0]}</div><b>${v[1]}</b><p>${v[2]}</p></div>`).join('')}
     </div>
   </div></section>
 
