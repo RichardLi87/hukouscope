@@ -757,10 +757,16 @@ async function generateFullReport(){
 }
 RENDER.report=function(){
   if(!A.isPaid&&!A.isSample){go('checkout');return;}if(!A.fullReport){generateFullReport();return;}window.scrollTo(0,0);
-  const R=A.fullReport,ai=R.ai||{};const isPrem=(R.reportType==='premium_report')||A.isSample;let n=0;const num=()=>++n;
+  const R=A.fullReport,ai=R.ai||{};const isPrem=R.reportType==='premium_report';let n=0;const num=()=>++n;
   const sevColor=s=>s==='高'?'var(--brand2)':s==='中'?'var(--gold)':'var(--t-high)';
   app().innerHTML=`<div class="page"><div class="container report-wrap">
-    ${A.isSample?`<div style="background:var(--gold);color:#fff;border-radius:5px;padding:12px;text-align:center;margin-bottom:14px;font-weight:700">样例报告（示意） · 数据为虚构演示</div>`:''}
+    ${A.isSample?`<div style="background:var(--gold);color:#fff;border-radius:5px;padding:12px;text-align:center;margin-bottom:10px;font-weight:700">样例报告（示意） · 数据为虚构演示</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--muted)">点这里切换两档,看差在哪 ↓</div>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn ${A.reportType==='standard_report'?'btn-brand':'btn-ghost'}" style="padding:9px 18px;font-size:14px" onclick="viewSample('standard')">诊断版 ¥${PRODUCTS.standard_report.price}</button>
+          <button class="btn ${A.reportType==='premium_report'?'btn-gold':'btn-ghost'}" style="padding:9px 18px;font-size:14px" onclick="viewSample('premium')">规划版 ¥${PRODUCTS.premium_report.price}</button>
+        </div></div>`:''}
     <div class="rsec" style="text-align:center;background:var(--brand);color:#fff;border:none">
       <div style="font-size:13px;letter-spacing:2px;opacity:.85">HUKOUSCOPE 落户雷达</div>
       <h1 style="font-size:26px;margin:8px 0">${isPrem?'全路径落户规划报告':'落户竞争力诊断报告'}</h1>
@@ -771,6 +777,11 @@ RENDER.report=function(){
       <button class="btn btn-ghost" onclick="window.print()">📄 下载 / 打印 PDF</button>
       ${A.isSample?`<button class="btn btn-gold" onclick="startAssessment()">测我自己的 →</button>`:`<button class="btn btn-ghost" onclick="go('freeResult')">← 返回初测</button>`}
     </div>
+    ${ai.profileScan?`<div class="rsec"><h2><span class="num">${num()}</span>个人画像速览</h2>
+      <div class="six-wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div><b style="color:var(--t-high)">✦ 亮点</b><ul class="plain">${(ai.profileScan.highlights||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+        <div><b style="color:var(--t-low)">⚑ 硬伤 / 风险信号</b><ul class="plain">${(ai.profileScan.redFlags||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+      </div></div>`:''}
     <div class="rsec"><h2><span class="num">${num()}</span>整体判断</h2>
       <p style="color:#39414c">${esc((ai.executiveSummary&&ai.executiveSummary.oneSentenceConclusion)||`你的综合落户竞争力为 ${R.grade} 档；最匹配的是 ${(R.rows[0]||{}).name} 的 ${PATHS[(R.rows[0]||{}).path||'talent'].short}。`)}</p>
       ${ai.executiveSummary?`<h3>最大机会</h3><p style="color:#39414c">${esc(ai.executiveSummary.bestCityWhy||'')}</p><h3>最大风险</h3><p style="color:#39414c">${esc(ai.executiveSummary.mainRisk||'')}</p><h3>建议策略</h3><p style="color:#39414c">${esc(ai.executiveSummary.recommendedStrategy||'')}</p>`:''}
@@ -782,6 +793,9 @@ RENDER.report=function(){
         <div>${hexRadarSVG(R.factors)}</div><div>${barsHTML(R.factors)}</div></div>
       ${(ai.factorAdvice&&ai.factorAdvice.length)?`<div style="margin-top:6px">${ai.factorAdvice.map(f=>`<h3>${esc(f.factor)}</h3><p style="color:#39414c">${esc(f.analysis||'')}</p><p style="color:var(--brand);font-size:14px">↳ ${esc(f.improvementAdvice||'')}</p>`).join('')}</div>`:''}
     </div>
+    ${(ai.strengths&&ai.strengths.length)||(ai.weaknesses&&ai.weaknesses.length)?`<div class="rsec"><h2><span class="num">${num()}</span>优势与短板</h2>
+      ${(ai.strengths||[]).map(s=>`<div style="margin-bottom:10px"><b style="color:var(--t-high)">✦ ${esc(s.title||'')}</b><div style="color:#39414c;font-size:14px">${esc(s.detail||'')}</div></div>`).join('')}
+      ${(ai.weaknesses||[]).map(w=>`<div style="margin-bottom:10px"><b style="color:var(--ink)">${esc(w.title||'')} <span class="sev" style="background:${w.priority==='高'?'var(--brand2)':w.priority==='中'?'var(--gold)':'var(--t-high)'};color:#fff">${esc(w.priority||'中')}优先</span></b><div style="color:#39414c;font-size:14px">${esc(w.detail||'')}</div></div>`).join('')}</div>`:''}
     ${(ai.cityPlans&&ai.cityPlans.length)?`<div class="rsec"><h2><span class="num">${num()}</span>逐城路径详解${isPrem?'':'（节选）'}</h2>
       ${ai.cityPlans.map(cp=>{const cr=(R.rows||[]).find(x=>x.name===cp.city)||{};const tc=(cr.tier&&cr.tier.color)||'var(--brand)';return `<div class="scorecard">
         <div class="sc-head"><span class="fl">${cr.fl||'🏙️'}</span><span class="nm">${esc(cp.city)}</span><span class="pathtag">${esc(cp.recommendedPath||cr.pathLabel||'')}</span><span class="sc-score"><b style="color:${tc}">${cr.score||''}</b>${cr.tier?`<br><span class="tier-pill" style="background:${tc}">${cr.tier.label}</span>`:''}</span></div>
@@ -816,6 +830,9 @@ function viewSample(tier){
   A.freeResult=computeResult(A);A.fullReport=ruleReport();A.fullReport.ai=SAMPLE_AI;go('report');
 }
 const SAMPLE_AI={
+  profileScan:{highlights:["硕士(211)学历,大城市落户的硬通货","已有中级职称——居转户/积分的关键加分项","上海社保已连续 3–5 年,在向居转户年限累积","31 岁,多数通道仍在加分区间"],redFlags:["上海社保距居转户的 7 年还有缺口","若社保断缴或个税不匹配,年限会清零重来","目标偏上海,门槛最高、周期最长"]},
+  strengths:[{title:"硕士 + 中级职称",detail:"这套组合在居转户和积分里都吃香,是你走上海最稳路径的底气。"},{title:"社保已在累积",detail:"上海 3–5 年连续社保,只要不断缴,居转户是时间问题。"}],
+  weaknesses:[{title:"社保年限未满 7 年",detail:"上海居转户主路径需累计满 7 年,要确保连续不断缴、个税匹配。",priority:"高"},{title:"过度押注上海",detail:"上海周期最长,建议同时把杭州等快通道作为保底。",priority:"中"}],
   executiveSummary:{oneSentenceConclusion:"以你 31 岁、硕士（211）、上海连续社保 3–5 年、有中级职称的条件，上海居转户是当前最现实的主线，杭州学历落户可作为更快的备选。",
     bestCityWhy:"上海居转户对“社保年限+中级职称”路径友好，你已具备中级职称、社保也在累积，按部就班最稳；杭州对硕士几乎是落地即可，机动性最高。",
     mainRisk:"上海居转户最看社保连续性与个税匹配，断缴或个税与社保基数不匹配会前功尽弃；时间成本也最高（通常需累计满 7 年）。",
