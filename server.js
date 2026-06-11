@@ -76,7 +76,7 @@ const server = http.createServer((req, res) => {
   if (url === "/api/pay/return") {
     const q = parseQuery(req.url);
     const o = q.out_trade_no || q.trade_no || "";
-    res.writeHead(302, { Location: "/?ys_paid=" + encodeURIComponent(o) });
+    res.writeHead(302, { Location: "/?hk_paid=" + encodeURIComponent(o) });
     return res.end();
   }
   // 本地测试用：手动标记订单已付（仅在公网回调不可用时）
