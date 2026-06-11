@@ -47,7 +47,7 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 @media(max-width:720px){.nav-links{display:none}}
 .hero{padding:64px 0 30px}
 .eyebrow{display:inline-block;font-size:13px;letter-spacing:2px;color:var(--brand2);font-weight:700;margin-bottom:18px}
-.hero h1{font-size:46px;line-height:1.2;color:var(--ink);font-weight:800;max-width:15em}
+.hero h1{text-wrap:balance;font-size:46px;line-height:1.2;color:var(--ink);font-weight:800;max-width:15em}
 .hero h1 .u{background:linear-gradient(transparent 64%,rgba(47,62,77,.4) 64%)}
 .hero .sub{font-size:20px;color:#39414c;max-width:34em;margin:22px 0 8px;line-height:1.6}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
@@ -57,7 +57,7 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 .citychip{flex:0 0 auto;display:inline-flex;align-items:center;gap:5px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:14px;color:#39414c;font-weight:600;white-space:nowrap;cursor:pointer;transition:.13s}
 .citychip:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}
 .citychip .ar{color:var(--brand2);font-weight:700}
-@media(max-width:720px){.hero{padding:40px 0 20px}.hero h1{font-size:31px}.hero .sub{font-size:17px}}
+@media(max-width:720px){.hero{padding:40px 0 20px}.hero h1{text-wrap:balance;font-size:31px}.hero .sub{font-size:17px}}
 .block{padding:56px 0}
 .block.alt{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .sec-title{font-size:31px;color:var(--ink);font-weight:800}
@@ -206,13 +206,13 @@ footer.site .legal-links a{color:#9aa4ad}
 @media(max-width:560px){
   body{font-size:16px}.container{padding:0 16px}
   .btn{white-space:normal;line-height:1.3;min-height:46px}.btn-lg{padding:14px 18px;font-size:16px}
-  .panel{padding:18px 16px}.hero h1{font-size:29px}.sec-title{font-size:23px}
+  .panel{padding:18px 16px}.hero h1{text-wrap:balance;font-size:29px}.sec-title{font-size:23px}
   .value-strip{grid-template-columns:1fr 1fr}.vchip{padding:14px 12px}.vchip p{font-size:12px}
   .crow .sc b{font-size:21px}.rsec h2{font-size:17px}.rsec h2 .num{width:26px;height:26px;font-size:13px}
   .scorecard .sc-head .nm{font-size:17px}.six-wrap{grid-template-columns:1fr!important}
 }
 /* ===== 政务 / 档案 版式特征（覆盖样式）===== */
-.sec-title,.hero h1{letter-spacing:-.01em}
+.sec-title,.hero h1{text-wrap:balance;letter-spacing:-.01em}
 .eyebrow,.eyebrow2{position:relative;padding-left:13px}
 .eyebrow::before,.eyebrow2::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:4px;height:1.05em;background:var(--brand);border-radius:1px}
 .panel,.card,.price-card,.scorecard,.vchip{box-shadow:none}
@@ -432,7 +432,7 @@ RENDER.home=function(){
   app().innerHTML=`
   <section class="hero"><div class="container">
     <div class="eyebrow">落户竞争力诊断 · 10 城对比 · 3 分钟</div>
-    <h1>同样在大城市打拼，<br>有人落了户，<span class="u">有人卡在门槛外</span>。</h1>
+    <h1>同样在大城市打拼，<br>有人落了户，<br>有人<span class="u">卡在门槛外</span>。</h1>
     <p class="sub">学历、社保年限、职称、应届/海归身份——每座城市的落户规则都不一样。把你的情况填进来，落户雷达按各地规则告诉你：哪个城市够得着、走哪条路、还差哪一步。</p>
     <div class="cta-row">
       <button class="btn btn-brand btn-lg" onclick="startAssessment()">免费测我的落户竞争力 →</button>
