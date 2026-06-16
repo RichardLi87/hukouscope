@@ -481,7 +481,7 @@ RENDER.home=function(){
     <div class="pricing">
       <div class="price-card">
         <h3>落户竞争力诊断报告</h3>
-        <div class="price">¥0.1<small> 一次性</small></div>
+        <div class="price">¥9.9<small> 一次性</small></div>
         <p class="desc">想把每个城市差在哪、门槛多高、分怎么算，弄明白。</p>
         <ul>${["六维竞争力详解","各城市匹配度 + 最优落户方式","逐城关键门槛清单","主要风险与应对","材料 / 时间准备方向"].map(b=>`<li>${b}</li>`).join('')}</ul>
         <button class="btn btn-brand btn-block" onclick="startAssessment()">免费测，测完可解锁</button>
@@ -489,7 +489,7 @@ RENDER.home=function(){
       <div class="price-card feat">
         <span class="tag">方案更完整</span>
         <h3>全路径落户规划报告</h3>
-        <div class="price">¥0.1<small> 一次性</small></div>
+        <div class="price">¥14.9<small> 一次性</small></div>
         <p class="desc">想要照着就能动手的城市路径、时间表和材料清单。</p>
         <ul>${["诊断版全部内容","Top 城市逐条路径详解","落户时间线（按阶段）","材料清单 + 办理顺序","替代路径 / Plan B","职称/社保提升策略","12 个月行动计划","家庭/子女落户时间测算"].map(b=>`<li>${b}</li>`).join('')}</ul>
         <button class="btn btn-gold btn-block" onclick="startAssessment()">免费测，测完可解锁</button>
@@ -905,7 +905,7 @@ RENDER.city=function(key){
 
 /* 法务 */
 function legalPage(title,html){app().innerHTML=`<div class="page"><div class="container tight"><div class="panel"><h1 style="font-size:24px;color:var(--brand);margin-bottom:14px;font-weight:800">${title}</h1>${html}<div style="margin-top:20px"><button class="btn btn-ghost" onclick="go('home')">← 返回首页</button></div></div></div></div>`;}
-RENDER.terms=()=>legalPage('服务条款',`<p style="color:#39414c">落户雷达（HukouScope）是一款基于用户自填信息的落户竞争力自评与信息参考工具。</p><h3 style="margin:14px 0 6px">1. 服务性质</h3><p style="color:#39414c">本站所有评分、排名、路径建议与报告均为<b>信息参考</b>，代表“竞争力/匹配度”，<b>不代表落户审批结果</b>，不构成落户、法律或政策承诺。</p><h3 style="margin:14px 0 6px">2. 付费与交付</h3><p style="color:#39414c">付费产品为一次性购买的在线报告及可下载/打印 PDF，分为 ¥0.1 诊断版与 ¥0.1 规划版。</p><h3 style="margin:14px 0 6px">3. 免责</h3><p style="color:#39414c">各地落户政策与名额经常调整，用户应以当地官方部门口径为准。本站不对依据报告所作决策的结果承担责任。</p>`);
+RENDER.terms=()=>legalPage('服务条款',`<p style="color:#39414c">落户雷达（HukouScope）是一款基于用户自填信息的落户竞争力自评与信息参考工具。</p><h3 style="margin:14px 0 6px">1. 服务性质</h3><p style="color:#39414c">本站所有评分、排名、路径建议与报告均为<b>信息参考</b>，代表“竞争力/匹配度”，<b>不代表落户审批结果</b>，不构成落户、法律或政策承诺。</p><h3 style="margin:14px 0 6px">2. 付费与交付</h3><p style="color:#39414c">付费产品为一次性购买的在线报告及可下载/打印 PDF，分为 ¥9.9 诊断版与 ¥14.9 规划版。</p><h3 style="margin:14px 0 6px">3. 免责</h3><p style="color:#39414c">各地落户政策与名额经常调整，用户应以当地官方部门口径为准。本站不对依据报告所作决策的结果承担责任。</p>`);
 RENDER.privacy=()=>legalPage('隐私政策',`<p style="color:#39414c">我们仅收集为生成报告所必需的信息（你填写的背景、可选的邮箱）。</p><ul class="plain"><li>评测数据保存在你本地浏览器，用于生成报告。</li><li>邮箱（若填写）仅用于订单记录与后续报告找回，不会出售或用于无关营销。</li><li>模型处理通过服务器安全代理调用，密钥不暴露于前端。</li></ul>`);
 RENDER.disclaimer=()=>legalPage('免责声明',`<div class="disclaimer-box">${DISCLAIMER}</div><p style="color:#39414c;margin-top:14px">落户雷达不是落户代办机构，不提供代办服务，与任何中介不存在导流返佣关系。我们的目标是让你在花时间、花钱之前，先有一个客观、中立的自我参照。</p>`);
 
