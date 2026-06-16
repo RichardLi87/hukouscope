@@ -229,9 +229,22 @@ footer.site .legal-links a{color:#9aa4ad}
 /* 区块标题左侧红色块（仅左对齐时显示，居中标题不加）*/
 .block:not(.alt) .sec-title{padding-left:0}
 @media print{header.site,footer.site,.report-actions,.no-print{display:none!important}body{background:#fff}.rsec{break-inside:avoid;box-shadow:none}.page{padding:0}}
+.family-bar{display:flex;align-items:center;justify-content:center;gap:6px;background:#0f1a3a;padding:6px 10px;font-size:12.5px;flex-wrap:wrap}
+.family-bar .fb-item{color:#cbd5e1;padding:3px 11px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.family-bar a.fb-item:hover{color:#fff;background:rgba(255,255,255,.08)}
+.family-bar .fb-active{background:#C0202E;color:#fff;font-weight:700}
+.family-bar .fb-brand{color:#fff;font-weight:800;letter-spacing:.5px;text-decoration:none}
+.family-bar a.fb-brand:hover{opacity:.85}
+.family-bar .fb-sep{color:#64748b;font-size:11px;margin:0 2px}
 </style>
 </head>
 <body>
+<div class="family-bar no-print">
+  <a class="fb-brand" href="https://tisheng.offerscope.org">📡 提升雷达</a><span class="fb-sep">旗下</span>
+  <a class="fb-item" href="https://offerscope.org">🎯 录取雷达</a>
+  <a class="fb-item" href="https://yiminscope.com">🌏 移民雷达</a>
+  <span class="fb-item fb-active">🏙️ 落户雷达</span>
+</div>
 <header class="site">
   <div class="container">
     <a class="brand" href="#" onclick="go('home');return false">
@@ -242,7 +255,7 @@ footer.site .legal-links a{color:#9aa4ad}
         <rect x="22.5" y="9" width="5" height="22" rx="1" fill="#fff"/>
         <circle cx="25" cy="6.5" r="2.4" fill="#2F3E4D"/>
       </svg>
-      <span class="name">落户雷达<small>HUKOUSCOPE</small></span>
+      <span class="name">落户雷达<small>HUKOUSCOPE · 提升雷达旗下</small></span>
     </a>
     <nav class="nav-links">
       <a href="#how" onclick="go('home');setTimeout(()=>document.getElementById('how')?.scrollIntoView({behavior:'smooth'}),60);return false">怎么用</a>
@@ -400,6 +413,21 @@ function loadDB(){try{const s=localStorage.getItem('hk_current');if(s)A=JSON.par
 
 /* ---------------- 路由 ---------------- */
 const RENDER={};
+const FAMILY=[
+ {key:'offer',name:'录取雷达 OfferScope',domain:'offerscope.org',emoji:'🎯',desc:'留学申请竞争力诊断 · 本科/硕士',color:'#185FA5',bg:'#E6F1FB',bd:'#85B7EB',tx:'#0C447C'},
+ {key:'yimin',name:'移民雷达 YiminScope',domain:'yiminscope.com',emoji:'🌏',desc:'10 国移民竞争力与路径,一次测清',color:'#0F6E56',bg:'#E1F5EE',bd:'#5DCAA5',tx:'#04342C'},
+ {key:'hukou',name:'落户雷达 HukouScope',domain:'hukouscope.com',emoji:'🏙️',desc:'10 城落户竞争力与最优落户方式',color:'#A32D2D',bg:'#FCEBEB',bd:'#F09595',tx:'#501313'}
+];
+function familyStrip(cur){return `<section style="padding:48px 0"><div style="max-width:980px;margin:0 auto;padding:0 20px">
+  <h2 style="text-align:center;font-size:26px;font-weight:900;margin:0;color:#0f1530">提升雷达 · 旗下产品</h2>
+  <p style="text-align:center;color:#6b7280;font-size:15px;line-height:1.6;margin:10px auto 0;max-width:560px">「提升雷达」帮你看清人生的几个路口,再决定怎么提升。任何一个都先免费测。</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:26px">${FAMILY.filter(f=>f.key!==cur).map(f=>`<a href="https://${f.domain}" style="display:block;text-decoration:none;background:${f.bg};border:1px solid ${f.bd};border-radius:16px;padding:22px 20px"><div style="font-size:28px">${f.emoji}</div><h3 style="font-size:19px;margin:10px 0 4px;color:${f.tx}">${f.name}</h3><p style="font-size:14px;color:${f.tx};opacity:.85;line-height:1.6;margin:0">${f.desc}</p><div style="color:${f.color};font-weight:800;margin-top:12px;font-size:14px">去测一测 ›</div></a>`).join('')}</div>
+</div></section>`;}
+function familyCrosssell(cur){const o=FAMILY.filter(f=>f.key!==cur);return `<div class="rsec no-print" style="text-align:center">
+  <div style="font-size:15px;font-weight:800;margin-bottom:4px;color:#0f1530">测完这份,下一步可能也用得上</div>
+  <div style="font-size:13px;color:#6b7280;margin-bottom:14px">同系雷达 · 都先免费测</div>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">${o.map(f=>`<a href="https://${f.domain}" style="text-decoration:none;border:1.5px solid ${f.bd};color:${f.tx};background:${f.bg};padding:9px 16px;border-radius:10px;font-size:14px;font-weight:800">${f.emoji} ${f.name.split(' ')[0]} ›</a>`).join('')}</div>
+</div>`;}
 function _render(v,arg){window.scrollTo(0,0);(RENDER[v]||RENDER.home)(arg);}
 function go(v,arg){try{history.pushState({v,arg},'');}catch(e){}_render(v,arg);}
 window.addEventListener('popstate',e=>{const s=(e.state&&e.state.v)?e.state:{v:'home'};_render(s.v,s.arg);});
@@ -495,6 +523,7 @@ RENDER.home=function(){
         <button class="btn btn-gold btn-block" onclick="startAssessment()">免费测，测完可解锁</button>
       </div>
     </div>
+    ${familyStrip('hukou')}
     <div style="max-width:780px;margin:26px auto 0"><div class="disclaimer-box">${DISCLAIMER}</div></div>
   </div></section>`;
 };
@@ -819,6 +848,7 @@ RENDER.report=function(){
       <div class="unlock-list" style="margin:6px auto 16px;max-width:520px">${["🗓️ 落户时间线(按阶段)","📁 材料清单 + 办理顺序","👨‍👩‍👧 家庭/子女落户测算","🛟 Plan B 备选路径","📈 12 个月行动计划"].map(x=>`<div class="ul-item">${esc(x)}</div>`).join('')}</div>
       <button class="btn btn-gold btn-lg" onclick="go('checkout','premium_report')">升级全路径规划版 ¥${PRODUCTS.premium_report.price} →</button>
     </div>`:''}
+    ${familyCrosssell('hukou')}
     <div class="disclaimer-box">${DISCLAIMER}</div>
   </div></div>`;
 };
